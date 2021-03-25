@@ -1,0 +1,122 @@
+@import "../../../assets/styles/global/variables";
+
+// banner second level
+.banner-second-level {
+    .bg-img {
+        width: 100%;
+        height: 400px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+// content with image
+.content-with-img {
+    &.img-left {
+        .row-wrap {
+            .col-content {
+                @include tablet-up {
+                    order: 2;
+                }
+            }
+        }
+    }
+    .row-wrap {
+        @include row;
+        margin: 0 -15px;
+        align-items: center;
+        .col-wrap {
+            @include column(50%);
+            padding: 0 15px;
+            @include tablet-down {
+                @include column(100%);
+            }
+            &.col-img {
+                text-align: center;
+            }
+            &.col-content {
+                @include tablet-down {
+                    margin-bottom: 30px;
+                }
+            }
+            img {
+                max-height: 450px;
+                @include container-down {
+                    width: 100%;
+                    object-fit: cover;
+                }
+                @include tablet-down {
+                    max-height: 300px;
+                }
+            }
+            h5 {
+                margin-top: 20px;
+                color: $brown;
+                @include tablet-down {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+}
+
+// col two block
+.col-two-block {
+    .row-wrap {
+        @include row;
+        height: 300px;
+        @include desktop-down {
+            height: auto;
+        }
+        .col-info {
+            @include column(25%);
+            padding: 20px;
+            background: $black2;
+            height: 100%;
+            @include desktop-down {
+                @include column(50%);
+            }
+            @include phablet-down {
+                @include column(100%);
+                height: 250px;
+                margin-bottom: 30px;
+            }
+            .inner-wrap {
+                @include nowrap;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+            h5 {
+                color: $white;
+            }
+            .social-nav {
+                li {
+                    display: inline-block;
+                    margin: 0 7px;
+                }
+            }
+        }
+        .col-img {
+            @include column(75%);
+            padding: 0 15px;
+            height: 100%;
+            @include desktop-down {
+                @include column(50%);
+            }
+            @include phablet-down {
+                @include column(100%);
+                height: 300px;
+                padding: 0;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+@import "../../../assets/styles/global/variables";
+
+.content-with-form {
+    .row-wrap {
+        @include row;
+        max-width: 1000px;
+        margin: 0 auto;
+        .col-wrap {
+            @include column(50%);
+            padding: 0 15px;
+            .form-box {
+                padding: 15px;
+                border: 1px solid $brown;
+                border-radius: 5px;
+                .field-wrap {
+                    margin-bottom: 10px;
+                    input, textarea {
+                        width: 100%;
+                        border: none;
+                        outline: none;
+                        background: rgba(148, 122, 99, .12);
+                        padding: 10px;
+                    }
+                    button {
+                        width: 100%;
+                    }
+                }
+            }
+            .info {
+                margin-top: 30px;
+                p {
+                    a {
+                        color: $brown;
+                    }
+                }
+            }
+        }
+    }
+}

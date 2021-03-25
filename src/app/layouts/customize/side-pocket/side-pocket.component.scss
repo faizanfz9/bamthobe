@@ -1,0 +1,13 @@
+@import "../../../../assets/styles/global/variables";
+
+.item-block {
+    h5 {
+        color: $mid-gray;
+    }
+    .radio-group {
+        label {
+            margin-left: 7px;
+            color: $mid-gray;
+        }
+    }
+}

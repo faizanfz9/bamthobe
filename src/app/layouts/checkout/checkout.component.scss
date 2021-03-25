@@ -1,0 +1,103 @@
+@import "../../../assets/styles/global/variables";
+
+.checkout-block {
+    .inner-wrap {
+        max-width: 500px;
+        h4 {
+            margin-bottom: 20px;
+        }
+        .measurement {
+            .option {
+                label {
+                    position: relative;
+                    padding: 15px 15px 15px 60px;
+                    background: $smoke-white;
+                    margin-bottom: 10px;
+                    border-radius: 10px;
+                    width: 100%;
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        top: 20px;
+                        left: 15px;
+                        width: 30px;
+                        height: 13px;
+                        background: url('../../../assets/images/measuring-tape.svg') no-repeat;
+                        background-size: cover;   
+                    }   
+                }
+            }
+            .saved {
+                li {
+                    input {
+                        display: none;
+                        &:checked {
+                            &+label {
+                                background: $brown;
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+            &.new {
+                .option {
+                    label {
+                        background: initial;
+                        &:after {
+                            position: absolute;
+                            content: "";
+                            top: 18px;
+                            right: 15px;
+                            width: 20px;
+                            height: 20px;
+                            background: url('../../../assets/images/checked_white.svg') no-repeat;
+                            background-size: cover;   
+                            opacity: 0;  
+                        } 
+                    }
+                    input {
+                        display: none;
+                        &:checked {
+                            &+label {
+                                &::after {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                    &:first-child {
+                        label {
+                            background: $black;
+                            color: $white;
+                            &::before {
+                                background: url('../../../assets/images/calendar.svg') no-repeat;
+                                background-size: cover;
+                                top: 15px;
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        label {
+                            background: $brown;
+                            color: $white;
+                            &::before {
+                                background: url('../../../assets/images/home.svg') no-repeat;
+                                background-size: cover;
+                                top: 15px;
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .btn-wrap {
+            text-align: right;
+            margin-top: 30px;
+        }
+    }
+}

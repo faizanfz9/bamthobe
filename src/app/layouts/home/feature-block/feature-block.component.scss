@@ -1,0 +1,39 @@
+@import "../../../../assets/styles/global/variables";
+
+// icon with text
+.icon-with-text {
+    .row-wrap {
+        @include row;
+        margin: 0 -15px;
+        .col-three {
+            @include column(25%);
+            padding: 0 15px;
+            text-align: center;
+            @include tablet-down {
+                @include column(50%);
+                margin-bottom: 30px;
+            }
+            @include phone-down {
+                @include column(100%);
+            }
+            &:last-child {
+                .inner-wrap {
+                    border-color: transparent;
+                }
+            }
+            .inner-wrap {
+                height: 100%;
+                @include nowrap;
+                flex-direction: column;
+                justify-content: space-between;
+                border-right: 2px solid $gray;
+                @include tablet-down {
+                    border: none;
+                }
+            }
+            .icon {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

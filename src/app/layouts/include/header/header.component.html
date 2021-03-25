@@ -1,0 +1,93 @@
+<div class="header-top">
+    <div class="container">
+        <div class="inner-wrap">
+            <ul class="info">
+                <li><a href="tel:056 6885 235"><img src="../../../../assets/images/phone-call.svg" alt="phone-call"> 056 6885 235</a></li>
+                <li><a href="mailto:bamthobe@gmail.com"><img src="../../../../assets/images/arroba.svg" alt="mail"> bamthobe@gmail.com</a></li>
+            </ul>
+            <div class="right-links">
+                <ul class="social-nav">
+                    <li>
+                        <a href="#">
+                            <img src="../../../../assets/images/instagram.svg" alt="instagram">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../../../../assets/images/facebook.svg" alt="facebook">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../../../../assets/images/twitter.svg" alt="twitter">
+                        </a>
+                    </li>
+                </ul>
+                <div ngbDropdown class="country-selector">
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>En</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button ngbDropdownItem>Fr</button>
+                      <button ngbDropdownItem>Gr</button>
+                      <button ngbDropdownItem>Jp</button>
+                      <button ngbDropdownItem>Ch</button>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+<header class="header">
+    <div class="container">
+        <div class="inner-wrap">
+            <div class="logo-wrap">
+                <a href="#" routerLink="/">
+                    <img src="../../../../assets/images/logo.svg" alt="logo">
+                </a>
+            </div>
+            <nav class="nav" [ngStyle]="{'display': showMenu ? 'block' : 'none' }">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Design Your Thobe</a>
+                    </li>
+                    <li>
+                        <a href="#">Gift Packages</a>
+                    </li>
+                    <li>
+                        <a href="#">Model Thobe</a>
+                    </li>
+                    <li>
+                        <a href="#">Accessories</a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon">
+                            <img src="../../../../assets/images/loupe.svg" alt="loupe">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon">
+                            <img src="../../../../assets/images/shopping-bag.svg" alt="shopping">
+                        </a>
+                    </li>
+                    <li>
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-outline-primary user-menu" id="dropdownBasic1" ngbDropdownToggle>Aftab</button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                              <button ngbDropdownItem>Action - 1</button>
+                              <button ngbDropdownItem>Another Action</button>
+                              <button ngbDropdownItem>Something else is here</button>
+                            </div>
+                          </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="toggle-menu" (click)="showMenu = !showMenu" [ngClass]="{'show': showMenu}">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </div>
+</header>

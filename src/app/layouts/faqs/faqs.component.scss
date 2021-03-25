@@ -1,0 +1,19 @@
+@import "../../../assets/styles/global/variables";
+
+.faqs {
+    margin-top: 20px;
+    .card-header {
+        button {
+            color: $mid-gray;
+            font-family: $glober;
+            box-shadow: none;
+            &:hover {
+                color: $brown;
+            }
+        }
+    }
+    .card-body {
+        font-family: $glober;
+        color: $mid-gray;
+    }
+}

@@ -1,0 +1,125 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    .inner-wrap {
+        padding: 20px 0;
+        @include nowrap;
+        @include container-down {
+            flex-direction: column;
+        }
+        .logo-wrap {
+            @include phablet-down {
+                max-width: 110px;
+                a {
+                    display: block;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            &.logo-black {
+                display: none;
+            }
+        }
+        .nav-menu{
+            margin-left: auto;
+            @include container-up {
+                display: block !important;
+            }
+            @include container-down {
+                margin-left: 0;
+                background: $white;
+                margin-top: 10px;
+                display: none;
+            }
+            ul {
+                li {
+                    display: inline-block;
+                    margin-left: 25px;
+                    @include container-down {
+                        display: block;
+                        margin: 17px 0;
+                        padding: 0 20px;
+                    }
+                    a{
+                        color: $white;
+                        vertical-align: middle;
+                        @include container-down {
+                            color: $mid-gray;
+                        }
+                        &:not(.btn):before {
+                            background: $white;
+                        }
+                        &.btn {
+                            color: $white;
+                        }
+                        &.active {
+                            &::before {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .toggle-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: none;
+            cursor: pointer;
+            @include container-down {
+                display: block;
+            }
+            @include phablet-down {
+                top: 15px;
+            }
+            .bar {
+                width: 27px;
+                height: 3px;
+                background: #fff;
+                display: block;
+                margin: 5px 0;
+                transition: all .3s ease-in-out;
+            }
+            &.show {
+                .bar {
+                    &:first-child {
+                        transform: translate(0px, 8px) rotate(45deg);
+                    }
+                    &:nth-child(2) {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                    &:last-child {
+                        transform: translate(0px, -8px) rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+    &.header-black {
+        .logo-wrap {
+            display: none;
+            &.logo-black {
+                display: block;
+            }
+        }
+        .nav-menu {
+            ul {
+                li {
+                    a {
+                        color: $black;
+                        &::before {
+                            background: $black !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

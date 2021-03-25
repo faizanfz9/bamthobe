@@ -1,0 +1,90 @@
+@import "../../../../assets/styles/global/variables";
+
+.footer {
+    background: rgba(148, 122, 99, .12);
+    padding: 60px 0;
+    @include phablet-down {
+        padding: 30px 0;
+    }
+    .row-wrap {
+        @include row;
+        .col-four {
+            @include column(33.33%);
+            @include tablet-down {
+                @include column(50%);
+            }
+            @include phablet-down {
+                @include column(100%);
+                margin-top: 20px;
+            }
+            h4 {
+                color: $brown;
+            }
+            ul {
+                li {
+                    margin: 15px 0;
+                }
+            }
+            .links {
+                display: inline-block;
+                text-align: left;
+            }
+            .social {
+                display: inline-block;
+                ul {
+                    display: inline-block;
+                    text-align: left;
+                    li {
+                        display: inline-block;
+                        margin-left: 25px;
+                        @include tablet-down {
+                            margin: 0 25px 0 0;
+                        }
+                    }
+                }
+            }
+            &:nth-child(2) {
+                @include tablet-up {
+                    text-align: center;
+                }
+            }
+            &:last-child {
+                @include tablet-up {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+.sub-footer {
+    padding: 20px;
+    background: rgba(148, 122, 99, .12);
+    .inner-wrap {
+        @include nowrap;
+        justify-content: space-between;
+        @include phablet-down {
+            flex-direction: column;
+            align-items: center;
+        }
+        p {
+            @include phablet-down {
+                margin-bottom: 10px;
+            }
+            img {
+                width: 38px;
+            }
+            span {
+                color: $brown;
+            }
+        }
+        .links {
+            li {
+                display: inline-block;
+                a {
+                    color: $brown;
+                }
+            }
+        }
+    }
+}

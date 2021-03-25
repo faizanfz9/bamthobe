@@ -1,0 +1,147 @@
+@import "../../../../assets/styles/global/variables";
+
+.header {
+    margin-top: 47px;
+    @include tablet-down {
+        margin-top: 113px;
+    }
+    .inner-wrap {
+        @include nowrap;
+        justify-content: space-between;
+        padding: 20px 0;
+        @include desktop-down {
+            flex-direction: column;
+        }
+        .nav {
+            @include desktop-up {
+                display: block !important;
+            }
+            @include desktop-down {
+                background: $white;
+                box-shadow: 0 0px 20px rgba(0, 0, 0, .15);
+                margin-top: 10px;
+                display: none;
+            }
+            ul {
+                li {
+                    display: inline-block;
+                    margin-left: 30px;
+                    @include desktop-down {
+                        display: block;
+                        margin: 17px 0;
+                        padding: 0 20px;
+                    }
+                    a {
+                        color: $text-black;
+                        img {
+                            width: 30px;
+                        }
+                    }
+                    .user-menu {
+                        border: none;
+                        background: none !important;
+                        box-shadow: none;
+                        &.dropdown-toggle {
+                            color: $text-black;
+                        }
+                        &:hover {
+                            background: none;
+                            color: $text-black;
+                        }
+                    }
+                }
+            }
+        }
+        .toggle-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: none;
+            cursor: pointer;
+            @include desktop-down {
+                display: block;
+            }
+            @include phablet-down {
+                top: 15px;
+            }
+            .bar {
+                width: 27px;
+                height: 3px;
+                background: $black;
+                display: block;
+                margin: 5px 0;
+                transition: all .3s ease-in-out;
+            }
+            &.show {
+                .bar {
+                    &:first-child {
+                        transform: translate(0px, 8px) rotate(45deg);
+                    }
+                    &:nth-child(2) {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                    &:last-child {
+                        transform: translate(0px, -8px) rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.header-top {
+    background: $black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    .inner-wrap {
+        @include nowrap;
+        padding: 10px 0;
+        @include tablet-down {
+            flex-direction: column;
+            align-items: center;
+        }
+        .info {
+            li {
+                display: inline-block;
+                margin-right: 40px;
+                a {
+                    color: $white;
+                }
+                @include tablet-down {
+                    margin: 0 15px;
+                }
+                img {
+                    margin-right: 5px;
+                }
+            }
+        }
+        .right-links {
+            margin-left: auto;
+            @include nowrap;
+            @include tablet-down {
+                margin: 12px 0 0;
+            }
+            .social-nav {
+                li {
+                    display: inline-block;
+                    margin: 0 7px;
+                }
+            }
+            .country-selector {
+                margin-left: 20px;
+                &>button {
+                    padding: 2px 7px;
+                    font-size: 13px;
+                    color: #fff;
+                    border-color: #fff;
+                    background: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}

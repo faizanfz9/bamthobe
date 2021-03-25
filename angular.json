@@ -31,6 +31,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -127,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "bam-thobe"
+  "defaultProject": "bam-thobe",
+  "cli": {
+    "analytics": "9e1aa41d-8339-4a1a-bdc0-bfa1a394921f"
+  }
 }

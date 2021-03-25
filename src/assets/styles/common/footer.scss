@@ -1,0 +1,183 @@
+.footer {
+    padding-top: 90px;
+    @include desktop-down {
+        padding-top: 60px;
+      }
+      @include tablet-down {
+        padding-top: 40px;
+      }
+      @include phablet-down {
+        padding-top: 30px;
+      }
+    .logo-with-nav {
+        @include nowrap;
+        margin-bottom: 27px;
+        @include phablet-down {
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+        .social-nav {
+            margin-left: auto;
+            @include phablet-down {
+                margin: 15px 0 0;
+            }
+            li {
+                display: inline-block;
+                margin-left: 40px;
+                @include phablet-down {
+                    margin: 0 20px 10px 0;
+                }
+                a {
+                    position: relative;
+                    &:before{
+                        position: absolute;
+                        content: "";
+                        bottom: -5px;
+                        left: 0;
+                        width: 0;
+                        height: 1px;
+                        background: $dark-gray;
+                        transition: all .3s ease;
+                    }
+                    &:hover{
+                        &::before {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .row-wrap {
+        @include row;
+        margin: 0 -15px;
+        .col {
+            padding: 0 15px;
+            @include phablet-down {
+                margin-bottom: 30px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            h5 {
+                margin-bottom: 25px;
+                a {
+                    font-size: 20px;
+                    color: $dark-gray;
+                    font-weight: bold;
+                    @include desktop-down {
+                        font-size: 18px;
+                    }
+                }
+                @include phablet-down {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .col-six {
+            @include column(50%);
+            @include desktop-down {
+                @include column(40%);
+            }
+            @include tablet-down {
+                @include column(50%);
+            }
+            @include phablet-down {
+                @include column(100%);
+            }
+            .about-wrap {
+                max-width: 350px;
+                @include tablet-down {
+                    max-width: 300px;
+                }
+            }
+        }
+        .col-three {
+            @include column(25%);
+            @include desktop-down {
+                @include column(30%);
+            }
+            @include tablet-down {
+                @include column(50%);
+            }
+            @include phablet-down {
+                @include column(100%);
+            }
+            .links {
+                li {
+                    margin-bottom: 15px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    a {
+                        color: $mid-gray;
+                        font-weight: 500;
+                    }
+                }
+            }
+            .info {
+                max-width: 250px;
+                li {
+                    position: relative;
+                    margin-bottom: 25px;
+                    padding: 0 35px;
+                    @include phablet-down {
+                        margin-bottom: 15px;
+                    }
+                    img {
+                        position: absolute;
+                        top: 6px;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+    .sub-footer {
+        @include nowrap;
+        padding: 20px 0;
+        margin-top: 30px;
+        border-top: 1px solid $gray;
+        @include desktop-down {
+            flex-wrap: wrap;
+            flex-direction: column;
+            text-align: center;
+        }
+        p {
+            a {
+                color: $red;
+            }
+        }
+        .links {
+            margin-left: auto;
+            @include desktop-down {
+                margin: 10px 0 0;
+            }
+            li {
+                position: relative;
+                display: inline-block;
+                margin-left: 15px;
+                padding-left: 17px;
+                &::before {
+                    position: absolute;
+                    content: "";
+                    top: 5px;
+                    left: 0;
+                    width: 1px;
+                    height: calc(100% - 6px);
+                    background: $red;
+                }
+                a {
+                    color: $red;
+                }
+                &:first-child {
+                    margin-left: 0;
+                    padding-left: 0;
+                    &::before {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+}
