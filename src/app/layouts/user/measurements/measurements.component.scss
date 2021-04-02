@@ -1,0 +1,26 @@
+@import "../../../../assets/styles/global/variables";
+
+.measurement {
+    li {
+        position: relative;
+        padding: 15px 15px 15px 60px;
+        background: $smoke-white;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        width: 100%;
+        @include nowrap;
+        &::before {
+            position: absolute;
+            content: "";
+            top: 20px;
+            left: 15px;
+            width: 30px;
+            height: 13px;
+            background: url('../../../../assets/images/measuring-tape.svg') no-repeat;
+            background-size: cover;   
+        }  
+        .date {
+            margin-left: auto;
+        }
+    }
+}

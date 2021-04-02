@@ -1,0 +1,45 @@
+@import "../../../../assets/styles/global/variables";
+
+.table-head {
+    background: $brown;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    .title-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        h4 {
+            color: $white;
+        }
+    }
+    p {
+        color: $white;
+    }
+}
+table {
+    width: 100%;
+    border-radius: 10px;
+    thead {
+        background: $brown;
+        color: $white;
+    }
+    tbody {
+        background: $concrete;
+    }
+    tr {
+        td, th {
+            width: 33.33%;
+            padding: 10px;
+            &:first-child {
+                text-align: left;
+            }
+            &:last-child {
+                text-align: right;
+            }
+            &:nth-child(2) {
+                text-align: center;
+            }
+        }
+    }
+}

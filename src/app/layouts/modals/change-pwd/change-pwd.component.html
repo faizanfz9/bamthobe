@@ -1,0 +1,25 @@
+<div class="modal-body centered">
+    <div class="row-wrap">
+        <div class="col-img">
+            <img src="../../../../assets/images/login_banner.jpg" alt="login banner">
+        </div>
+        <div class="col-content">
+            <div class="intro">
+                <h2>Create New Password</h2>
+                <p>Create new password to login to your account.</p>
+            </div>
+            <form action="#" class="form">
+                <div class="field-wrap">
+                    <input type="password" name="password" placeholder="Create Password">
+                </div>
+                <div class="field-wrap">
+                    <input type="password" name="cnf-password" placeholder="Re-enter Password">
+                </div>
+                <div class="btn-grp">
+                    <button type="submit" class="btn btn-default no-arrow">Confirm</button>
+                </div>
+            </form>
+            <button class="close-btn" (click)="activeModal.dismiss('Cross click')"><img src="../../../../assets/images/close-btn.svg" alt="close-btn"></button>
+        </div>
+    </div>
+</div>

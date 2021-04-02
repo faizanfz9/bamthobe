@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="723.5" height="64" viewBox="0 0 723.5 64">
+  <g id="Group_9996" data-name="Group 9996" transform="translate(-483 -786)">
+    <line id="Line_87" data-name="Line 87" x2="617.552" transform="translate(536.03 798.594)" fill="none" stroke="#707070" stroke-width="3"/>
+    <line id="Line_88" data-name="Line 88" x2="86.343" transform="translate(536.03 798.594)" fill="none" stroke="#101010" stroke-linecap="round" stroke-width="3"/>
+    <text id="Daisy_table" data-name="Daisy table" transform="translate(524 846)" fill="#818286" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.01em"><tspan x="-40.808" y="0">Order Placed</tspan></text>
+    <g id="Group_9991" data-name="Group 9991" transform="translate(511.629 810.814) rotate(-90)">
+      <ellipse id="Ellipse_255" data-name="Ellipse 255" cx="12.5" cy="12" rx="12.5" ry="12" transform="translate(-0.186 0.371)" fill="#101010"/>
+      <ellipse id="Ellipse_256" data-name="Ellipse 256" cx="6.5" cy="7" rx="6.5" ry="7" transform="translate(5.814 5.371)" fill="$concrete"/>
+    </g>
+    <text id="Daisy_table-2" data-name="Daisy table" transform="translate(653.5 846)" fill="#818286" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.01em"><tspan x="-53.354" y="0">Order Confirmed</tspan></text>
+    <g id="Group_9992" data-name="Group 9992" transform="translate(641.214 810.814) rotate(-90)">
+      <circle id="Ellipse_255-2" data-name="Ellipse 255" cx="12.5" cy="12.5" r="12.5" transform="translate(-0.186 -0.214)" fill="#d8d8d8"/>
+      <ellipse id="Ellipse_256-2" data-name="Ellipse 256" cx="6.5" cy="7" rx="6.5" ry="7" transform="translate(5.814 5.786)" fill="gray"/>
+    </g>
+    <text id="Daisy_table-3" data-name="Daisy table" transform="translate(778.5 846)" fill="#818286" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.01em"><tspan x="-51.759" y="0">Order in Process</tspan></text>
+    <g id="Group_9993" data-name="Group 9993" transform="translate(767.123 810.814) rotate(-90)">
+      <ellipse id="Ellipse_255-3" data-name="Ellipse 255" cx="12.5" cy="12" rx="12.5" ry="12" transform="translate(-0.186 -0.123)" fill="#d8d8d8"/>
+      <ellipse id="Ellipse_256-3" data-name="Ellipse 256" cx="6.5" cy="7" rx="6.5" ry="7" transform="translate(5.814 4.877)" fill="gray"/>
+    </g>
+    <text id="Daisy_table-4" data-name="Daisy table" transform="translate(902.5 846)" fill="#818286" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.01em"><tspan x="-42.353" y="0">Order Packed</tspan></text>
+    <g id="Group_9994" data-name="Group 9994" transform="translate(891.195 810.814) rotate(-90)">
+      <circle id="Ellipse_255-4" data-name="Ellipse 255" cx="12.5" cy="12.5" r="12.5" transform="translate(-0.186 -0.194)" fill="#d8d8d8"/>
+      <circle id="Ellipse_256-4" data-name="Ellipse 256" cx="6.5" cy="6.5" r="6.5" transform="translate(5.814 5.806)" fill="gray"/>
+    </g>
+    <text id="Daisy_table-5" data-name="Daisy table" transform="translate(1028.5 846)" fill="#818286" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.01em"><tspan x="-39.258" y="0">Order Ready</tspan></text>
+    <text id="Daisy_table-6" data-name="Daisy table" transform="translate(1155.5 846)" fill="#818286" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.01em"><tspan x="-50.014" y="0">Order Delivered</tspan></text>
+    <g id="Group_9995" data-name="Group 9995" transform="translate(1016.185 810.814) rotate(-90)">
+      <circle id="Ellipse_255-5" data-name="Ellipse 255" cx="12.5" cy="12.5" r="12.5" transform="translate(-0.186 -0.185)" fill="#d8d8d8"/>
+      <circle id="Ellipse_256-5" data-name="Ellipse 256" cx="6.5" cy="6.5" r="6.5" transform="translate(5.814 5.815)" fill="gray"/>
+    </g>
+    <g id="Group_10197" data-name="Group 10197" transform="translate(1141.175 810.814) rotate(-90)">
+      <circle id="Ellipse_255-6" data-name="Ellipse 255" cx="12.5" cy="12.5" r="12.5" transform="translate(-0.186 -0.175)" fill="#d8d8d8"/>
+      <circle id="Ellipse_256-6" data-name="Ellipse 256" cx="6.5" cy="6.5" r="6.5" transform="translate(5.814 5.825)" fill="gray"/>
+    </g>
+  </g>
+</svg>

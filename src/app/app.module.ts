@@ -28,6 +28,26 @@ import { EnterDetailsComponent } from './layouts/customize/enter-details/enter-d
 import { MyThobeComponent } from './layouts/customize/my-thobe/my-thobe.component';
 import { MyCartComponent } from './layouts/my-cart/my-cart.component';
 import { CheckoutComponent } from './layouts/checkout/checkout.component';
+import { PaymentComponent } from './layouts/payment/payment.component';
+import { ThankYouComponent } from './layouts/thank-you/thank-you.component';
+import { MyProfileComponent } from './layouts/user/my-profile/my-profile.component';
+import { AddressBookComponent } from './layouts/user/address-book/address-book.component';
+import { MeasurementsComponent } from './layouts/user/measurements/measurements.component';
+import { OrdersComponent } from './layouts/user/orders/orders.component';
+import { AppointmentsComponent } from './layouts/user/appointments/appointments.component';
+import { LoyalityPointsComponent } from './layouts/user/loyality-points/loyality-points.component';
+import { GiftCardComponent } from './layouts/user/gift-card/gift-card.component';
+import { OffersComponent } from './layouts/user/offers/offers.component';
+import { SettingsComponent } from './layouts/user/settings/settings.component';
+import { UserComponent } from './layouts/user/user.component';
+import { AddNewAddressComponent } from './layouts/user/add-new-address/add-new-address.component';
+import { TrackComponent } from './layouts/user/track/track.component';
+import { RegisterComponent } from './layouts/modals/register/register.component';
+import { LoginComponent } from './layouts/modals/login/login.component';
+import { VerifyComponent } from './layouts/modals/verify/verify.component';
+import { ForgotPwdComponent } from './layouts/modals/forgot-pwd/forgot-pwd.component';
+import { EnterOtpComponent } from './layouts/modals/enter-otp/enter-otp.component';
+import { ChangePwdComponent } from './layouts/modals/change-pwd/change-pwd.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +73,27 @@ import { CheckoutComponent } from './layouts/checkout/checkout.component';
     EnterDetailsComponent,
     MyThobeComponent,
     MyCartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    PaymentComponent,
+    ThankYouComponent,
+    UserComponent,
+    MyProfileComponent,
+    AddressBookComponent,
+    MeasurementsComponent,
+    OrdersComponent,
+    AppointmentsComponent,
+    LoyalityPointsComponent,
+    GiftCardComponent,
+    OffersComponent,
+    SettingsComponent,
+    AddNewAddressComponent,
+    TrackComponent,
+    RegisterComponent,
+    LoginComponent,
+    VerifyComponent,
+    ForgotPwdComponent,
+    EnterOtpComponent,
+    ChangePwdComponent
   ],
   imports: [
     BrowserModule,

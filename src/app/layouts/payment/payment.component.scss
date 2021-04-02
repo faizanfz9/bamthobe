@@ -1,0 +1,24 @@
+@import "../../../assets/styles/global/variables";
+
+.payment-block {
+    .inner-wrap {
+        max-width: 500px;
+        h4 {
+            margin-bottom: 20px;
+        }
+        .payment-method {
+            background: $concrete;
+            padding: 30px;
+            border-radius: 10px; 
+            p {
+                img {
+                    margin-right: 10px;
+                }
+            }      
+        }
+        .btn-wrap {
+            text-align: right;
+            margin-top: 30px;
+        }
+    }
+}

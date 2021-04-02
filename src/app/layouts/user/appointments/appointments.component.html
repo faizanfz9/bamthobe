@@ -1,0 +1,156 @@
+<h4>My Orders</h4>
+
+
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Ongoing Appointment</a>
+      <ng-template ngbNavContent>
+        <div class="info-box">
+            <div class="product-detail">
+                <div class="row-wrap">
+                    <div class="col-wrap">
+                        <div class="detail-wrap">
+                            <div class="amount-row">
+                                <h6>Self Visit</h6>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Booking ID :</h6>
+                                <span class="amt">12345678</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Store Name :</h6>
+                                <span class="amt">Alqout</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-wrap">
+                        <div class="detail-wrap">
+                            <div class="amount-row">
+                                <h6>Date :</h6>
+                                <span class="amt">12- Jan 2021</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Store Address :</h6>
+                            </div>
+                            <div class="amount-row">
+                                <h6>GPO Cheese and Wine Room,  1 Martin Pl, Sydney 110056, AUS</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div> 
+             <div class="product-detail">
+                <div class="row-wrap">
+                    <div class="col-wrap">
+                        <div class="detail-wrap">
+                            <div class="amount-row">
+                                <h6>Self Visit</h6>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Booking ID :</h6>
+                                <span class="amt">12345678</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Store Name :</h6>
+                                <span class="amt">Alqout</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-wrap">
+                        <div class="detail-wrap">
+                            <div class="amount-row">
+                                <h6>Date :</h6>
+                                <span class="amt">12- Jan 2021</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Store Address :</h6>
+                            </div>
+                            <div class="amount-row">
+                                <h6>GPO Cheese and Wine Room,  1 Martin Pl, Sydney 110056, AUS</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>   
+        </div>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Older Appointment</a>
+      <ng-template ngbNavContent>
+        <div class="info-box">
+            <div class="product-detail">
+                <div class="row-wrap">
+                    <div class="col-wrap">
+                        <div class="detail-wrap">
+                            <div class="amount-row">
+                                <h6>Self Visit</h6>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Booking ID :</h6>
+                                <span class="amt">12345678</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Store Name :</h6>
+                                <span class="amt">Alqout</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-wrap">
+                        <div class="detail-wrap">
+                            <div class="amount-row">
+                                <h6>Date :</h6>
+                                <span class="amt">12- Jan 2021</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Store Address :</h6>
+                            </div>
+                            <div class="amount-row">
+                                <h6>GPO Cheese and Wine Room,  1 Martin Pl, Sydney 110056, AUS</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div> 
+             <div class="product-detail">
+                <div class="row-wrap">
+                    <div class="col-wrap">
+                        <div class="detail-wrap">
+                            <div class="amount-row">
+                                <h6>Self Visit</h6>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Booking ID :</h6>
+                                <span class="amt">12345678</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Store Name :</h6>
+                                <span class="amt">Alqout</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-wrap">
+                        <div class="detail-wrap">
+                            <div class="amount-row">
+                                <h6>Date :</h6>
+                                <span class="amt">12- Jan 2021</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Store Address :</h6>
+                            </div>
+                            <div class="amount-row">
+                                <h6>GPO Cheese and Wine Room,  1 Martin Pl, Sydney 110056, AUS</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div> 
+        </div>
+      </ng-template>
+    </li>
+  </ul>
+  
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+
+

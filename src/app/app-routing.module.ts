@@ -17,8 +17,19 @@ import { SidePocketComponent } from './layouts/customize/side-pocket/side-pocket
 import { FaqsComponent } from './layouts/faqs/faqs.component';
 import { HomeComponent } from './layouts/home/home.component';
 import { MyCartComponent } from './layouts/my-cart/my-cart.component';
+import { PaymentComponent } from './layouts/payment/payment.component';
 import { PrivacyPolicyComponent } from './layouts/privacy-policy/privacy-policy.component';
 import { TermsAndConditionComponent } from './layouts/terms-and-condition/terms-and-condition.component';
+import { ThankYouComponent } from './layouts/thank-you/thank-you.component';
+import { AddNewAddressComponent } from './layouts/user/add-new-address/add-new-address.component';
+import { AddressBookComponent } from './layouts/user/address-book/address-book.component';
+import { AppointmentsComponent } from './layouts/user/appointments/appointments.component';
+import { LoyalityPointsComponent } from './layouts/user/loyality-points/loyality-points.component';
+import { MeasurementsComponent } from './layouts/user/measurements/measurements.component';
+import { MyProfileComponent } from './layouts/user/my-profile/my-profile.component';
+import { OrdersComponent } from './layouts/user/orders/orders.component';
+import { TrackComponent } from './layouts/user/track/track.component';
+import { UserComponent } from './layouts/user/user.component';
 
 const routes: Routes = [
   {path: "", pathMatch: "full", component: HomeComponent},
@@ -41,6 +52,18 @@ const routes: Routes = [
   ]},
   {path: "my-cart", component: MyCartComponent},
   {path: "checkout", component: CheckoutComponent},
+  {path: "payment", component: PaymentComponent},
+  {path: "thank-you", component: ThankYouComponent},
+  {path: "user", component: UserComponent, children: [
+    {path: "my-profile", component: MyProfileComponent},
+    {path: "address-book", component: AddressBookComponent},
+    {path: "add-new-address", component: AddNewAddressComponent},
+    {path: "orders", component: OrdersComponent},
+    {path: "track", component: TrackComponent},
+    {path: "measurement", component: MeasurementsComponent},
+    {path: "appointments", component: AppointmentsComponent},
+    {path: "loyality-points", component: LoyalityPointsComponent}
+  ]},
 ];
 
 @NgModule({

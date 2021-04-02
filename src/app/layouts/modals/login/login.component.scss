@@ -1,0 +1,88 @@
+@import "../../../../assets/styles/global/variables";
+
+.modal-dialog {
+    max-width: 950px;
+    .modal-body {
+        .row-wrap {
+            @include row;
+            .col-img {
+                @include column(50%);
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .col-content {
+                @include column(50%);
+                padding: 50px 25px;
+                position: relative;
+                .intro {
+                    margin-bottom: 20px;
+                }
+                .form {
+                    .field-wrap {
+                        margin-bottom: 10px;
+                        input {
+                            width: 100%;
+                            padding: 12px 12px 8px;
+                            border: none;
+                            background: #f3f3f3;
+                            outline: none;
+                            border-radius: 5px;
+                            border: 1px solid transparent;
+                            &:focus {
+                                border-color: $brown;
+                            }
+                        }
+                    }
+                    .form-link {
+                        text-align: right;
+                        a {
+                            color: $brown;
+                            cursor: pointer;
+                        }
+                    }
+                    .btn-grp {
+                        margin-top: 20px;
+                        .btn {
+                            display: block;
+                            width: 100%;
+                            margin: 15px 0;
+                        }
+                    }
+                }
+                .social-links {
+                    text-align: center;
+                    margin-top: 30px;
+                    ul {
+                        li {
+                            display: inline-block;
+                            margin: 0 7px;
+                            a {
+                                img {
+                                    transition: all .3s ease;
+                                }
+                                &:hover {
+                                    img {
+                                        filter: brightness(0);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .close-btn {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    border: none;
+                    background: none;
+                    img {
+                        width: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

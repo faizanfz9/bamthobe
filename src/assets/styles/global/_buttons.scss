@@ -72,6 +72,13 @@
       display: none;
     }
   }
+  &.black {
+    background: $black;
+    color: $white;
+    &:hover {
+      background: $brown;
+    }
+  }
 }
 
 .btn.btn-transparent {
@@ -82,6 +89,17 @@
   &:hover {
     background: $white;
     color: $black;
+  }
+}
+
+.btn.btn-transparent-brown {
+  @extend %btn-common;
+  background: none;
+  border: 1px solid $brown;
+  color: $brown;
+  &:hover {
+    background: $brown;
+    color: $white;
   }
 }
 

@@ -1,0 +1,22 @@
+<div class="modal-body centered">
+    <div class="row-wrap">
+        <div class="col-img">
+            <img src="../../../../assets/images/login_banner.jpg" alt="login banner">
+        </div>
+        <div class="col-content">
+            <div class="intro">
+                <h2>Forgot Password</h2>
+                <p>Enter the registered mobile number or email id to reset your bamthobe password.</p>
+            </div>
+            <form action="#" class="form">
+                <div class="field-wrap">
+                    <input type="number" name="phone" placeholder="Mobile Number or Email">
+                </div>
+                <div class="btn-grp">
+                    <button type="button" (click)="openVerifyModal()" class="btn btn-default no-arrow">Send OTP</button>
+                </div>
+            </form>
+            <button class="close-btn" (click)="activeModal.dismiss('Cross click')"><img src="../../../../assets/images/close-btn.svg" alt="close-btn"></button>
+        </div>
+    </div>
+</div>

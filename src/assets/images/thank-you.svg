@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="133.751" height="133.751" viewBox="0 0 133.751 133.751">
+  <g id="Shopping-cart" transform="translate(2.5 2.5)">
+    <path id="Oval" d="M64.375,0a64.375,64.375,0,1,1,0,128.751c-.284,0-.568,0-1.063-.009A64.376,64.376,0,0,1,64.375,0Z" transform="translate(0 0)" fill="none" stroke="#947a63" stroke-width="5"/>
+    <g id="_Icons_Check" data-name="_Icons / Check" transform="translate(37.296 42.721)">
+      <path id="Path-94" d="M6.372,42.125A3.617,3.617,0,0,1,.861,37.44L31.6,1.274A3.617,3.617,0,0,1,36.76.914L53.035,15.38a3.617,3.617,0,1,1-4.805,5.406L34.719,8.776Z" transform="translate(54.249 43.399) rotate(180)" fill="#947a63"/>
+    </g>
+  </g>
+</svg>

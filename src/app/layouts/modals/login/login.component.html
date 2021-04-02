@@ -1,0 +1,42 @@
+<div class="modal-body centered">
+    <div class="row-wrap">
+        <div class="col-img">
+            <img src="../../../../assets/images/login_banner.jpg" alt="login banner">
+        </div>
+        <div class="col-content">
+            <div class="intro">
+                <h2>Login</h2>
+                <p>Enter the details to continue.</p>
+            </div>
+            <form action="#" class="form">
+                <div class="field-wrap">
+                    <input type="tel" name="phone" placeholder="Mobile Number">
+                </div>
+                <div class="field-wrap">
+                    <input type="password" name="password" placeholder="Enter Password">
+                </div>
+                <div class="form-link">
+                    <a (click)="openForgotPwdModal()">Forgot Password ?</a>
+                </div>
+                <div class="btn-grp">
+                    <button type="submit" class="btn btn-default no-arrow">Login</button>
+                    <button type="button" (click)="openRegisterModal()" class="btn btn-transparent-brown">Don't have an account? Register Now</button>
+                </div>
+            </form>
+            <div class="social-links">
+                <ul>
+                    <li>
+                        <a href="#"><img src="../../../../assets/images/google-plus-brown.svg" alt="google plus"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="../../../../assets/images/instagram-brown.svg" alt="instagram"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="../../../../assets/images/twitter-brown.svg" alt="twitter"></a>
+                    </li>
+                </ul>
+            </div>
+            <button class="close-btn" (click)="activeModal.dismiss('Cross click')"><img src="../../../../assets/images/close-btn.svg" alt="close-btn"></button>
+        </div>
+    </div>
+</div>

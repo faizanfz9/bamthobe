@@ -1,0 +1,48 @@
+<div class="modal-body centered">
+    <div class="row-wrap">
+        <div class="col-img">
+            <img src="../../../../assets/images/login_banner.jpg" alt="login banner">
+        </div>
+        <div class="col-content">
+            <div class="intro">
+                <h2>Register</h2>
+                <p>Enter the details to continue.</p>
+            </div>
+            <form action="#" class="form">
+                <div class="field-wrap">
+                    <input type="name" name="name" placeholder="Name">
+                </div>
+                <div class="field-wrap">
+                    <input type="tel" name="phone" placeholder="Mobile Number">
+                </div>
+                <div class="field-wrap">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+                <div class="field-wrap">
+                    <input type="password" name="password" placeholder="Create Password">
+                </div>
+                <div class="field-wrap">
+                    <input type="password" name="password" placeholder="Re-enter Password">
+                </div>
+                <div class="btn-grp">
+                    <button type="button" (click)="openVerifyModal()" class="btn btn-default no-arrow">Register Now</button>
+                    <button type="button" (click)="openLoginModal()" class="btn btn-transparent-brown">Already a Member? Login</button>
+                </div>
+            </form>
+            <div class="social-links">
+                <ul>
+                    <li>
+                        <a href="#"><img src="../../../../assets/images/google-plus-brown.svg" alt="google plus"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="../../../../assets/images/instagram-brown.svg" alt="instagram"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="../../../../assets/images/twitter-brown.svg" alt="twitter"></a>
+                    </li>
+                </ul>
+            </div>
+            <button class="close-btn" (click)="activeModal.dismiss('Cross click')"><img src="../../../../assets/images/close-btn.svg" alt="close-btn"></button>
+        </div>
+    </div>
+</div>

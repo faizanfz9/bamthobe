@@ -1,0 +1,42 @@
+<!-- header -->
+<app-header></app-header>
+<!-- header -->
+
+<!-- payment block -->
+<section class="user-block">
+    <div class="container">
+        <div class="row-wrap">
+            <div class="col-nav">
+                <div class="info">
+                    <img src="../../../assets/images/user.png" alt="user">
+                    <h4><span>Hi</span>, <br> Aftaab</h4>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" routerLink="/user/my-profile" routerLinkActive="active">My Profile</a></li>
+                    <li><a href="#" routerLink="/user/address-book" routerLinkActive="active">Address Book</a></li>
+                    <li><a href="#" routerLink="/user/measurement" routerLinkActive="active">My Measurements</a></li>
+                    <li><hr></li>
+                    <li><a href="#" routerLink="/user/orders" routerLinkActive="active">My Orders</a></li>
+                    <li><a href="#" routerLink="/user/appointments" routerLinkActive="active">My Appointments</a></li>
+                    <li><a href="#" routerLink="/user/loyality-points" routerLinkActive="active">Loyalty Points</a></li>
+                    <li><hr></li>
+                    <li><a href="#">Gift Card</a></li>
+                    <li><a href="#">Offers</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </div>
+            <div class="col-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- checkout block -->
+
+<!-- icon with text -->
+<app-feature-block></app-feature-block>
+<!-- icon with text -->
+
+<!-- footer -->
+<app-footer></app-footer>
+<!-- footer -->
