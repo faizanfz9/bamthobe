@@ -71,7 +71,7 @@
                             <img src="../../../../assets/images/shopping-bag.svg" alt="shopping">
                         </a>
                     </li>
-                    <li>
+                    <li *ngIf="!isLoggedIn">
                         <a href="#" (click)="open()" class="login">
                             <img src="../../../../assets/images/userAvatar.png" alt="userAvatar">
                             <span>Login or <br>

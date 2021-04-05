@@ -2,6 +2,7 @@
 
 .header {
     margin-top: 47px;
+    background: $concrete;
     @include tablet-down {
         margin-top: 113px;
     }

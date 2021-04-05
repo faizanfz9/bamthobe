@@ -48,6 +48,8 @@ import { VerifyComponent } from './layouts/modals/verify/verify.component';
 import { ForgotPwdComponent } from './layouts/modals/forgot-pwd/forgot-pwd.component';
 import { EnterOtpComponent } from './layouts/modals/enter-otp/enter-otp.component';
 import { ChangePwdComponent } from './layouts/modals/change-pwd/change-pwd.component';
+import { ProductsComponent } from './layouts/products/products.component';
+import { ProductDetailComponent } from './layouts/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,9 @@ import { ChangePwdComponent } from './layouts/modals/change-pwd/change-pwd.compo
     VerifyComponent,
     ForgotPwdComponent,
     EnterOtpComponent,
-    ChangePwdComponent
+    ChangePwdComponent,
+    ProductsComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

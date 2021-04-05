@@ -1,0 +1,24 @@
+@import "../../../../assets/styles/global/variables";
+
+.info-box {
+    .links-tab {
+        max-width: 600px;
+        li {
+            padding: 10px 15px;
+            background: $concrete;
+            margin-bottom: 10px;
+            position: relative;
+            border-radius: 10px;
+            cursor: pointer;
+            &::after {
+                position: absolute;
+                content: "";
+                top: 13px;
+                right: 20px;
+                width: 10px;
+                height: 17px;
+                background: url(../../../../assets/images/right-arrow.png) no-repeat;
+            }
+        }
+    }
+}

@@ -19,15 +19,20 @@ import { HomeComponent } from './layouts/home/home.component';
 import { MyCartComponent } from './layouts/my-cart/my-cart.component';
 import { PaymentComponent } from './layouts/payment/payment.component';
 import { PrivacyPolicyComponent } from './layouts/privacy-policy/privacy-policy.component';
+import { ProductDetailComponent } from './layouts/product-detail/product-detail.component';
+import { ProductsComponent } from './layouts/products/products.component';
 import { TermsAndConditionComponent } from './layouts/terms-and-condition/terms-and-condition.component';
 import { ThankYouComponent } from './layouts/thank-you/thank-you.component';
 import { AddNewAddressComponent } from './layouts/user/add-new-address/add-new-address.component';
 import { AddressBookComponent } from './layouts/user/address-book/address-book.component';
 import { AppointmentsComponent } from './layouts/user/appointments/appointments.component';
+import { GiftCardComponent } from './layouts/user/gift-card/gift-card.component';
 import { LoyalityPointsComponent } from './layouts/user/loyality-points/loyality-points.component';
 import { MeasurementsComponent } from './layouts/user/measurements/measurements.component';
 import { MyProfileComponent } from './layouts/user/my-profile/my-profile.component';
+import { OffersComponent } from './layouts/user/offers/offers.component';
 import { OrdersComponent } from './layouts/user/orders/orders.component';
+import { SettingsComponent } from './layouts/user/settings/settings.component';
 import { TrackComponent } from './layouts/user/track/track.component';
 import { UserComponent } from './layouts/user/user.component';
 
@@ -62,8 +67,13 @@ const routes: Routes = [
     {path: "track", component: TrackComponent},
     {path: "measurement", component: MeasurementsComponent},
     {path: "appointments", component: AppointmentsComponent},
-    {path: "loyality-points", component: LoyalityPointsComponent}
+    {path: "loyality-points", component: LoyalityPointsComponent},
+    {path: "gift-card", component: GiftCardComponent},
+    {path: "offers", component: OffersComponent},
+    {path: "settings", component: SettingsComponent}
   ]},
+  {path: "products", component: ProductsComponent},
+  {path: "product-detail", component: ProductDetailComponent},
 ];
 
 @NgModule({

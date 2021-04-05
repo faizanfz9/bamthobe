@@ -1,0 +1,218 @@
+@import "../../../assets/styles/global/variables";
+
+.product-detail {
+    .row-wrap {
+        @include row;
+        .col-img {
+            @include column(50%);
+        }
+        .col-content {
+            @include column(50%);
+            .price {
+                margin: 20px 0;
+                color: $brown;
+            }
+            .size {
+                margin: 30px 0 60px;
+                .size-selector {
+                    display: inline-block;
+                    padding: 12px 20px;
+                    border: 1px solid $black;
+                    span {
+                        color: $black;
+                    }
+                }
+            }
+            .qty-wrap {
+                max-width: 160px;
+                @include nowrap;
+                justify-content: space-between;
+                align-items: center;
+                border: 1px solid $black;
+                border-radius: 70px;
+                padding: 12px 20px 7px;
+                button {
+                    background: none;
+                    border: none;
+                    font-size: 30px;
+                    line-height: 1;
+                }
+                .qty {
+                    font-size: 30px;
+                    line-height: 1;
+                    color: $black;
+                }
+            }
+        }
+    }
+}
+
+.customer-reviews {
+    .inner-wrap {
+        background: $concrete;
+        padding: 25px;
+        .title-row {
+            @include nowrap;
+            align-items: center;
+            margin-bottom: 30px;
+            h4 {
+                margin-bottom: 0;
+            }
+            .reviews {
+                margin-left: auto;
+                h4 {
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+                ul {
+                    display: inline-block;
+                    vertical-align: super;
+                    li {
+                        display: inline-block;
+                        margin: 0 7px;
+                    }
+                }
+            }
+        }
+        .review-row {
+            @include nowrap;
+            padding-bottom: 18px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            &:last-child {
+                margin-bottom: 0;
+                border-bottom: none;
+            }
+            &>img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+            }
+            .review {
+                margin-left: 15px;
+                width: 100%;
+                h4 {
+                    margin: 15px 0 0;
+                }
+                .comment-with-time {
+                    @include nowrap;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+}
+
+// col four grid
+.col-four-grid {
+    .intro-wrap {
+        text-align: left;
+        max-width: 100%;
+        margin: 0 auto 30px;
+        @include desktop-down {
+            margin-bottom: 0
+        }
+    }
+    .row-wrap {
+        @include row;
+        margin: 0 -15px;
+        justify-content: center;
+        .col-three {
+            @include column(25%);
+            padding: 0 15px;
+            @include desktop-down {
+                @include column(33.33%);
+            }
+            @include tablet-down {
+                @include column(50%);
+            }
+            @include phone-down {
+                @include column(100%);
+            }
+            .card-wrap {
+                padding: 7px;
+                background: $concrete;
+                position: relative;
+                @include desktop-down {
+                    margin-top: 30px;
+                }
+                .img-wrap {
+                    width: 100%;
+                    height: 245px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .text-wrap {
+                    h6 {
+                        margin-top: 10px;
+                    }
+                    p {
+                        font-size: 14px;
+                        margin: 3px 0;
+                    }
+                    .price {
+                        font-size: 20px;
+                        color: $brown;
+                    }
+                }
+                .cart-btn {
+                    outline: none;
+                    border: none;
+                    background: $white;
+                    padding:  3px 7px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    border-radius: 3px;
+                    transition: all .3s ease-in-out;
+                    &.added-to-cart {
+                        background: $brown;
+                        span {
+                            display: inline-block;
+                        }
+                        svg {
+                            path {
+                                fill: $white;
+                            }
+                        }
+                    }
+                    &:hover {
+                        background: $brown;
+                        span {
+                            display: inline-block;
+                        }
+                        svg {
+                            path {
+                                fill: $white;
+                            }
+                        }
+                    }
+                    span {
+                        display: none;
+                        font-size: 12px;
+                        color: $white;
+                        // vertical-align: middle;
+                        margin-left: 5px;
+                        line-height: 0.8;
+                    }
+                    svg {
+                        width: 14px;
+                        height: 14px;
+                        // vertical-align: middle;
+                        path {
+                            transition: all .3s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .btn-wrap {
+        margin-top: 30px;
+        text-align: center;
+    }
+}

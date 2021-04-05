@@ -9,7 +9,7 @@ import { LoginComponent } from '../../modals/login/login.component';
 })
 export class HeaderComponent implements OnInit {
   showMenu = false;
-  isLoggedIn = false;
+  isLoggedIn = true;
 
   constructor(private modalService: NgbModal) { }
 

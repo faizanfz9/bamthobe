@@ -1,0 +1,13 @@
+@import "../../../../assets/styles/global/variables";
+
+.card-wrap {
+    .product-info {
+        h5 {
+            color: $black;
+            margin: 7px 0 5px;
+        }
+        a {
+            color: $brown;
+        }
+    }
+}
