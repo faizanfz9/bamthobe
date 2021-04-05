@@ -10,6 +10,9 @@
         .col-wrap {
             @include column(50%);
             padding: 0 15px;
+            @include desktop-down {
+                @include column(100%);
+            }
             .card-wrap {
                 padding: 25px 25px 0;
                 background: rgba(148, 122, 99, .12);
@@ -17,6 +20,9 @@
                 .inner-row {
                     @include nowrap;
                     padding-bottom: 15px;
+                    @include phablet-down {
+                        flex-wrap: wrap !important;
+                    }
                     .product-img {
                         img {
                             width: 90px;
@@ -27,6 +33,10 @@
                     .product-info {
                         width: 100%;
                         padding-left: 20px;
+                        @include phablet-down {
+                            padding-left: 0px;
+                            margin-top: 20px;
+                        }
                         h6 {
                             @include nowrap;
                             button {
@@ -119,6 +129,9 @@
                         padding-bottom: 0;
                         h6 {
                             @include nowrap;
+                            @include phablet-down {
+                                margin-bottom: 10px;
+                            }
                             img {
                                 margin-right: 5px;
                             }

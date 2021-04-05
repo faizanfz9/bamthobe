@@ -8,6 +8,15 @@
         .col-wrap {
             padding: 0 15px;
             @include column(50%);
+            @include desktop-down {
+                @include column(100%);
+            }
+            .img-wrap {
+                max-width: 450px;
+                img {
+                    width: 100%;
+                }
+            }
             h2 {
                 color: $brown;
                 margin-top: 20px;
@@ -27,6 +36,9 @@
                             @include column(33.33%);
                             padding: 0 10px;
                             margin-bottom: 20px;
+                            @include phablet-down {
+                                @include column(50%);
+                            }
                             .box {
                                 border-radius: 15px 15px 0 0;
                                 overflow: hidden;
