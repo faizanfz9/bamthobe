@@ -80,10 +80,10 @@
                     </li>
                     <li *ngIf="isLoggedIn">
                         <div ngbDropdown class="d-inline-block">
-                            <button class="btn btn-outline-primary user-menu" id="dropdownBasic1" ngbDropdownToggle>Aftab</button>
+                            <button class="btn btn-outline-primary user-menu" id="dropdownBasic1" ngbDropdownToggle>{{ user.name }}</button>
                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                               <button ngbDropdownItem routerLink="/user/my-profile">My Account</button>
-                              <button ngbDropdownItem>Logout</button>
+                              <button (click)="onLogout()" ngbDropdownItem>Logout</button>
                               <!-- <button ngbDropdownItem>Something else is here</button> -->
                             </div>
                           </div>

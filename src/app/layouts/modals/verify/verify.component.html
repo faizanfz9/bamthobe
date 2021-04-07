@@ -6,17 +6,23 @@
         <div class="col-content">
             <div class="intro">
                 <h2>Verify Mobile</h2>
-                <p>Enter OTP sent to <span>056 6885 235</span></p>
+                <p>Enter OTP sent to <span>{{ mobile }}</span></p>
             </div>
-            <form action="#" class="form">
+            <form (submit)="onVerifyOtp(verifyOtp)" #verifyOtp="ngForm" class="form">
                 <div class="field-wrap">
-                    <input type="text" name="otp" maxlength="4" placeholder="Enter OTP">
+                    <input 
+                    type="text" 
+                    name="otp" 
+                    maxlength="4" 
+                    placeholder="Enter OTP"
+                    ngModel
+                    required>
                 </div>
                 <div class="form-link">
                     <a href="#">Resend</a>
                 </div>
                 <div class="btn-grp">
-                    <button type="button" (click)="openChangePwdModal()" class="btn btn-default no-arrow">Verify & Continue</button>
+                    <button type="submit" [disabled]="!verifyOtp.valid" class="btn btn-default no-arrow">Verify & Continue</button>
                     <button type="button" (click)="openLoginModal()" class="btn btn-transparent-brown">Already a Member? Login</button>
                 </div>
             </form>
@@ -24,3 +30,5 @@
         </div>
     </div>
 </div>
+
+<ngx-spinner></ngx-spinner>

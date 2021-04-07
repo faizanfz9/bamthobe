@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,10 +49,10 @@ import { RegisterComponent } from './layouts/modals/register/register.component'
 import { LoginComponent } from './layouts/modals/login/login.component';
 import { VerifyComponent } from './layouts/modals/verify/verify.component';
 import { ForgotPwdComponent } from './layouts/modals/forgot-pwd/forgot-pwd.component';
-import { EnterOtpComponent } from './layouts/modals/enter-otp/enter-otp.component';
 import { ChangePwdComponent } from './layouts/modals/change-pwd/change-pwd.component';
 import { ProductsComponent } from './layouts/products/products.component';
 import { ProductDetailComponent } from './layouts/product-detail/product-detail.component';
+import { InterceptorService } from './shared/services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -94,7 +97,6 @@ import { ProductDetailComponent } from './layouts/product-detail/product-detail.
     LoginComponent,
     VerifyComponent,
     ForgotPwdComponent,
-    EnterOtpComponent,
     ChangePwdComponent,
     ProductsComponent,
     ProductDetailComponent
@@ -104,9 +106,18 @@ import { ProductDetailComponent } from './layouts/product-detail/product-detail.
     BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
-    CarouselModule
+    CarouselModule,
+    HttpClientModule,
+    FormsModule,
+    NgxSpinnerModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

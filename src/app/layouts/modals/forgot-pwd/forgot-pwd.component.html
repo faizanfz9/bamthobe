@@ -8,15 +8,22 @@
                 <h2>Forgot Password</h2>
                 <p>Enter the registered mobile number or email id to reset your bamthobe password.</p>
             </div>
-            <form action="#" class="form">
+            <form class="form" (submit)="onChangePwd(changePwdForm)" #changePwdForm="ngForm">
                 <div class="field-wrap">
-                    <input type="number" name="phone" placeholder="Mobile Number or Email">
+                    <input 
+                    type="number" 
+                    name="phone" 
+                    placeholder="Mobile Number or Email"
+                    ngModel
+                    required>
                 </div>
                 <div class="btn-grp">
-                    <button type="button" (click)="openVerifyModal()" class="btn btn-default no-arrow">Send OTP</button>
+                    <button type="submit" [disabled]="!changePwdForm.valid" class="btn btn-default no-arrow">Send OTP</button>
                 </div>
             </form>
             <button class="close-btn" (click)="activeModal.dismiss('Cross click')"><img src="../../../../assets/images/close-btn.svg" alt="close-btn"></button>
         </div>
     </div>
 </div>
+
+<ngx-spinner></ngx-spinner>

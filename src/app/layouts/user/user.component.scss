@@ -7,6 +7,9 @@
             @include column(25%);
             background: $concrete;
             padding: 20px;
+            @include desktop-down {
+                @include column(100%);
+            }
             .info {
                 @include nowrap;
                 border-bottom: 1px solid #ccc;
@@ -41,6 +44,11 @@
         .col-content {
             @include column(65%);
             padding-left: 30px;
+            @include desktop-down {
+                @include column(100%);
+                padding-left: 0;
+                margin-top: 20px;
+            }
             h4 {
                 span {
                     color: $brown;

@@ -8,18 +8,30 @@
                 <h2>Create New Password</h2>
                 <p>Create new password to login to your account.</p>
             </div>
-            <form action="#" class="form">
+            <form (submit)="onResetPwd(resetPwdForm)" #resetPwdForm="ngForm" class="form">
                 <div class="field-wrap">
-                    <input type="password" name="password" placeholder="Create Password">
+                    <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Create Password"
+                    ngModel
+                    required>
                 </div>
                 <div class="field-wrap">
-                    <input type="password" name="cnf-password" placeholder="Re-enter Password">
+                    <input 
+                    type="password" 
+                    name="cnfPassword" 
+                    placeholder="Re-enter Password"
+                    ngModel
+                    required>
                 </div>
                 <div class="btn-grp">
-                    <button type="submit" class="btn btn-default no-arrow">Confirm</button>
+                    <button type="submit" [disabled]="!resetPwdForm.valid" class="btn btn-default no-arrow">Confirm</button>
                 </div>
             </form>
             <button class="close-btn" (click)="activeModal.dismiss('Cross click')"><img src="../../../../assets/images/close-btn.svg" alt="close-btn"></button>
         </div>
     </div>
 </div>
+
+<ngx-spinner></ngx-spinner>

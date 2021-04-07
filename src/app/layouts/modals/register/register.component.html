@@ -8,24 +8,49 @@
                 <h2>Register</h2>
                 <p>Enter the details to continue.</p>
             </div>
-            <form action="#" class="form">
+            <form class="form" (submit)="onRegisterUser(registerForm)" #registerForm="ngForm">
                 <div class="field-wrap">
-                    <input type="name" name="name" placeholder="Name">
+                    <input 
+                    type="name" 
+                    name="name" 
+                    placeholder="Name"
+                    ngModel
+                    required>
                 </div>
                 <div class="field-wrap">
-                    <input type="tel" name="phone" placeholder="Mobile Number">
+                    <input 
+                    type="tel" 
+                    name="phone" 
+                    placeholder="Mobile Number"
+                    ngModel
+                    required>
                 </div>
                 <div class="field-wrap">
-                    <input type="email" name="email" placeholder="Email">
+                    <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Email"
+                    ngModel
+                    required>
                 </div>
                 <div class="field-wrap">
-                    <input type="password" name="password" placeholder="Create Password">
+                    <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Create Password"
+                    ngModel
+                    required>
                 </div>
                 <div class="field-wrap">
-                    <input type="password" name="password" placeholder="Re-enter Password">
+                    <input 
+                    type="password" 
+                    name="cnfPassword" 
+                    placeholder="Re-enter Password"
+                    ngModel
+                    required>
                 </div>
                 <div class="btn-grp">
-                    <button type="button" (click)="openVerifyModal()" class="btn btn-default no-arrow">Register Now</button>
+                    <button type="submit" [disabled]="!registerForm.valid" class="btn btn-default no-arrow">Register Now</button>
                     <button type="button" (click)="openLoginModal()" class="btn btn-transparent-brown">Already a Member? Login</button>
                 </div>
             </form>
@@ -46,3 +71,5 @@
         </div>
     </div>
 </div>
+
+<ngx-spinner></ngx-spinner>

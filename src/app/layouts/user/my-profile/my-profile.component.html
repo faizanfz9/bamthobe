@@ -9,13 +9,26 @@
         <div class="right-col">
             <form action="#">
                 <div class="field-wrap">
-                    <input type="text" name="name" placeholder="Name">
+                    <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Name"
+                    [ngModel]="user.name">
                 </div>
                 <div class="field-wrap">
-                    <input type="tel" name="phone" placeholder="Mobile Number">
+                    <input 
+                    type="tel" 
+                    name="phone" 
+                    placeholder="Mobile Number"
+                    [ngModel]="user.mobile">
                 </div>
                 <div class="field-wrap">
-                    <input type="email" name="email" placeholder="Email Address">
+                    <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Email Address"
+                    [ngModel]="user.email"
+                    >
                 </div>
                 <div class="radio-grp">
                     <div class="radio-wrap">

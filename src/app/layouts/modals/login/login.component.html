@@ -8,18 +8,28 @@
                 <h2>Login</h2>
                 <p>Enter the details to continue.</p>
             </div>
-            <form action="#" class="form">
+            <form (submit)="onLogin(loginForm)" #loginForm="ngForm" class="form">
                 <div class="field-wrap">
-                    <input type="tel" name="phone" placeholder="Mobile Number">
+                    <input 
+                    type="tel" 
+                    name="phone" 
+                    placeholder="Mobile Number"
+                    ngModel
+                    required>
                 </div>
                 <div class="field-wrap">
-                    <input type="password" name="password" placeholder="Enter Password">
+                    <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Enter Password"
+                    ngModel
+                    required>
                 </div>
                 <div class="form-link">
                     <a (click)="openForgotPwdModal()">Forgot Password ?</a>
                 </div>
                 <div class="btn-grp">
-                    <button type="submit" class="btn btn-default no-arrow">Login</button>
+                    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-default no-arrow">Login</button>
                     <button type="button" (click)="openRegisterModal()" class="btn btn-transparent-brown">Don't have an account? Register Now</button>
                 </div>
             </form>
@@ -40,3 +50,5 @@
         </div>
     </div>
 </div>
+
+<ngx-spinner></ngx-spinner>
