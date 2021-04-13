@@ -35,6 +35,7 @@ import { OrdersComponent } from './layouts/user/orders/orders.component';
 import { SettingsComponent } from './layouts/user/settings/settings.component';
 import { TrackComponent } from './layouts/user/track/track.component';
 import { UserComponent } from './layouts/user/user.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
   {path: "", pathMatch: "full", component: HomeComponent},
@@ -59,8 +60,8 @@ const routes: Routes = [
   {path: "checkout", component: CheckoutComponent},
   {path: "payment", component: PaymentComponent},
   {path: "thank-you", component: ThankYouComponent},
-  {path: "user", component: UserComponent, children: [
-    {path: "my-profile", component: MyProfileComponent},
+  {path: "my-account", component: UserComponent, canActivate: [AuthGuard], children: [
+    {path: "profile", component: MyProfileComponent},
     {path: "address-book", component: AddressBookComponent},
     {path: "add-new-address", component: AddNewAddressComponent},
     {path: "orders", component: OrdersComponent},

@@ -66,13 +66,31 @@
                         text-align: center;
                         border-right: 2px solid #ccc;
                         margin-right: 25px;
-                        .btn {
-                            border: 1px solid $brown;
-                            color: $brown;
+                        padding-right: 20px;
+                        img {
+                            width: 140px;
+                            height: 140px;
+                            object-fit: cover;
+                        }
+                        .update-dp {
+                            position: relative;
                             margin-top: 20px;
-                            &:hover {
-                                background: $brown;
-                                color: $white;
+                            input {
+                                opacity: 0;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                z-index: 1;
+                            }
+                            .btn {
+                                border: 1px solid $brown;
+                                color: $brown;
+                                &:hover {
+                                    background: $brown;
+                                    color: $white;
+                                }
                             }
                         }
                     }

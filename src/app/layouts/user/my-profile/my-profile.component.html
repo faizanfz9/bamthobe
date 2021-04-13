@@ -3,11 +3,14 @@
 <div class="info-box">
     <div class="inner-row">
         <div class="left-col">
-            <img src="../../../../assets/images/uploaded_user_img.png" alt="uploaded user img">
-            <a href="#" class="btn btn-transparent">Update Photo</a>
+            <img [src]="!user.image ? '../../../../assets/images/user_avatar.svg' : profileImgUrl" alt="user avatar">
+            <div class="update-dp">
+                <input type="file" (change)="onUpdateDp($event)">
+                <button class="btn btn-transparent">Update Photo</button>
+            </div>
         </div>
         <div class="right-col">
-            <form action="#">
+            <form (submit)="onEditProfile(editProfileForm)" #editProfileForm="ngForm">
                 <div class="field-wrap">
                     <input 
                     type="text" 
@@ -20,7 +23,7 @@
                     type="tel" 
                     name="phone" 
                     placeholder="Mobile Number"
-                    [ngModel]="user.mobile">
+                    [ngModel]="user.mobile" disabled>
                 </div>
                 <div class="field-wrap">
                     <input 
@@ -32,22 +35,24 @@
                 </div>
                 <div class="radio-grp">
                     <div class="radio-wrap">
-                        <input type="radio" id="male" name="gender" value="male" checked>
+                        <input type="radio" id="male" name="gender" value="male" [ngModel]="user.gender">
                         <label for="male">
                             <img src="../../../../assets/images/checked_white.svg" alt="checked white"> Male
                         </label>
                     </div>
                     <div class="radio-wrap">
-                        <input type="radio" id="female" name="gender" value="female">
+                        <input type="radio" id="female" name="gender" value="female" [ngModel]="user.gender">
                         <label for="female">
                             <img src="../../../../assets/images/checked_white.svg" alt="checked white"> Female 
                         </label>
                     </div>
                 </div>
                 <div class="btn-wrap">
-                    <a href="#" class="btn btn-default no-arrow">Save Changes</a>
+                    <button type="submit" class="btn btn-default no-arrow">Save Changes</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<ngx-spinner></ngx-spinner>

@@ -22,11 +22,13 @@ export class ForgotPwdComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Open login modal
   openLoginModal() {
     this.activeModal.dismiss('Cross click');
     this.modalService.open(ChangePwdComponent, { centered: true });
   }
 
+  // Open verify modal for OTP
   openVerifyModal() {
     this.activeModal.dismiss('Cross click');
     const modalRef = this.modalService.open(VerifyComponent, { centered: true });
@@ -34,6 +36,7 @@ export class ForgotPwdComponent implements OnInit {
     modalRef.componentInstance.isForgotPwd = true;
   }
   
+  // on inititate for new password
   onChangePwd(form: NgForm) {
     let mobile = new FormData();
     mobile.append('mobile', form.value.phone);

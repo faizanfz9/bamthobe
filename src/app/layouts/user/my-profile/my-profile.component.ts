@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { NgForm } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -7,12 +9,54 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent implements OnInit {
-  user: any;
+  user: any = [];
+  profileImg: any;
+  profileImgUrl: any;
 
-  constructor(private authService: AuthService) { }
+  constructor(private userService: UserService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this.user = this.authService.getLoggedUser();
+    // Fetch user profile
+    this.spinner.show();
+    this.userService.getUserProfile().subscribe(
+      (res: any) => {
+        this.user = res.data;
+        this.profileImgUrl = this.user.image;
+        this.spinner.hide();
+      },error => {
+        this.spinner.hide();
+      });
+  }
+
+  // update profile pic
+  onUpdateDp(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      this.profileImg = event.target.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event: any) => {
+        this.profileImgUrl = event.target.result;
+        console.log(this.profileImgUrl);
+      }
+    }
+  }
+
+  // edit profile
+  onEditProfile(form: NgForm) {
+    let user = new FormData();
+    user.append('name', form.value.name);
+    user.append('email', form.value.email);
+    user.append('gender', form.value.gender);
+    user.append('image', this.profileImg);
+
+    this.spinner.show();
+    this.userService.updateProfile(user).subscribe(res => {
+      console.log(res);
+      this.spinner.hide();
+      alert('Profile updated successfully!');
+    }, error => {
+      this.spinner.hide();
+    })
   }
 
 }

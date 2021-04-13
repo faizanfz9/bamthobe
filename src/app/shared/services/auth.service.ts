@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { UserService } from './user.service';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,7 @@ import { environment } from '../../../environments/environment';
 
 export class AuthService {
   private url = environment.url;
+  user = new BehaviorSubject<any>({});
 
   constructor(private http: HttpClient) { }
 
@@ -26,10 +29,9 @@ export class AuthService {
     return this.http.post(this.url + '/login', user);
   }
 
-  // Get logged User
+  loggedUser: any = localStorage.getItem("user");
   getLoggedUser() {
-    let loggedUser: any = localStorage.getItem("user");
-    return JSON.parse(loggedUser);
+    return JSON.parse(this.loggedUser);
   }
 
   // Check if user is authenticated

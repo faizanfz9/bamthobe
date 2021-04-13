@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
     public activeModal: NgbActiveModal, 
     private modalService: NgbModal,
     private authService: AuthService,
-    private spinner: NgxSpinnerService) 
+    private spinner: NgxSpinnerService,
+    private router: Router) 
     { }
 
   ngOnInit(): void {
@@ -46,6 +48,7 @@ export class LoginComponent implements OnInit {
       this.spinner.hide();
       localStorage.setItem('user', JSON.stringify(res.data));
       this.activeModal.dismiss('Cross click');
+      this.authService.user.next({isLogin: true, data: res.data});
     }, error => {
       this.spinner.hide();
     })
