@@ -1,7 +1,7 @@
 <h4>My Profile</h4>
 
 <div class="info-box">
-    <div class="inner-row">
+    <div class="inner-row" *ngIf="user">
         <div class="left-col">
             <img [src]="!user.image ? '../../../../assets/images/user_avatar.svg' : profileImgUrl" alt="user avatar">
             <div class="update-dp">
@@ -53,6 +53,7 @@
             </form>
         </div>
     </div>
+    <p *ngIf="!user">Fetching...</p>
 </div>
 
 <ngx-spinner></ngx-spinner>

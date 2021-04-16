@@ -1,8 +1,8 @@
-<h4>Address Book > <span>Add New Address</span></h4>
+<h4>Address Book > <span>Edit Address</span></h4>
 
 <div class="info-box">
-    <div class="inner-row">
-        <form (submit)="onAddAddress(addAddressForm)" #addAddressForm="ngForm">
+    <div class="inner-row" *ngIf="address">
+        <form (submit)="onUpdateAddress(editAddressForm)" #editAddressForm="ngForm">
             <div class="radio-grp">
                 <div class="radio-wrap">
                     <input 
@@ -10,7 +10,7 @@
                     id="addressType"
                     value="home" 
                     name="addressType"
-                    ngModel>
+                    [ngModel]="address.home_type">
                     <label for="male">
                         <img src="../../../../assets/images/checked_white.svg" alt="checked white"> Home
                     </label>
@@ -21,7 +21,7 @@
                     id="addressType"
                     value="other"
                     name="addressType"
-                    ngModel>
+                    [ngModel]="address.home_type">
                     <label for="female">
                         <img src="../../../../assets/images/checked_white.svg" alt="checked white"> Other 
                     </label>
@@ -33,7 +33,7 @@
                 name="Full Name" 
                 placeholder="Name"
                 name="name"
-                ngModel
+                [ngModel]="address.name"
                 required>
             </div>
             <div class="field-wrap">
@@ -41,13 +41,14 @@
                 type="text" 
                 name="address" 
                 placeholder="Address"
-                ngModel
+                [ngModel]="address.address"
                 required>
             </div>
 
             <div class="btn-wrap">
-                <button type="submit" [disabled]="!addAddressForm.valid" class="btn btn-default no-arrow">Save this address</button>
+                <button type="submit" [disabled]="!editAddressForm.valid" class="btn btn-default no-arrow">Update Address</button>
             </div>
         </form>
     </div>
+    <p *ngIf="!address">Fetching...</p>
 </div>

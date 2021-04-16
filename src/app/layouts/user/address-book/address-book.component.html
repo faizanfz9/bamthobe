@@ -1,20 +1,17 @@
 <h4>Address Book > <span>Add New Address</span></h4>
 
 <div class="info-box">
-    <div class="inner-row">
+    <div class="inner-row" *ngIf="addresses">
         <div class="saved-address">
-            <!-- <div class="address">
-                <p>Home</p>
-                <h6>Sydney h6era House, Sydney,  New South Wales, 200077, AUS</h6>
-                <button class="edit-btn"><img src="../../../../assets/images/edit.svg" alt="edit"></button>
+            <div class="address" *ngFor="let item of addresses">
+                <h6>{{ item.home_type | titlecase }}</h6>
+                <p>{{ item.address }}</p>
+                <button class="edit-btn" [routerLink]="'/my-account/edit-address/' + item.id">
+                    <img src="../../../../assets/images/edit.svg" alt="edit">
+                </button>
             </div>
-            <div class="address">
-                <p>Home</p>
-                <h6>GPO Cheese and Wine Room,  1 Martin Pl, Sydney 110056, AUS</h6>
-                <button class="edit-btn"><img src="../../../../assets/images/edit.svg" alt="edit"></button>
-            </div> -->
-            {{ addresses }}
-            <a href="#" routerLink="/user/add-new-address" class="btn btn-default no-arrow">+ Add New</a>
+            <a href="#" routerLink="/my-account/add-new-address" class="btn btn-default no-arrow">+ Add New</a>
         </div>
     </div>
+    <p *ngIf="!addresses">Fetching...</p>
 </div>

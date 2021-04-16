@@ -1,15 +1,18 @@
-// src/app/services/interceptor.service.ts
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse} from '@angular/common/http';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+  HttpErrorResponse
+} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-@Injectable({
-providedIn: 'root'
-})
+@Injectable()
+export class ErrorInterceptor implements HttpInterceptor {
 
-export class InterceptorService implements HttpInterceptor{
-  constructor() { }
+  constructor() {}
 
   handleError(error: HttpErrorResponse){
     alert(error.error.message);

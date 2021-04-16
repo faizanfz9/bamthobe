@@ -26,6 +26,7 @@ import { ThankYouComponent } from './layouts/thank-you/thank-you.component';
 import { AddNewAddressComponent } from './layouts/user/add-new-address/add-new-address.component';
 import { AddressBookComponent } from './layouts/user/address-book/address-book.component';
 import { AppointmentsComponent } from './layouts/user/appointments/appointments.component';
+import { EditAddressComponent } from './layouts/user/edit-address/edit-address.component';
 import { GiftCardComponent } from './layouts/user/gift-card/gift-card.component';
 import { LoyalityPointsComponent } from './layouts/user/loyality-points/loyality-points.component';
 import { MeasurementsComponent } from './layouts/user/measurements/measurements.component';
@@ -64,6 +65,7 @@ const routes: Routes = [
     {path: "profile", component: MyProfileComponent},
     {path: "address-book", component: AddressBookComponent},
     {path: "add-new-address", component: AddNewAddressComponent},
+    {path: "edit-address/:id", component: EditAddressComponent},
     {path: "orders", component: OrdersComponent},
     {path: "track", component: TrackComponent},
     {path: "measurement", component: MeasurementsComponent},

@@ -9,7 +9,7 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent implements OnInit {
-  user: any = [];
+  user: any;
   profileImg: any;
   profileImgUrl: any;
 
@@ -17,14 +17,12 @@ export class MyProfileComponent implements OnInit {
 
   ngOnInit(): void {
     // Fetch user profile
-    this.spinner.show();
+
     this.userService.getUserProfile().subscribe(
       (res: any) => {
         this.user = res.data;
         this.profileImgUrl = this.user.image;
-        this.spinner.hide();
-      },error => {
-        this.spinner.hide();
+        console.log(this.user);
       });
   }
 

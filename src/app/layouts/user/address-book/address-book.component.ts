@@ -7,12 +7,14 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./address-book.component.scss']
 })
 export class AddressBookComponent implements OnInit {
-  addresses: any = [];
+  addresses: any;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getAddress().subscribe((res: any) => this.addresses = res.data);
+    this.userService.getAddress().subscribe((res: any) => {
+      this.addresses = res.data;
+    });
   }
 
 }

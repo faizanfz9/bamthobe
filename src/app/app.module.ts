@@ -52,7 +52,9 @@ import { ForgotPwdComponent } from './layouts/modals/forgot-pwd/forgot-pwd.compo
 import { ChangePwdComponent } from './layouts/modals/change-pwd/change-pwd.component';
 import { ProductsComponent } from './layouts/products/products.component';
 import { ProductDetailComponent } from './layouts/product-detail/product-detail.component';
-import { InterceptorService } from './shared/services/interceptor.service';
+import { EditAddressComponent } from './layouts/user/edit-address/edit-address.component';
+import { TokenInterceptor } from './shared/interceptor/token.interceptor';
+import { ErrorInterceptor } from './shared/interceptor/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -99,7 +101,8 @@ import { InterceptorService } from './shared/services/interceptor.service';
     ForgotPwdComponent,
     ChangePwdComponent,
     ProductsComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    EditAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +117,12 @@ import { InterceptorService } from './shared/services/interceptor.service';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorService,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
       multi: true
     }
   ],

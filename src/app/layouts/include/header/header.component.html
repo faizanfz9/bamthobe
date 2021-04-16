@@ -72,7 +72,7 @@
                         </a>
                     </li>
                     <li *ngIf="!isLoggedIn">
-                        <a (click)="open()" class="login">
+                        <a href="#" (click)="open()" class="login">
                             <img src="../../../../assets/images/userAvatar.png" alt="userAvatar">
                             <span>Login or <br>
                                 Register Now</span>
@@ -82,8 +82,8 @@
                         <div ngbDropdown class="d-inline-block">
                             <button class="btn btn-outline-primary user-menu" id="dropdownBasic1" ngbDropdownToggle>{{ user.name }}</button>
                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                              <a ngbDropdownItem routerLink="/my-account/profile">My Account</a>
-                              <a (click)="onLogout()" ngbDropdownItem>Logout</a>
+                              <a href="#" ngbDropdownItem routerLink="/my-account/profile">My Account</a>
+                              <a href="#" (click)="onLogout()" ngbDropdownItem>Logout</a>
                               <!-- <button ngbDropdownItem>Something else is here</button> -->
                             </div>
                           </div>

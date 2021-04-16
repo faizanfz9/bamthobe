@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { UserService } from './user.service';
 import { BehaviorSubject, Subject } from 'rxjs';
@@ -12,7 +12,9 @@ export class AuthService {
   private url = environment.url;
   user = new BehaviorSubject<any>({});
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private handler: HttpBackend) {
+    this.http = new HttpClient(this.handler);
+  }
 
   // Register User
   register(newUser: any) {
@@ -29,12 +31,12 @@ export class AuthService {
     return this.http.post(this.url + '/login', user);
   }
 
+  // Check if user is authenticated
   loggedUser: any = localStorage.getItem("user");
   getLoggedUser() {
     return JSON.parse(this.loggedUser);
   }
-
-  // Check if user is authenticated
+  
   isAuthenticated() {
     if(!this.getLoggedUser()) {
       return false;
