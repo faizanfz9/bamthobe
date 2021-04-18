@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterContentChecked, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -10,10 +11,16 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class UserComponent implements OnInit {
   user: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private authService: AuthService) { 
+     this.user =  this.authService.getLoggedUser();
+     this.authService.user.subscribe(res => {
+        if(res.data) {
+          this.user = res.data;
+        }
+     });
+  }
 
   ngOnInit(): void {
-    this.user = this.userService.getLoggedUser();
   }
 
 }

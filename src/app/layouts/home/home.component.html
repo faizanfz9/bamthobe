@@ -1,48 +1,20 @@
 <!-- banner -->
 <section class="banner no-padding">
     <owl-carousel-o class="slider-wrap" [options]="customOptions">
-        <ng-template class="slide-item" carouselSlide>
+        <ng-template class="slide-item" *ngFor="let slide of slides" carouselSlide>
             <div class="bg-img">
-                <img src="../../../assets/images/banner_slide.jpg" alt="banner slide">
+                <img [src]="slide.image" [alt]="slide.main_title">
             </div>
             <div class="content-wrap">
                 <div class="container">
                     <div class="inner-wrap">
-                        <h1>Premium <br> Quality Designs</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
+                        <h1>{{ slide.main_title }}</h1>
+                        <p>{{ slide.sub_title }}</p>
                         <a href="#" routerLink="/customize/fabric" class="btn btn-default">Design Your Own</a>
                     </div>
                 </div>
             </div>
-        </ng-template>  
-        <ng-template class="slide-item" carouselSlide>
-            <div class="bg-img">
-                <img src="../../../assets/images/banner_slide.jpg" alt="banner slide">
-            </div>
-            <div class="content-wrap">
-                <div class="container">
-                    <div class="inner-wrap">
-                        <h1>Premium <br> Quality Designs</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
-                        <a href="#" routerLink="/customize/fabric" class="btn btn-default">Design Your Own</a>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template class="slide-item" carouselSlide>
-            <div class="bg-img">
-                <img src="../../../assets/images/banner_slide.jpg" alt="banner slide">
-            </div>
-            <div class="content-wrap">
-                <div class="container">
-                    <div class="inner-wrap">
-                        <h1>Premium <br> Quality Designs</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
-                        <a href="#" routerLink="/customize/fabric" class="btn btn-default">Design Your Own</a>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
+        </ng-template> 
       </owl-carousel-o>
 </section>
 <!-- banner -->

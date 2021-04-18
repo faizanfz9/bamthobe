@@ -11,6 +11,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class EditAddressComponent implements OnInit {
   address: any;
+  addressId: any;
 
   constructor(private route: ActivatedRoute,
     private userService: UserService,
@@ -19,9 +20,9 @@ export class EditAddressComponent implements OnInit {
 
   ngOnInit(): void {
     // fetch selected address
-    let id = this.route.snapshot.params.id;
+    this.addressId = this.route.snapshot.params.id;
     this.userService.getAddress().subscribe((res: any) => {
-      this.address = res.data.filter((item: any) => item.id == id)[0];
+      this.address = res.data.filter((item: any) => item.id == this.addressId)[0];
     })
   }
 
@@ -31,6 +32,7 @@ export class EditAddressComponent implements OnInit {
     address.append('name', form.value.name);
     address.append('address', form.value.address);
     address.append('home_type', form.value.addressType);
+    address.append('address_id', this.addressId);
 
     this.spinner.show();
     this.userService.updateAddress(address).subscribe((res: any) => {

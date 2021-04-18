@@ -40,12 +40,10 @@ export class HeaderComponent implements OnInit {
   // do logout
   onLogout() {
     this.spinner.show();
-    setTimeout(()=> {
-      localStorage.clear();
+    localStorage.clear();
       this.authService.user.next({isLogin: false, data: null});
       this.router.navigate(['/']);
       this.spinner.hide();
-    }, 1500);
   }
 
 }

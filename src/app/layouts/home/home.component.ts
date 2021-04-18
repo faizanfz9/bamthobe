@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ConfigService } from 'src/app/shared/services/config.service';
 
 @Component({
   selector: 'app-home',
@@ -30,9 +31,12 @@ export class HomeComponent implements OnInit {
     // },
   }
 
-  constructor() { }
+  slides: any;
+
+  constructor(private configService: ConfigService) { }
 
   ngOnInit(): void {
+    this.configService.getBannerSlides().subscribe((res: any) => this.slides = res.data);
   }
 
 }
