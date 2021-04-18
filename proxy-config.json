@@ -1,6 +1,6 @@
 {
     "bam_thobe/api/*": {
-        "target": "http://projects.adsandurl.com/",
+        "target": "https://projects.adsandurl.com/",
         "secure": false,
         "logLevel": "debug"
     }

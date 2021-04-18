@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://projects.adsandurl.com/bam_thobe/api'
+  url: 'https://projects.adsandurl.com/bam_thobe/api'
 };
 
 /*
