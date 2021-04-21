@@ -10,7 +10,11 @@ export class ConfigService {
 
   constructor(private http: HttpClient) { }
 
-  getBannerSlides() {
+  bannerSlides() {
     return this.http.get(this.url + '/get_sliders');
+  }
+
+  productCat() {
+    return this.http.get(this.url + '/get_banner');
   }
 }

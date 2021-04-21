@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfigService } from 'src/app/shared/services/config.service';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +10,7 @@ import { ConfigService } from 'src/app/shared/services/config.service';
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
+  // init banner sliders
   customOptions: any = {
     loop: true,
     dots: true,
@@ -15,28 +18,52 @@ export class HomeComponent implements OnInit {
     items: 1,
     marginR: 0,
     marginL: 0
-    // responsive: {
-    //   0: {
-    //     items: 1
-    //   },
-    //   400: {
-    //     items: 2
-    //   },
-    //   740: {
-    //     items: 3
-    //   },
-    //   940: {
-    //     items: 4
-    //   }
-    // },
   }
-
   slides: any;
+  catData: any;
+  thobes: any;
+  shawls: any;
+  attars: any;
+  cufflinks: any;
 
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService, 
+    private productService: ProductService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this.configService.getBannerSlides().subscribe((res: any) => this.slides = res.data);
+    // fetch banner slides
+    this.spinner.show();
+    this.configService.bannerSlides().subscribe((res: any) => {
+      this.spinner.hide();
+      this.slides = res.data;
+    }, error => {
+      this.spinner.hide();
+    });
+
+    // fetch product cat images
+    this.configService.productCat().subscribe((res: any) => {
+      this.catData = res.data;
+    });
+
+    // fetch featured thobe products
+    this.productService.getThobes().subscribe((res: any) => {
+      this.thobes = res.data;
+    })
+
+    // fetch featured shawls products
+    this.productService.getShawls().subscribe((res: any) => {
+      this.shawls = res.data;
+    })
+
+    // fetch featured attars products
+    this.productService.getAttars().subscribe((res: any) => {
+      this.attars = res.data;
+    })
+
+    // fetch featured cufflinks products
+    this.productService.getCufflinks().subscribe((res: any) => {
+      this.cufflinks = res.data;
+    })
   }
 
 }

@@ -20,16 +20,16 @@
 <!-- banner -->
 
 <!-- col two grid -->
-<section class="col-two-grid">
+<section class="col-two-grid" *ngIf="catData">
     <div class="container">
         <div class="row-wrap">
             <div class="col-six">
                 <div class="card-wrap">
                     <div class="bg-img">
-                        <img src="../../../assets/images/thobe_1.jpg" alt="thobe 1">
+                        <img [src]="catData[0].image" alt="catData[0].category_name">
                     </div>
                     <div class="text-wrap">
-                        <h2>Design Your Thobe</h2>
+                        <h2>{{ catData[0].category_name }}</h2>
                         <a href="#" routerLink="/customize/fabric" class="btn btn-transparent">Design Your Own</a>
                     </div>
                 </div>
@@ -37,19 +37,19 @@
             <div class="col-six">
                 <div class="card-wrap card-sm">
                     <div class="bg-img">
-                        <img src="../../../assets/images/thobe_2.jpg" alt="thobe 2">
+                        <img [src]="catData[1].image" alt="catData[1].category_name">
                     </div>
                     <div class="text-wrap">
-                        <h2>Premium Collection</h2>
+                        <h2>{{ catData[1].category_name }}</h2>
                         <a href="#" class="btn btn-transparent">Shop Now</a>
                     </div>
                 </div>
                 <div class="card-wrap card-sm">
                     <div class="bg-img">
-                        <img src="../../../assets/images/attars.jpg" alt="attars">
+                        <img [src]="catData[2].image" alt="catData[2].category_name">
                     </div>
                     <div class="text-wrap">
-                        <h2>Premium Collection</h2>
+                        <h2>{{ catData[2].category_name }}</h2>
                         <a href="#" class="btn btn-transparent">Shop Now</a>
                     </div>
                 </div>
@@ -60,76 +60,22 @@
 <!-- col two grid -->
 
 <!-- col four grid -->
-<section class="col-four-grid no-padding">
+<section class="col-four-grid no-padding" *ngIf="thobes">
     <div class="container">
         <div class="intro-wrap">
             <h2>MODEL THOBE</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
         </div>
         <div class="row-wrap">
-            <div class="col-three">
+            <div class="col-three" *ngFor="let thobe of thobes | slice:0:4">
                 <div class="card-wrap">
                     <div class="img-wrap">
-                        <img src="../../../assets/images/thobe_product_1.jpg" alt="thobe 1">
+                        <img [src]="thobe.image" [alt]="thobe.title">
                     </div>
                     <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Split</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn added-to-cart">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/thobe_product_2.jpg" alt="thobe 2">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Split</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/thobe_product_3.jpg" alt="thobe 3">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Split</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/thobe_product_4.jpg" alt="thobe 4">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Split</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
+                        <h6>{{ thobe.title | titlecase }}</h6>
+                        <p>{{ thobe.description }}</p>
+                        <span class="price">{{ thobe.cost | currency:'SAR' }}</span>
                     </div>
                     <button class="cart-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
@@ -155,69 +101,15 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
         </div>
         <div class="row-wrap">
-            <div class="col-three">
+            <div class="col-three" *ngFor="let cufflink of cufflinks | slice:0:4">
                 <div class="card-wrap">
                     <div class="img-wrap">
-                        <img src="../../../assets/images/cuff_product_1.jpg" alt="cuff 1">
+                        <img [src]="cufflink.image" [alt]="cufflink.title">
                     </div>
                     <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Cufflinks</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn added-to-cart">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/cuff_product_2.jpg" alt="cuff 2">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Cufflinks</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/cuff_product_3.jpg" alt="cuff 3">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Cufflinks</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/cuff_product_4.jpg" alt="cuff 4">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Cufflinks</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
+                        <h6>{{ cufflink.title | titlecase }}</h6>
+                        <p>{{ cufflink.description }}</p>
+                        <span class="price">{{ cufflink.cost | currency:'SAR' }}</span>
                     </div>
                     <button class="cart-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
@@ -258,69 +150,15 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
         </div>
         <div class="row-wrap">
-            <div class="col-three">
+            <div class="col-three" *ngFor="let shawl of shawls | slice:0:4">
                 <div class="card-wrap">
                     <div class="img-wrap">
-                        <img src="../../../assets/images/shawls_product_1.jpg" alt="shawl 1">
+                        <img [src]="shawl.image" [alt]="shawl.title">
                     </div>
                     <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Shawls</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn added-to-cart">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/shawls_product_2.jpg" alt="shawl 2">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Shawls</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/shawls_product_3.jpg" alt="shawl 3">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Shawls</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/shawls_product_4.jpg" alt="shawl 4">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Shawls</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
+                        <h6>{{ shawl.title | titlecase }}</h6>
+                        <p>{{ shawl.description }}</p>
+                        <span class="price">{{ shawl.cost | currency:'SAR' }}</span>
                     </div>
                     <button class="cart-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
@@ -346,69 +184,15 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
         </div>
         <div class="row-wrap">
-            <div class="col-three">
+            <div class="col-three" *ngFor="let attar of attars | slice:0:4">
                 <div class="card-wrap">
                     <div class="img-wrap">
-                        <img src="../../../assets/images/attars_product_1.jpg" alt="attar 1">
+                        <img [src]="attar.image" [alt]="attar.title">
                     </div>
                     <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Shawls</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn added-to-cart">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/attars_product_2.jpg" alt="attar 2">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Shawls</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/attars_product_3.jpg" alt="attar 3">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Shawls</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Added to cart</span>                          
-                    </button>
-                </div>
-            </div>
-            <div class="col-three">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="../../../assets/images/attars_product_3.jpg" alt="attar 4">
-                    </div>
-                    <div class="text-wrap">
-                        <h6 routerLink="/product-detail">Shawls</h6>
-                        <p>Lorem Ipsum dolor sit amet</p>
-                        <span class="price">SAR 65.00</span>
+                        <h6>{{ attar.title | titlecase }}</h6>
+                        <p>{{ attar.description }}</p>
+                        <span class="price">{{ attar.cost | currency:'SAR' }}</span>
                     </div>
                     <button class="cart-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
@@ -431,3 +215,5 @@
 <!-- icon with text -->
 <app-feature-block></app-feature-block>
 <!-- icon with text -->
+
+<ngx-spinner></ngx-spinner>
