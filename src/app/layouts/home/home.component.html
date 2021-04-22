@@ -60,56 +60,22 @@
 <!-- col two grid -->
 
 <!-- col four grid -->
-<section class="col-four-grid no-padding" *ngIf="thobes">
+<section class="col-four-grid no-padding-top" *ngFor="let products of featuredProducts; let i = index;">
     <div class="container">
         <div class="intro-wrap">
-            <h2>MODEL THOBE</h2>
+            <h2>{{ featuredCat[i].category_name }}</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
         </div>
         <div class="row-wrap">
-            <div class="col-three" *ngFor="let thobe of thobes">
-                <div class="card-wrap" [routerLink]="'/product-detail/' + thobe.id">
+            <div class="col-three" *ngFor="let product of products">
+                <div class="card-wrap" [routerLink]="'/product-detail/' + product.id">
                     <div class="img-wrap">
-                        <img [src]="thobe.image" [alt]="thobe.title">
+                        <img [src]="product.image" [alt]="product.title">
                     </div>
                     <div class="text-wrap">
-                        <h6>{{ thobe.title | titlecase }}</h6>
-                        <p>{{ thobe.description }}</p>
-                        <span class="price">{{ thobe.cost | currency:'SAR' }}</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Add to cart</span>                          
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="btn-wrap">
-            <a href="#" routerLink="/products" class="btn btn-default">View Full Collection</a>
-        </div>
-    </div>
-</section>
-<!-- col four grid -->
-
-<!-- col four grid -->
-<section class="col-four-grid" *ngIf="cufflinks">
-    <div class="container">
-        <div class="intro-wrap">
-            <h2>CUFFLINKS</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
-        </div>
-        <div class="row-wrap">
-            <div class="col-three" *ngFor="let cufflink of cufflinks">
-                <div class="card-wrap" [routerLink]="'/product-detail/' + cufflink.id">
-                    <div class="img-wrap">
-                        <img [src]="cufflink.image" [alt]="cufflink.title">
-                    </div>
-                    <div class="text-wrap">
-                        <h6>{{ cufflink.title | titlecase }}</h6>
-                        <p>{{ cufflink.description }}</p>
-                        <span class="price">{{ cufflink.cost | currency:'SAR' }}</span>
+                        <h6>{{ product.title | titlecase }}</h6>
+                        <p>{{ product.description }}</p>
+                        <span class="price">{{ product.cost | currency:'SAR' }}</span>
                     </div>
                     <button class="cart-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
@@ -141,76 +107,6 @@
     </div>
 </section>
 <!-- cta -->
-
-<!-- col four grid -->
-<section class="col-four-grid" *ngIf="shawls">
-    <div class="container">
-        <div class="intro-wrap">
-            <h2>SHAWLS</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
-        </div>
-        <div class="row-wrap">
-            <div class="col-three" *ngFor="let shawl of shawls">
-                <div class="card-wrap" [routerLink]="'/product-detail/' + shawl.id">
-                    <div class="img-wrap">
-                        <img [src]="shawl.image" [alt]="shawl.title">
-                    </div>
-                    <div class="text-wrap">
-                        <h6>{{ shawl.title | titlecase }}</h6>
-                        <p>{{ shawl.description }}</p>
-                        <span class="price">{{ shawl.cost | currency:'SAR' }}</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Add to cart</span>                          
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="btn-wrap">
-            <a href="#" routerLink="/products" class="btn btn-default">View Full Collection</a>
-        </div>
-    </div>
-</section>
-<!-- col four grid -->
-
-<!-- col four grid -->
-<section class="col-four-grid no-padding" *ngIf="attars">
-    <div class="container">
-        <div class="intro-wrap">
-            <h2>ATTARS</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
-        </div>
-        <div class="row-wrap">
-            <div class="col-three" *ngFor="let attar of attars">
-                <div class="card-wrap" [routerLink]="'/product-detail/' + attar.id">
-                    <div class="img-wrap">
-                        <img [src]="attar.image" [alt]="attar.title">
-                    </div>
-                    <div class="text-wrap">
-                        <h6>{{ attar.title | titlecase }}</h6>
-                        <p>{{ attar.description }}</p>
-                        <span class="price">{{ attar.cost | currency:'SAR' }}</span>
-                    </div>
-                    <button class="cart-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34">
-                            <path id="shopping-bag" d="M29.994,32.883,27.36,8.274a1.025,1.025,0,0,0-1.026-.906H21.382V6.261a6.384,6.384,0,0,0-12.765,0V7.368H3.666a1.025,1.025,0,0,0-1.026.906L.005,32.883a1,1,0,0,0,.259.783A1.041,1.041,0,0,0,1.031,34H28.968a1.041,1.041,0,0,0,.767-.335,1,1,0,0,0,.26-.783ZM10.68,6.261a4.32,4.32,0,0,1,8.638,0V7.368H10.68Zm-8.5,25.716L4.595,9.392H8.617v2.23a1.032,1.032,0,0,0,2.063,0V9.392h8.638v2.23a1.032,1.032,0,0,0,2.063,0V9.392H25.4l2.418,22.585Zm0,0" transform="translate(0 0)" fill="#818286"/>
-                          </svg>  
-                        <span>Add to cart</span>                          
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="btn-wrap">
-            <a href="#" routerLink="/products" class="btn btn-default">View Full Collection</a>
-        </div>
-    </div>
-</section>
-<!-- col four grid -->
-
-
 
 <!-- icon with text -->
 <app-feature-block></app-feature-block>
