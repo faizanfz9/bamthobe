@@ -3,6 +3,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfigService } from 'src/app/shared/services/config.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { map } from 'rxjs/operators';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -22,10 +23,8 @@ export class HomeComponent implements OnInit {
   }
   slides: any;
   specialCat: any;
-  thobes: any;
-  shawls: any;
-  attars: any;
-  cufflinks: any;
+  featuredCat: any;
+  featuredProducts: any = [];
 
   constructor(private configService: ConfigService, 
     private productService: ProductService,
@@ -41,33 +40,22 @@ export class HomeComponent implements OnInit {
       this.spinner.hide();
     });
 
-    // fetch product cat images
-    this.configService.productCat().subscribe((res: any) => {
+    // fetch special categories
+    this.configService.specialCat().subscribe((res: any) => {
       this.specialCat = res.data;
     });
 
-    // fetch featured thobe products
-    this.productService.getProducts(4).pipe(map((res: any) => 
-    res.data.slice(0, 4))).subscribe((res) => {
-      this.thobes = res;
-    })
-
-    // fetch featured shawls products
-    this.productService.getProducts(7).pipe(map((res: any) => 
-    res.data.slice(0, 4))).subscribe((res: any) => {
-      this.shawls = res;
-    })
-
-    // fetch featured attars products
-    this.productService.getProducts(8).pipe(map((res: any) => 
-    res.data.slice(0, 4))).subscribe((res: any) => {
-      this.attars = res;
-    })
-
-    // fetch featured cufflinks products
-    this.productService.getProducts(6).pipe(map((res: any) => 
-    res.data.slice(0, 4))).subscribe((res: any) => {
-      this.cufflinks = res;
+    // fetch products as per cateogy
+    this.productService.getProductsCat().subscribe((res: any) => {
+      this.featuredCat = res.data.filter((item: any) => item.type == 'normal');
+      let productUrlArr: any = [];
+      this.featuredCat.forEach((item: any) => {
+        productUrlArr.push(this.productService.getProducts(item.id).
+        pipe(map((res: any) => res.data.slice(0, 4))));
+      })
+      forkJoin(productUrlArr).subscribe((res: any) => {
+        this.featuredProducts = res;
+      })
     })
   }
 

@@ -68,12 +68,18 @@
                     </div>
                 </div>
                 <div class="review-row" *ngFor="let review of product.review">
-                    <img [src]="review.image" class="user-img" [alt]="review.name">
+                    <img [src]="review.image.search(imgRegex) == -1 ? '../../../assets/images/user_avatar.svg' : review.image " class="user-img" [alt]="review.name">
                     <div class="review">
                         <p class="name">{{ review.name }}</p>
-                        <img src="../../../assets/images/rating.png" alt="rating">
+                        <ul class="rating" [ngClass]="{ 'one': review.star == 1, 'two': review.star == 2, 'three': review.star == 3, 'four': review.star == 4, 'five': review.star == 5 }">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
                         <div class="comment-with-time">
-                            <h4>{{ review.comment }}</h4>
+                            <h4>{{ review.comments }}</h4>
                             <span>{{ review.created_at }}</span>
                         </div>
                     </div>
@@ -91,7 +97,7 @@
             </div>
             <div class="row-wrap">
                 <div class="col-three" *ngFor="let product of product.like">
-                    <div class="card-wrap">
+                    <div class="card-wrap" [routerLink]="'/product-detail/' + product.id">
                         <div class="img-wrap">
                             <img [src]="product.image" [alt]="product.name">
                         </div>

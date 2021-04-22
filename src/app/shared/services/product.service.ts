@@ -19,4 +19,9 @@ export class ProductService {
   getProductById(id: any) {
     return this.http.get(this.url + "/products_details/" + id);
   }
+
+  // Get products category
+  getProductsCat() {
+    return this.http.get(this.url + "/get_category");
+  }
 }

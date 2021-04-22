@@ -14,7 +14,7 @@ export class ConfigService {
     return this.http.get(this.url + '/get_sliders');
   }
 
-  productCat() {
+  specialCat() {
     return this.http.get(this.url + '/get_banner');
   }
 }

@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class ProductDetailComponent implements OnInit {
   productId: any;
   product: any;
+  imgRegex = new RegExp(/\.(gif|jpe?g|tiff?|png|webp|bmp)/g);
 
   constructor(private route: ActivatedRoute, 
     private productService: ProductService,
