@@ -38,7 +38,7 @@ export class AuthService {
   }
   
   isAuthenticated() {
-    if(!this.getLoggedUser()) {
+    if(!localStorage.getItem("user")) {
       return false;
     }else {
       return true;

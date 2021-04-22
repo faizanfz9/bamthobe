@@ -44,7 +44,21 @@
                                 font-size: 14px;
                                 margin-left: 10px;
                             }
-                        }    
+                        } 
+                        &.cart {
+                            position: relative;
+                            display: inline-block;
+                            .badge {
+                                position: absolute;
+                                bottom: -5px;
+                                right: -5px;
+                                width: 18px;
+                                height: 18px;
+                                border-radius: 50%;
+                                color: #fff;
+                                padding: 4px;
+                            }
+                        }   
                     }
                     .user-menu {
                         border: none;

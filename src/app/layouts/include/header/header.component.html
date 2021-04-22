@@ -67,8 +67,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" routerLink="/my-cart" class="icon">
+                        <a href="#" routerLink="/my-cart" class="cart icon">
                             <img src="../../../../assets/images/shopping-bag.svg" alt="shopping">
+                            <span class="badge bg-danger">{{ user.total_cart }}</span>
                         </a>
                     </li>
                     <li *ngIf="!isLoggedIn">

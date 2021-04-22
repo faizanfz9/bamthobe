@@ -87,7 +87,7 @@
             </div>
         </div>
         <div class="btn-wrap">
-            <a href="#" routerLink="/products" class="btn btn-default">View Full Collection</a>
+            <a href="#" [routerLink]="'/products/' + featuredCat[i].id " [queryParams]="{ category: featuredCat[i].category_name }" class="btn btn-default">View Full Collection</a>
         </div>
     </div>
 </section>

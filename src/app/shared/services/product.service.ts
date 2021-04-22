@@ -24,4 +24,13 @@ export class ProductService {
   getProductsCat() {
     return this.http.get(this.url + "/get_category");
   }
+
+  // Add to cart
+  addToCart(qty: any) {
+    return this.http.post(this.url + "/add_to_cart", qty);
+  }
+
+  viewCart() {
+    return this.http.get(this.url + "/get_cart");
+  }
 }

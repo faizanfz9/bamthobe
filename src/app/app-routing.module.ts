@@ -75,7 +75,7 @@ const routes: Routes = [
     {path: "offers", component: OffersComponent},
     {path: "settings", component: SettingsComponent}
   ]},
-  {path: "products", component: ProductsComponent},
+  {path: "products/:catId", component: ProductsComponent},
   {path: "product-detail/:id", component: ProductDetailComponent},
 ];
 
