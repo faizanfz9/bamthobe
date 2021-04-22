@@ -76,7 +76,7 @@ const routes: Routes = [
     {path: "settings", component: SettingsComponent}
   ]},
   {path: "products", component: ProductsComponent},
-  {path: "product-detail", component: ProductDetailComponent},
+  {path: "product-detail/:id", component: ProductDetailComponent},
 ];
 
 @NgModule({

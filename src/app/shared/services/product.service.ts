@@ -10,19 +10,13 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getThobes() {
-    return this.http.get(this.url + "/model_thobe");
+  // Get all products
+  getProducts(catId: any) {
+    return this.http.get(this.url + "/products/" + catId);
   }
 
-  getShawls() {
-    return this.http.get(this.url + "/shawls");
-  }
-
-  getAttars() {
-    return this.http.get(this.url + "/attars");
-  }
-
-  getCufflinks() {
-    return this.http.get(this.url + "/cufflinks");
+  // Get all by Id
+  getProductById(id: any) {
+    return this.http.get(this.url + "/products_details/" + id);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfigService } from 'src/app/shared/services/config.service';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
     marginL: 0
   }
   slides: any;
-  catData: any;
+  specialCat: any;
   thobes: any;
   shawls: any;
   attars: any;
@@ -42,27 +43,31 @@ export class HomeComponent implements OnInit {
 
     // fetch product cat images
     this.configService.productCat().subscribe((res: any) => {
-      this.catData = res.data;
+      this.specialCat = res.data;
     });
 
     // fetch featured thobe products
-    this.productService.getThobes().subscribe((res: any) => {
-      this.thobes = res.data;
+    this.productService.getProducts(4).pipe(map((res: any) => 
+    res.data.slice(0, 4))).subscribe((res) => {
+      this.thobes = res;
     })
 
     // fetch featured shawls products
-    this.productService.getShawls().subscribe((res: any) => {
-      this.shawls = res.data;
+    this.productService.getProducts(7).pipe(map((res: any) => 
+    res.data.slice(0, 4))).subscribe((res: any) => {
+      this.shawls = res;
     })
 
     // fetch featured attars products
-    this.productService.getAttars().subscribe((res: any) => {
-      this.attars = res.data;
+    this.productService.getProducts(8).pipe(map((res: any) => 
+    res.data.slice(0, 4))).subscribe((res: any) => {
+      this.attars = res;
     })
 
     // fetch featured cufflinks products
-    this.productService.getCufflinks().subscribe((res: any) => {
-      this.cufflinks = res.data;
+    this.productService.getProducts(6).pipe(map((res: any) => 
+    res.data.slice(0, 4))).subscribe((res: any) => {
+      this.cufflinks = res;
     })
   }
 

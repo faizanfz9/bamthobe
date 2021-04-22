@@ -157,16 +157,39 @@
                 padding: 7px;
                 background: $concrete;
                 position: relative;
+                cursor: pointer;
+                border: none;
+                outline: none;
+                &:hover {
+                    .img-wrap {
+                        img {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
                 @include desktop-down {
                     margin-top: 30px;
                 }
                 .img-wrap {
                     width: 100%;
                     height: 245px;
+                    position: relative;
+                    overflow: hidden;
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, .15);
+                        z-index: 1;
+                    }
                     img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
+                        transition: all .3s ease-in-out;
                     }
                 }
                 .text-wrap {
@@ -192,6 +215,7 @@
                     right: 20px;
                     border-radius: 3px;
                     transition: all .3s ease-in-out;
+                    z-index: 1;
                     &.added-to-cart {
                         background: $brown;
                         span {
