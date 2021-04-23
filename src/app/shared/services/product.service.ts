@@ -30,6 +30,11 @@ export class ProductService {
     return this.http.post(this.url + "/add_to_cart", qty);
   }
 
+  // Remove from cart
+  removeFromCart(cartId: any) {
+    return this.http.post(this.url + '/remove_cart', cartId)
+  }
+
   // View Cart
   viewCart() {
     return this.http.get(this.url + "/get_cart");

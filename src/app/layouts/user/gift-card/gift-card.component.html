@@ -1,26 +1,15 @@
 <h4>Gift Card</h4>
 
 <div class="info-box">
-    <div class="card-wrap">
+    <p *ngIf="!giftCards">Loading...</p>
+    <div class="card-wrap" *ngFor="let giftCard of giftCards">
         <div class="inner-row">
             <div class="product-img">
-                <img src="../../../assets/images/giftcard.png" alt="thobe">
+                <img [src]="giftCard.image" [alt]="giftCard.title">
             </div>
             <div class="product-info">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper nulla quis risus tempus.</p>
-                <h5>SAR 300</h5>
-                <a href="#">Create Gift</a>
-            </div>
-        </div>
-    </div>
-    <div class="card-wrap">
-        <div class="inner-row">
-            <div class="product-img">
-                <img src="../../../assets/images/giftcard.png" alt="thobe">
-            </div>
-            <div class="product-info">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper nulla quis risus tempus.</p>
-                <h5>SAR 300</h5>
+                <p>{{ giftCard.description }}</p>
+                <h5>{{ giftCard.price | currency:'SAR ' }}</h5>
                 <a href="#">Create Gift</a>
             </div>
         </div>

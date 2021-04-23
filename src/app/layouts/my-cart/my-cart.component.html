@@ -16,12 +16,14 @@
                         </div>
                         <div class="product-info">
                             <h6>{{ addedProduct.title }}
-                                <button type="submit"><img src="../../../assets/images/delete.svg" alt="delete"></button>
+                                <button (click)="onRemoveFromCart(addedProduct.id)" type="button">
+                                    <img src="../../../assets/images/delete.svg" alt="delete">
+                                </button>
                             </h6>
                             <p>{{ addedProduct.description }}</p>
                             <div class="qty-row">
                                 <div class="qty-wrap">
-                                    <button (click)="manageQty(addedProduct.quantity, -1, addedProduct.product_id)" class="decrement"><span>-</span></button>
+                                    <button [disabled]="addedProduct.quantity == 1" (click)="manageQty(addedProduct.quantity, -1, addedProduct.product_id)" class="decrement"><span>-</span></button>
                                     <span class="qty">{{ addedProduct.quantity }}</span>
                                     <button (click)="manageQty(addedProduct.quantity, 1, addedProduct.product_id)" class="increment"><span>+</span></button>
                                 </div>

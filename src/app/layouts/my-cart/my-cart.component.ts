@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
@@ -14,6 +14,7 @@ export class MyCartComponent implements OnInit {
   itemsInCart: any;
 
   constructor(private productService: ProductService, 
+    private userService: UserService,
     private authService: AuthService,
     private spinner: NgxSpinnerService) { }
 
@@ -45,9 +46,26 @@ export class MyCartComponent implements OnInit {
       this.productService.addToCart(productQty).subscribe(res => {
         this.spinner.hide();
         this.fetchCart();
+        this.userService.updateUser();
       }, error => {
         this.spinner.hide();
       })
+  }
+
+  onRemoveFromCart(cartId: any) {
+    let cart_id = new FormData();
+    cart_id.append('cart_id', cartId);
+
+    if(confirm('Do you want to remove this product?')) {
+      this.spinner.show();
+      this.productService.removeFromCart(cart_id).subscribe(res => {
+        this.spinner.hide();
+        this.fetchCart();
+        this.userService.updateUser();
+      }, error => {
+        this.spinner.hide();
+      }) 
+    }
   }
 
 }

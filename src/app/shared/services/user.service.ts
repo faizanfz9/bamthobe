@@ -13,13 +13,6 @@ export class UserService {
   private url = environment.url;
 
   constructor(private http: HttpClient, private authService: AuthService) { 
-    // attaching token to every request
-    // this.headers = this.loggedUser ? new HttpHeaders().set('Authorization', this.getLoggedUser().token): null;
-    // this.authService.user.subscribe(res => {
-    //   if(res.data) {
-    //     this.headers = new HttpHeaders().set('Authorization', res.data.token);
-    //   }
-    // })
   }
 
    // Get logged User
@@ -30,6 +23,14 @@ export class UserService {
   // Get user profile
   getUserProfile() {
     return this.http.get(this.url + '/get_profile');
+  }
+
+  // Update user
+  updateUser() {
+    this.getUserProfile().subscribe((res: any) => {
+      this.authService.user.next({isLogin: true, data: res.data});
+      localStorage.setItem('user', JSON.stringify(res.data));
+    })
   }
 
   // Update profile
@@ -50,5 +51,10 @@ export class UserService {
   // Update address
   updateAddress(address: any) {
     return this.http.post(this.url + '/update_address', address);
+  }
+
+  // Gift card list
+  giftCardList() {
+    return this.http.get(this.url + '/gifts');
   }
 }
