@@ -9,14 +9,14 @@
         <p *ngIf="!addedProducts">Loding...</p>
         <div class="row-wrap" *ngIf="addedProducts">
             <div class="col-wrap">
-                <div class="card-wrap" *ngFor="let addedProduct of addedProducts">
+                <div class="card-wrap" *ngFor="let addedProduct of addedProducts.normal">
                     <div class="inner-row">
                         <div class="product-img">
                             <img [src]="addedProduct.image" [alt]="addedProduct.title">
                         </div>
                         <div class="product-info">
                             <h6>{{ addedProduct.title }}
-                                <button (click)="onRemoveFromCart(addedProduct.id)" type="button">
+                                <button (click)="onRemoveFromCart(addedProduct.id, addedProduct.type)" type="button">
                                     <img src="../../../assets/images/delete.svg" alt="delete">
                                 </button>
                             </h6>

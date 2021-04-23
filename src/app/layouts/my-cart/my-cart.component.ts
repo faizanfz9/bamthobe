@@ -52,9 +52,10 @@ export class MyCartComponent implements OnInit {
       })
   }
 
-  onRemoveFromCart(cartId: any) {
+  onRemoveFromCart(cartId: any, type: any) {
     let cart_id = new FormData();
     cart_id.append('cart_id', cartId);
+    cart_id.append('type', type);
 
     if(confirm('Do you want to remove this product?')) {
       this.spinner.show();

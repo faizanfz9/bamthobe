@@ -40,7 +40,8 @@ export class ProductDetailComponent implements OnInit {
 
     // check if product is already added to cart
     this.productService.viewCart().subscribe((res: any) => {
-      this.isAddedToCart = res.data.some((item: any) => this.productId == item.product_id);
+      this.isAddedToCart = res.data.normal.
+      some((item: any) => this.productId == item.product_id);
     })
   }
 
