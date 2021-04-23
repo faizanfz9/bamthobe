@@ -55,6 +55,7 @@ import { ProductDetailComponent } from './layouts/product-detail/product-detail.
 import { EditAddressComponent } from './layouts/user/edit-address/edit-address.component';
 import { TokenInterceptor } from './shared/interceptor/token.interceptor';
 import { ErrorInterceptor } from './shared/interceptor/error.interceptor';
+import { SearchProductsComponent } from './layouts/search-products/search-products.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { ErrorInterceptor } from './shared/interceptor/error.interceptor';
     ChangePwdComponent,
     ProductsComponent,
     ProductDetailComponent,
-    EditAddressComponent
+    EditAddressComponent,
+    SearchProductsComponent
   ],
   imports: [
     BrowserModule,

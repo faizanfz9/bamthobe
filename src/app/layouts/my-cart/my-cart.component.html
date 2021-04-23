@@ -1,7 +1,11 @@
 <!-- my cart block -->
 <section class="my-cart-block">
     <div class="container">
-        <h4>My Cart ({{ itemsInCart }})</h4>
+        <h4>My Cart 
+            <span>
+                ({{ itemsInCart }})
+            </span>
+        </h4>
         <p *ngIf="!addedProducts">Loding...</p>
         <div class="row-wrap" *ngIf="addedProducts">
             <div class="col-wrap">
@@ -17,9 +21,9 @@
                             <p>{{ addedProduct.description }}</p>
                             <div class="qty-row">
                                 <div class="qty-wrap">
-                                    <button class="decrement"><span>-</span></button>
+                                    <button (click)="manageQty(addedProduct.quantity, -1, addedProduct.product_id)" class="decrement"><span>-</span></button>
                                     <span class="qty">{{ addedProduct.quantity }}</span>
-                                    <button class="increment"><span>+</span></button>
+                                    <button (click)="manageQty(addedProduct.quantity, 1, addedProduct.product_id)" class="increment"><span>+</span></button>
                                 </div>
                                 <h4>{{ addedProduct.total_cost | currency:'SAR ' }}</h4>
                             </div>

@@ -14,9 +14,9 @@ import { LoginComponent } from '../modals/login/login.component';
 export class ProductDetailComponent implements OnInit {
   productId: any;
   product: any;
-  initialQty: any = 0;
-  imgRegex = new RegExp(/\.(gif|jpe?g|tiff?|png|webp|bmp)/g);
+  isAddedToCart = false;
   isLogin = false;
+  imgRegex = new RegExp(/\.(gif|jpe?g|tiff?|png|webp|bmp)/g);
 
   constructor(private route: ActivatedRoute, 
     private authService: AuthService,
@@ -38,26 +38,23 @@ export class ProductDetailComponent implements OnInit {
     });
     this.isLogin = this.authService.isAuthenticated();
 
-    // store initial qty of product if already
+    // check if product is already added to cart
     this.productService.viewCart().subscribe((res: any) => {
-      this.initialQty = +res.data.find((item: any) => this.productId == item.product_id).quantity;
+      this.isAddedToCart = res.data.some((item: any) => this.productId == item.product_id);
     })
   }
 
   // Add to cart
-  onAddToCart(qty: any) {
+  onAddToCart() {
     if(this.isLogin) {
-      this.initialQty += qty;
-      if(this.initialQty == -1) {
-        this.initialQty == 0;
-      }
       let productQty = new FormData();
       productQty.append('product_id', this.productId);
-      productQty.append('quantity', this.initialQty);
+      productQty.append('quantity', '1');
 
       this.spinner.show();
       this.productService.addToCart(productQty).subscribe(res => {
         this.spinner.hide();
+        this.isAddedToCart = true;
       }, error => {
         this.spinner.hide();
       })

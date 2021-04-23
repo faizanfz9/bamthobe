@@ -30,7 +30,13 @@ export class ProductService {
     return this.http.post(this.url + "/add_to_cart", qty);
   }
 
+  // View Cart
   viewCart() {
     return this.http.get(this.url + "/get_cart");
+  }
+
+  // Search products
+  searchProduct(query: any) {
+    return this.http.get(this.url + "/search_products/" + query)
   }
 }

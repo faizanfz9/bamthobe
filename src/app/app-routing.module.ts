@@ -21,6 +21,7 @@ import { PaymentComponent } from './layouts/payment/payment.component';
 import { PrivacyPolicyComponent } from './layouts/privacy-policy/privacy-policy.component';
 import { ProductDetailComponent } from './layouts/product-detail/product-detail.component';
 import { ProductsComponent } from './layouts/products/products.component';
+import { SearchProductsComponent } from './layouts/search-products/search-products.component';
 import { TermsAndConditionComponent } from './layouts/terms-and-condition/terms-and-condition.component';
 import { ThankYouComponent } from './layouts/thank-you/thank-you.component';
 import { AddNewAddressComponent } from './layouts/user/add-new-address/add-new-address.component';
@@ -77,6 +78,7 @@ const routes: Routes = [
   ]},
   {path: "products/:catId", component: ProductsComponent},
   {path: "product-detail/:id", component: ProductDetailComponent},
+  {path: "search", component: SearchProductsComponent},
 ];
 
 @NgModule({

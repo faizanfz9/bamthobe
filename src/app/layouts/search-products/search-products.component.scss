@@ -1,0 +1,112 @@
+@import "../../../assets/styles/global/variables";
+
+// col four grid
+.col-four-grid {
+    .intro-wrap {
+        margin-bottom: 20px;
+        text-align: left;
+        max-width: 100%;
+    }
+    .row-wrap {
+        @include row;
+        margin: 0 -15px;
+        justify-content: center;
+        .col-three {
+            @include column(25%);
+            padding: 0 15px;
+            @include desktop-down {
+                @include column(33.33%);
+            }
+            @include tablet-down {
+                @include column(50%);
+            }
+            @include phone-down {
+                @include column(100%);
+            }
+            .card-wrap {
+                padding: 7px;
+                background: $concrete;
+                position: relative;
+                margin-bottom: 30px;
+                @include desktop-down {
+                    margin-top: 30px;
+                }
+                .img-wrap {
+                    width: 100%;
+                    height: 245px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .text-wrap {
+                    h6 {
+                        margin-top: 10px;
+                    }
+                    p {
+                        font-size: 14px;
+                        margin: 3px 0;
+                    }
+                    .price {
+                        font-size: 20px;
+                        color: $brown;
+                    }
+                }
+                .cart-btn {
+                    outline: none;
+                    border: none;
+                    background: $white;
+                    padding:  3px 7px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    border-radius: 3px;
+                    transition: all .3s ease-in-out;
+                    &.added-to-cart {
+                        background: $brown;
+                        span {
+                            display: inline-block;
+                        }
+                        svg {
+                            path {
+                                fill: $white;
+                            }
+                        }
+                    }
+                    &:hover {
+                        background: $brown;
+                        span {
+                            display: inline-block;
+                        }
+                        svg {
+                            path {
+                                fill: $white;
+                            }
+                        }
+                    }
+                    span {
+                        display: none;
+                        font-size: 12px;
+                        color: $white;
+                        // vertical-align: middle;
+                        margin-left: 5px;
+                        line-height: 0.8;
+                    }
+                    svg {
+                        width: 14px;
+                        height: 14px;
+                        // vertical-align: middle;
+                        path {
+                            transition: all .3s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .btn-wrap {
+        margin-top: 30px;
+        text-align: center;
+    }
+}

@@ -62,7 +62,7 @@
                         <a href="#">Accessories</a>
                     </li>
                     <li>
-                        <a href="#" class="icon">
+                        <a (click)="showSearchBox = true" class="icon">
                             <img src="../../../../assets/images/loupe.svg" alt="loupe">
                         </a>
                     </li>
@@ -99,5 +99,15 @@
         </div>
     </div>
 </header>
+
+<div class="search-overlay" [ngClass]="{ 'show': showSearchBox }">
+    <div (click)="showSearchBox = false" class="close-btn"></div>
+    <form class="search-form" (submit)="onSerachProduct(searchFrom)" #searchFrom="ngForm">
+        <div class="input-wrap">
+            <input type="text" name="search" ngModel placeholder="Search Products..." required>
+            <button type="submit" [disabled]="!searchFrom.valid"><img src="../../../../assets/images/loupe.svg" alt="magnify"></button>
+        </div>
+    </form>
+</div>
 
 <ngx-spinner></ngx-spinner>

@@ -8,7 +8,7 @@
             </div>
             <div class="col-content">
                 <h2 class="name">{{ product.title }}</h2>
-                <h2 class="price">{{ product.cost | currency:'SAR' }}</h2>
+                <h2 class="price">{{ product.cost | currency:'SAR ' }}</h2>
                 <p class="description">{{ product.description }}</p>
                 <div class="size">
                     <h4>Product Size</h4>
@@ -16,11 +16,15 @@
                         <span>100 ml</span>
                     </div>
                 </div>
-                <div class="qty-wrap">
+                <button class="btn btn-default no-arrow" (click)="onAddToCart()" [disabled]="isAddedToCart">
+                    <i class="fa fa-shopping-bag" [ngClass]="{ 'fa-shopping-bag': !isAddedToCart, 'fa-check': isAddedToCart }" aria-hidden="true"></i> 
+                    {{ isAddedToCart ? 'Added to cart' : 'Add to cart' }}
+                </button>
+                <!-- <div class="qty-wrap">
                     <button (click)="onAddToCart(-1)" class="decrement"><span>-</span></button>
                     <span class="qty">{{ initialQty }}</span>
                     <button (click)="onAddToCart(1)" class="increment"><span>+</span></button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

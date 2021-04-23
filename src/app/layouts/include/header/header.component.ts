@@ -1,4 +1,5 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -13,6 +14,7 @@ import { LoginComponent } from '../../modals/login/login.component';
 })
 export class HeaderComponent implements OnInit {
   showMenu = false;
+  showSearchBox = false;
   isLoggedIn: any;
   user: any;
 
@@ -44,6 +46,12 @@ export class HeaderComponent implements OnInit {
       this.authService.user.next({isLogin: false, data: null});
       this.router.navigate(['/']);
       this.spinner.hide();
+  }
+
+  // Search Proudcts
+  onSerachProduct(form: NgForm) {
+    this.showSearchBox = false;
+    this.router.navigate(['/search'], { queryParams: { query: form.value.search } });
   }
 
 }
