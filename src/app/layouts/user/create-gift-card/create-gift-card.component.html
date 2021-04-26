@@ -1,0 +1,61 @@
+<h4>Gift Card > <span>Buy Gift Card</span></h4>
+
+<div class="info-box">
+    <form (submit)="onCreateGift(createGiftForm)" #createGiftForm="ngForm">
+        <div class="inner-row">
+            <div class="left-col">
+                <div class="field-wrap">
+                    <input 
+                    type="date" 
+                    name="date"
+                    required
+                    ngModel
+                    >
+                </div>
+                <div class="field-wrap">
+                    <input 
+                    type="time" 
+                    name="time" 
+                    required
+                    ngModel
+                    >
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="field-wrap">
+                    <input 
+                    type="text" 
+                    name="to" 
+                    placeholder="To"
+                    required
+                    ngModel
+                    >
+                </div>
+                <div class="field-wrap">
+                    <textarea rows="5" name="message" placeholder="Type your message here..." required ngModel></textarea>
+                </div>
+                <div class="field-wrap">
+                    <input 
+                    type="text" 
+                    name="from" 
+                    placeholder="From"
+                    required
+                    ngModel
+                    >
+                </div>
+                <div class="field-wrap">
+                    <input 
+                    type="tel" 
+                    name="mobile" 
+                    placeholder="Mobile"
+                    required
+                    ngModel
+                    >
+                </div>
+                <div class="btn-wrap">
+                    <button type="submit" [disabled]="!createGiftForm.valid" class="btn btn-default no-arrow">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

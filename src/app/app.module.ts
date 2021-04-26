@@ -56,6 +56,8 @@ import { EditAddressComponent } from './layouts/user/edit-address/edit-address.c
 import { TokenInterceptor } from './shared/interceptor/token.interceptor';
 import { ErrorInterceptor } from './shared/interceptor/error.interceptor';
 import { SearchProductsComponent } from './layouts/search-products/search-products.component';
+import { GiftCardDetailComponent } from './layouts/user/gift-card-detail/gift-card-detail.component';
+import { CreateGiftCardComponent } from './layouts/user/create-gift-card/create-gift-card.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +106,9 @@ import { SearchProductsComponent } from './layouts/search-products/search-produc
     ProductsComponent,
     ProductDetailComponent,
     EditAddressComponent,
-    SearchProductsComponent
+    SearchProductsComponent,
+    GiftCardDetailComponent,
+    CreateGiftCardComponent
   ],
   imports: [
     BrowserModule,

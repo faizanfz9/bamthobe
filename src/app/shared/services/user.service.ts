@@ -57,4 +57,14 @@ export class UserService {
   giftCardList() {
     return this.http.get(this.url + '/gifts');
   }
+
+  // Gift card detail
+  giftCardDetail(id: any) {
+    return this.http.get(this.url + "/gift_description/" + id)
+  }
+
+  // Create gift card
+  createGiftCard(giftCard: any) {
+    return this.http.post(this.url + "/gift_create", giftCard);
+  }
 }

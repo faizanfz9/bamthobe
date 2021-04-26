@@ -1,0 +1,19 @@
+<h4>Gift Card > <span>Buy Gift Card</span></h4>
+
+<div class="info-box">
+    <p *ngIf="!giftCard">Loading...</p>
+    <div *ngIf="giftCard">
+        <div class="card-wrap">
+            <div class="inner-row">
+                <div class="product-img">
+                    <img [src]="giftCard.image" [alt]="giftCard.title">
+                </div>
+                <div class="product-info">
+                    <p>{{ giftCard.description }}</p>
+                </div>
+            </div>
+            <h4>Price: <span>{{ giftCard.price | currency:'SAR ' }}</span></h4>
+        </div>
+        <button class="btn btn-default" [routerLink]="'/my-account/create-gift-card/' + giftCard.id">Continue</button>
+    </div>
+</div>

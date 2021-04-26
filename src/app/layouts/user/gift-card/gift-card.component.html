@@ -10,7 +10,7 @@
             <div class="product-info">
                 <p>{{ giftCard.description }}</p>
                 <h5>{{ giftCard.price | currency:'SAR ' }}</h5>
-                <a href="#">Create Gift</a>
+                <a href="#" [routerLink]="'/my-account/buy-gift-card/' + giftCard.id">Create Gift</a>
             </div>
         </div>
     </div>

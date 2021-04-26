@@ -57,6 +57,21 @@
                         </div>
                     </div> -->
                 </div>
+                <div class="card-wrap" *ngFor="let addedProduct of addedProducts.gift_cart">
+                    <div class="inner-row">
+                        <div class="product-img">
+                            <img [src]="addedProduct.image" [alt]="addedProduct.title">
+                        </div>
+                        <div class="product-info">
+                            <h6>{{ addedProduct.title }}
+                                <button (click)="onRemoveFromCart(addedProduct.id, addedProduct.type)" type="button">
+                                    <img src="../../../assets/images/delete.svg" alt="delete">
+                                </button>
+                            </h6>
+                            <p>{{ addedProduct.description }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-wrap">
                 <div class="card-wrap single-row">

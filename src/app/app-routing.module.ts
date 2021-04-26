@@ -27,7 +27,9 @@ import { ThankYouComponent } from './layouts/thank-you/thank-you.component';
 import { AddNewAddressComponent } from './layouts/user/add-new-address/add-new-address.component';
 import { AddressBookComponent } from './layouts/user/address-book/address-book.component';
 import { AppointmentsComponent } from './layouts/user/appointments/appointments.component';
+import { CreateGiftCardComponent } from './layouts/user/create-gift-card/create-gift-card.component';
 import { EditAddressComponent } from './layouts/user/edit-address/edit-address.component';
+import { GiftCardDetailComponent } from './layouts/user/gift-card-detail/gift-card-detail.component';
 import { GiftCardComponent } from './layouts/user/gift-card/gift-card.component';
 import { LoyalityPointsComponent } from './layouts/user/loyality-points/loyality-points.component';
 import { MeasurementsComponent } from './layouts/user/measurements/measurements.component';
@@ -73,6 +75,8 @@ const routes: Routes = [
     {path: "appointments", component: AppointmentsComponent},
     {path: "loyality-points", component: LoyalityPointsComponent},
     {path: "gift-card", component: GiftCardComponent},
+    {path: "buy-gift-card/:id", component: GiftCardDetailComponent},
+    {path: "create-gift-card/:id", component: CreateGiftCardComponent},
     {path: "offers", component: OffersComponent},
     {path: "settings", component: SettingsComponent}
   ]},

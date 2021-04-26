@@ -1,0 +1,15 @@
+@import "../../../../assets/styles/global/variables";
+
+.inner-row {
+    flex-wrap: wrap !important;
+    .left-col {
+        @include column(40%);
+        max-width: 40% !important;
+        margin: 0 !important;
+    }
+    .right-col {
+        @include column(60%);
+        padding-left: 20px;
+        max-width: 60% !important;
+    }
+}

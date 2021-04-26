@@ -26,10 +26,18 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     // fetch selected product details
-    this.productId = this.route.snapshot.params.id;
-    this.productService.getProductById(this.productId).subscribe((res: any) => {
-      this.product = res.data;
-      this.spinner.hide();
+    this.route.params.subscribe(res => {
+      this.productId = res.id;
+      this.product = null;
+      this.productService.getProductById(this.productId).subscribe((res: any) => {
+        this.product = res.data;
+        this.spinner.hide();
+      })
+      // check if product is already added to cart
+      this.productService.viewCart().subscribe((res: any) => {
+        this.isAddedToCart = res.data.normal.
+        some((item: any) => this.productId == item.product_id);
+      })
     })
 
     // check if user is authenticated
@@ -37,12 +45,6 @@ export class ProductDetailComponent implements OnInit {
       this.isLogin = res.isLogin;
     });
     this.isLogin = this.authService.isAuthenticated();
-
-    // check if product is already added to cart
-    this.productService.viewCart().subscribe((res: any) => {
-      this.isAddedToCart = res.data.normal.
-      some((item: any) => this.productId == item.product_id);
-    })
   }
 
   // Add to cart
