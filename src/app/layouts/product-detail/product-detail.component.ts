@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { UserService } from 'src/app/shared/services/user.service';
 import { LoginComponent } from '../modals/login/login.component';
 
 @Component({
@@ -20,6 +21,7 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
     private authService: AuthService,
+    private userService: UserService,
     private modalService: NgbModal,
     private productService: ProductService,
     private spinner: NgxSpinnerService) { }
@@ -58,6 +60,7 @@ export class ProductDetailComponent implements OnInit {
       this.productService.addToCart(productQty).subscribe(res => {
         this.spinner.hide();
         this.isAddedToCart = true;
+        this.userService.updateUser();
       }, error => {
         this.spinner.hide();
       })

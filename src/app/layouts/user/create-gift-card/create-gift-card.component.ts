@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -10,11 +11,16 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class CreateGiftCardComponent implements OnInit {
   id: any;
+  userName: any;
 
-  constructor(private route: ActivatedRoute, private userService: UserService) { }
+  constructor(private route: ActivatedRoute, 
+    private router: Router, 
+    private spinner: NgxSpinnerService,
+    private userService: UserService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
+    this.userName = this.userService.getLoggedUser().name;
   }
 
   onCreateGift(form: NgForm) {
@@ -28,8 +34,10 @@ export class CreateGiftCardComponent implements OnInit {
     giftCard.append('mobile', form.value.mobile);
     giftCard.append('receiver_name', form.value.to);
 
+    this.spinner.show();
     this.userService.createGiftCard(giftCard).subscribe((res: any) => {
-      alert(res.message);
+      this.spinner.hide();
+      this.router.navigate(['/gift-card-added']);
     })
     
   }

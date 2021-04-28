@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
@@ -12,10 +13,12 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class MyCartComponent implements OnInit {
   addedProducts: any;
   itemsInCart: any;
+  promo_code: any;
 
   constructor(private productService: ProductService, 
     private userService: UserService,
     private authService: AuthService,
+    private router: Router,
     private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
@@ -28,6 +31,7 @@ export class MyCartComponent implements OnInit {
       }
     })
     this.fetchCart();
+    this.promo_code = localStorage.getItem('promo');
   }
 
   fetchCart() {
@@ -36,6 +40,7 @@ export class MyCartComponent implements OnInit {
     })
   }
 
+  // increase or descrese product quantity
   manageQty(initialQty: any, currentQty: any, productId: any) {
     let totalQty = +initialQty + currentQty;
     let productQty = new FormData();
@@ -52,6 +57,7 @@ export class MyCartComponent implements OnInit {
       })
   }
 
+  // Remove product from cart
   onRemoveFromCart(cartId: any, type: any) {
     let cart_id = new FormData();
     cart_id.append('cart_id', cartId);
@@ -66,6 +72,28 @@ export class MyCartComponent implements OnInit {
       }, error => {
         this.spinner.hide();
       }) 
+    }
+  }
+
+  // Apply promocode
+  onApplyPromo(promoCode: any) {
+    let promo = new FormData();
+    promo.append('coupon_id', promoCode);
+    this.promo_code = promoCode;
+    localStorage.setItem('promo', this.promo_code);
+
+    this.spinner.show();
+    this.productService.applyPromo(promo).subscribe((res: any) => {
+      console.log(res.message);
+      this.spinner.hide();
+      this.fetchCart();
+    })
+  }
+
+  // Proceed to checkout
+  goToCheckout() {
+    if(confirm('Do you want to proceed to checkout?')) {
+      this.router.navigate(['/checkout'], { queryParams: { total: this.addedProducts.grand_total } });
     }
   }
 

@@ -15,6 +15,7 @@ import { PlacketComponent } from './layouts/customize/placket/placket.component'
 import { PocketComponent } from './layouts/customize/pocket/pocket.component';
 import { SidePocketComponent } from './layouts/customize/side-pocket/side-pocket.component';
 import { FaqsComponent } from './layouts/faqs/faqs.component';
+import { GiftCardAddedComponent } from './layouts/gift-card-added/gift-card-added.component';
 import { HomeComponent } from './layouts/home/home.component';
 import { MyCartComponent } from './layouts/my-cart/my-cart.component';
 import { PaymentComponent } from './layouts/payment/payment.component';
@@ -64,6 +65,7 @@ const routes: Routes = [
   {path: "checkout", component: CheckoutComponent},
   {path: "payment", component: PaymentComponent},
   {path: "thank-you", component: ThankYouComponent},
+  {path: "gift-card-added", component: GiftCardAddedComponent},
   {path: "my-account", component: UserComponent, canActivate: [AuthGuard], children: [
     {path: "profile", component: MyProfileComponent},
     {path: "address-book", component: AddressBookComponent},

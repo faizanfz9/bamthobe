@@ -67,4 +67,15 @@ export class UserService {
   createGiftCard(giftCard: any) {
     return this.http.post(this.url + "/gift_create", giftCard);
   }
+
+  // Get offers
+  getOffers() {
+    return this.http.get(this.url + "/offers");
+  }
+
+  // Get user orders
+  getOrders() {
+    return this.http.get(this.url + "/order_history");
+  }
 }
+ 

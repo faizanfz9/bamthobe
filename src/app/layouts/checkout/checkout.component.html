@@ -5,27 +5,27 @@
             <h4>Checkout</h4>
             <div class="measurement new">
                 <div class="option">
-                    <input type="radio" name="new" id="branch">
-                    <label for="branch">Home Delivery</label>
+                    <input type="radio" name="type" id="home">
+                    <label for="home">Home Delivery</label>
                 </div>
+                <p *ngIf="!addresses">Loading...</p>
                 <div class="saved-address show">
-                    <div class="address">
-                        <p>Home</p>
-                        <h6>Sydney h6era House, Sydney,  New South Wales, 200077, AUS</h6>
+                    <div class="address" *ngFor="let address of addresses">
+                        <input type="radio" name="address" #address (change)="onChooseAddress(address.id)" [id]="address.id">
+                        <label [for]="address.id">
+                            <p>{{ address.home_type }}</p>
+                            <h6>{{ address.address }}</h6>
+                        </label>
                     </div>
-                    <div class="address">
-                        <p>Home</p>
-                        <h6>GPO Cheese and Wine Room,  1 Martin Pl, Sydney 110056, AUS</h6>
-                    </div>
-                    <a href="#" class="btn btn-default no-arrow">+ Add New</a>
+                    <a href="#" routerLink="/my-account/add-new-address" class="btn btn-default no-arrow">+ Add New</a>
                 </div>
                 <div class="option">
-                    <input type="radio" name="new" id="home">
-                    <label for="home">Store Pickup</label> 
+                    <input type="radio" name="type" id="store">
+                    <label for="store">Store Pickup</label> 
                 </div>
             </div>
             <div class="btn-wrap">
-                <a href="#" routerLink="/payment" class="btn btn-default">Continue to Payment</a>
+                <a href="#" routerLink="/payment" [queryParams]="{ addressId : selectedAddId, total: grandTotal }" class="btn btn-default">Continue to Payment</a>
             </div>
         </div>
     </div>

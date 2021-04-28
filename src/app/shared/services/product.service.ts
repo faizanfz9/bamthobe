@@ -25,6 +25,11 @@ export class ProductService {
     return this.http.get(this.url + "/get_category");
   }
 
+  // Search products
+  searchProduct(query: any) {
+    return this.http.get(this.url + "/search_products/" + query)
+  }
+
   // Add to cart
   addToCart(qty: any) {
     return this.http.post(this.url + "/add_to_cart", qty);
@@ -40,8 +45,14 @@ export class ProductService {
     return this.http.get(this.url + "/get_cart");
   }
 
-  // Search products
-  searchProduct(query: any) {
-    return this.http.get(this.url + "/search_products/" + query)
+  // Apply promocode
+  applyPromo(promo: any) {
+    return this.http.post(this.url + "/coupon", promo);
   }
+
+  // Place order
+  placeOrder(cart: any) {
+    return this.http.post(this.url + "/order", cart);
+  }
+
 }

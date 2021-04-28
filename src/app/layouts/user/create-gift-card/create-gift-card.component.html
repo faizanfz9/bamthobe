@@ -1,4 +1,4 @@
-<h4>Gift Card > <span>Buy Gift Card</span></h4>
+<h4>Gift Card > Buy Gift Card > <span>Enter Details</span></h4>
 
 <div class="info-box">
     <form (submit)="onCreateGift(createGiftForm)" #createGiftForm="ngForm">
@@ -39,8 +39,8 @@
                     type="text" 
                     name="from" 
                     placeholder="From"
-                    required
-                    ngModel
+                    readonly
+                    [ngModel]="userName"
                     >
                 </div>
                 <div class="field-wrap">
@@ -59,3 +59,5 @@
         </div>
     </form>
 </div>
+
+<ngx-spinner></ngx-spinner>

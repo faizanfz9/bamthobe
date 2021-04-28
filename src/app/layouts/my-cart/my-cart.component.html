@@ -7,7 +7,8 @@
             </span>
         </h4>
         <p *ngIf="!addedProducts">Loding...</p>
-        <div class="row-wrap" *ngIf="addedProducts">
+        <p *ngIf="itemsInCart == 0 && addedProducts">Your cart is empty!</p>
+        <div class="row-wrap" *ngIf="itemsInCart !== 0">
             <div class="col-wrap">
                 <div class="card-wrap" *ngFor="let addedProduct of addedProducts.normal">
                     <div class="inner-row">
@@ -86,8 +87,8 @@
                     <div class="inner-row">
                         <h6>Enter Discount Code</h6>
                         <div class="field-wrap">
-                            <input type="text">
-                            <button type="submit">Apply</button>
+                            <input type="text" #apply>
+                            <button (click)="onApplyPromo(apply.value)" type="button">Apply</button>
                         </div>
                     </div>
                 </div>
@@ -96,32 +97,32 @@
                     <div class="detail-wrap">
                         <div class="amount-row">
                             <h6>Thobe Total</h6>
-                            <span class="amt">SAR 789</span>
+                            <span class="amt">{{ addedProducts.thobe_total | currency:'SAR ' }}</span>
                         </div>
                         <div class="amount-row">
                             <h6>Accessories Total</h6>
-                            <span class="amt">SAR 430</span>
+                            <span class="amt">{{ addedProducts.accessories_total | currency:'SAR ' }}</span>
                         </div>
                         <div class="amount-row">
                             <h6>Gift Card Amount</h6>
-                            <span class="amt">SAR 300</span>
+                            <span class="amt">{{ addedProducts.gift_card_amount | currency:'SAR ' }}</span>
                         </div>
                         <div class="amount-row">
                             <h6>Delivery Charges</h6>
-                            <span class="amt">SAR 50</span>
+                            <span class="amt">{{ addedProducts.delivery_charge | currency:'SAR ' }}</span>
                         </div>
                         <div class="amount-row">
-                            <h6>Coupon Applied (SAVE20)</h6>
-                            <span class="amt">- SAR 245</span>
+                            <h6>Coupon Applied <span [hidden]="!promo_code">({{ promo_code }})</span></h6>
+                            <span class="amt">- {{ +addedProducts.coupon_applied | currency:'SAR ' }}</span>
                         </div>
                         <div class="amount-row total">
                             <h4>Grand Total</h4>
-                            <span class="amt">SAR 1,514</span>
+                            <span class="amt">{{ addedProducts.grand_total | currency:'SAR ' }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="btn-wrap">
-                    <a href="#" routerLink="/checkout" class="btn btn-default">Place Order</a>
+                    <a (click)="goToCheckout()" class="btn btn-default">Place Order</a>
                 </div>
             </div>
         </div>

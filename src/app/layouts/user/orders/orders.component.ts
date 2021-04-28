@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-orders',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
   active = 1;
-  
-  constructor() { }
+  orders: any;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getOrders().subscribe((res: any) => {
+      this.orders = res.data;
+    })
   }
 }
