@@ -59,6 +59,7 @@ import { SearchProductsComponent } from './layouts/search-products/search-produc
 import { GiftCardDetailComponent } from './layouts/user/gift-card-detail/gift-card-detail.component';
 import { CreateGiftCardComponent } from './layouts/user/create-gift-card/create-gift-card.component';
 import { GiftCardAddedComponent } from './layouts/gift-card-added/gift-card-added.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -132,6 +133,10 @@ import { GiftCardAddedComponent } from './layouts/gift-card-added/gift-card-adde
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
+    },
+    {
+      provide: LocationStrategy, 
+      useClass: HashLocationStrategy
     }
   ],
   bootstrap: [AppComponent]

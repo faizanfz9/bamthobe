@@ -1,6 +1,7 @@
-<h4>My Orders > <span>PGJUDH54</span></h4>
+<h4>My Orders > Track > <span>{{ orderId }}</span></h4>
 
-<div class="tracking-block">
+<p *ngIf="!order">Loading...</p>
+<div class="tracking-block" *ngIf="order">
     <h6>Tracking Details</h6>
     <svg class="track" xmlns="http://www.w3.org/2000/svg" width="723.5" height="64" viewBox="0 0 723.5 64">
         <g id="Group_9996" data-name="Group 9996" transform="translate(-483 -786)">
@@ -42,15 +43,15 @@
       <div class="card-wrap">
         <div class="inner-row">
             <div class="product-img">
-                <img src="../../../assets/images/thobe.svg" alt="thobe">
+                <img [src]="order.image" [alt]="order.title">
             </div>
             <div class="product-info">
-                <h6>Cufflinks
-                    <span>SAR 430</span>
+                <h6>{{ order.title }}
+                    <span>{{ order.price | currency:'SAR ' }}</span>
                 </h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>{{ order.description }}</p>
                 <div class="qty-row">
-                    <p>Qty : 1</p>
+                    <p>Qty : {{ order.quantity }}</p>
                 </div>
             </div>
         </div>
@@ -62,11 +63,11 @@
                 <div class="detail-wrap">
                     <div class="amount-row">
                         <h6>Order ID :</h6>
-                        <span class="amt">PGJUDH54</span>
+                        <span class="amt">{{ orderId }}</span>
                     </div>
                     <div class="amount-row">
-                        <h6>Estimated Delivery Time :</h6>
-                        <span class="amt">20-25 Days</span>
+                        <h6>Estimated Delivery Time : </h6>
+                        <span class="amt">{{ order.delivery_time }}</span>
                     </div>
                 </div>
             </div>
@@ -74,14 +75,14 @@
                 <div class="detail-wrap">
                     <div class="amount-row">
                         <h6>Placed On :</h6>
-                        <span class="amt">12- Jan 2021</span>
+                        <span class="amt">{{ order.placed_on }}</span>
                     </div>
                     <div class="amount-row">
                         <h6>Delivery Address :</h6>
                         <span class="amt">Home</span>
                     </div>
                     <div class="amount-row">
-                        <h6>GPO Cheese and Wine Room,  1 Martin Pl, Sydney 110056, AUS</h6>
+                        <h6>{{ order.address }}</h6>
                         <!-- <span class="amt">-SAR 100</span> -->
                     </div>
                 </div>
@@ -91,28 +92,28 @@
         <div class="detail-wrap">
             <h6>Price Details</h6>
             <div class="amount-row mt-10">
-                <h6>Customized Thobe Total</h6>
-                <span class="amt">SAR 600</span>
+                <h6>Total</h6>
+                <span class="amt">{{ order.total | currency:'SAR ' }}</span>
             </div>
             <div class="amount-row">
                 <h6>Delivery Charges</h6>
-                <span class="amt">SAR 50</span>
+                <span class="amt">{{ order.delivery_charge | currency:'SAR ' }}</span>
             </div>
             <div class="amount-row">
-                <h6>Coupon Applied (Save20)</h6>
-                <span class="amt">-SAR 550</span>
+                <h6>Coupon Applied ({{ order.coupon }})</h6>
+                <span class="amt">-{{ order.coupon_applied | currency:'SAR ' }}</span>
             </div>
             <div class="amount-row">
                 <h6>Visiting Charges</h6>
-                <span class="amt">SAR 200</span>
+                <span class="amt">{{ order.visiting_charge | currency:'SAR ' }}</span>
             </div>
             <div class="amount-row">
                 <h6>*Advance payment of 25%</h6>
-                <span class="amt">SAR 150</span>
+                <span class="amt">{{ order.advanced_payment | currency:'SAR ' }}</span>
             </div>
             <div class="amount-row">
                 <h6>Remaining Amount(75% after delivery)</h6>
-                <span class="amt">SAR 400</span>
+                <span class="amt">{{ order.remaining | currency:'SAR ' }}</span>
             </div>
         </div>
     </div>

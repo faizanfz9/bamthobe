@@ -8,7 +8,7 @@
         </h4>
         <p *ngIf="!addedProducts">Loding...</p>
         <p *ngIf="itemsInCart == 0 && addedProducts">Your cart is empty!</p>
-        <div class="row-wrap" *ngIf="itemsInCart !== 0">
+        <div class="row-wrap" *ngIf="itemsInCart !== 0 && addedProducts">
             <div class="col-wrap">
                 <div class="card-wrap" *ngFor="let addedProduct of addedProducts.normal">
                     <div class="inner-row">

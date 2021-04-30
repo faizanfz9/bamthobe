@@ -77,5 +77,10 @@ export class UserService {
   getOrders() {
     return this.http.get(this.url + "/order_history");
   }
+
+  // Get Order by Id
+  getOrderById(id: any) {
+    return this.http.get(this.url + "/track_order/" + id);
+  }
 }
  

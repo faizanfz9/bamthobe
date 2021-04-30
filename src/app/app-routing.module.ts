@@ -72,7 +72,7 @@ const routes: Routes = [
     {path: "add-new-address", component: AddNewAddressComponent},
     {path: "edit-address/:id", component: EditAddressComponent},
     {path: "orders", component: OrdersComponent},
-    {path: "track", component: TrackComponent},
+    {path: "track/:id", component: TrackComponent},
     {path: "measurement", component: MeasurementsComponent},
     {path: "appointments", component: AppointmentsComponent},
     {path: "loyality-points", component: LoyalityPointsComponent},

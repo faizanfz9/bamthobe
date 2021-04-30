@@ -19,7 +19,7 @@
                         <p>{{ order.description }}</p>
                         <div class="qty-row">
                             <p>Qty : {{ order.quantity }}</p>
-                            <a href="#" routerLink="/user/track">Track Order</a>
+                            <a href="#" [routerLink]=" '/my-account/track/' + order.sub_order_id ">Track Order</a>
                         </div>
                     </div>
                 </div>
