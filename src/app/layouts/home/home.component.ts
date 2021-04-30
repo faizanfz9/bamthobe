@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   specialCat: any;
   featuredCat: any;
   featuredProducts: any = [];
+  addedProducts: any;
 
   constructor(private configService: ConfigService, 
     private productService: ProductService,
@@ -41,7 +42,7 @@ export class HomeComponent implements OnInit {
       this.specialCat = res.data;
     });
 
-    // fetch products as per cateogy
+    // fetch products as per category
     this.spinner.show();
     this.productService.getProductsCat().subscribe((res: any) => {
       this.featuredCat = res.data.filter((item: any) => item.type == 'normal');
@@ -55,6 +56,16 @@ export class HomeComponent implements OnInit {
         this.featuredProducts = res;
       })
     })
+
+    // fetch added prouducts
+    this.productService.viewCart().subscribe((res: any) => {
+      this.addedProducts = res.data.normal;
+    })
+  }
+  
+  // checking if any product is already added
+  isAddedToCart(productId: any) {
+    return this.addedProducts.some((item: any) => item.product_id == productId);
   }
 
 }
