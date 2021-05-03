@@ -1,93 +1,25 @@
 <div class="item-block collar">
     <h4>Cuffs</h4>
     <div class="inner-wrap">
+        <p *ngIf="!cuffs">Fetching...</p>
         <div class="item-type-list">
-            <div class="item-type" for="standard">
+            <div class="item-type" *ngFor="let cuff of cuffs">
                 <div class="box">
                     <div class="img">
-                        <img src="../../../../assets/images/singleButton.svg" alt="single Button">
+                        <img [src]="cuff.image" [alt]="cuff.cuff">
                     </div>
-                    <span class="item">Single Button</span>
+                    <span class="item">{{ cuff.cuff }}</span>
                     <div class="price-row">
-                        <span class="price">SAR 05</span>
+                        <span class="price">{{ cuff.price | currency:'SAR ' }}</span>
                         <span class="show-item">Details</span>
                     </div>
-                    <input type="radio" id="standard" name="collar" value="standard">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="business">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/doubleButton.svg" alt="double Button">
-                    </div>
-                    <span class="item">Double Button</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="business" name="collar" value="business">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="cutaway">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/tripleButton.svg" alt="triple Button">
-                    </div>
-                    <span class="item">Triple Button</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="cutaway" name="collar" value="cutaway" checked>
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="longPoint">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/frenchButton.svg" alt="french Button">
-                    </div>
-                    <span class="item">French</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="longPoint" name="collar" value="longPoint">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="hood">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/simpleButton.svg" alt="simple Button">
-                    </div>
-                    <span class="item">Simple</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="hood" name="collar" value="hood">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="urban">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/urbanButton.svg" alt="urban Button">
-                    </div>
-                    <span class="item">Urban</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="urban" name="collar" value="urban">
+                    <input type="radio" (change)="onSelectCuff(cuff.id)" [id]="cuff.id" 
+                    name="collar" [checked]="this.selectedCuffId == cuff.id">
                     <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
                 </div>
             </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
+        <p *ngIf="selectedCuff">{{ selectedCuff.description }}</p>
     </div>
     <div class="btn-wrap">
         <a href="#" routerLink="/customize/collar" class="btn btn-default prev">Collar</a>

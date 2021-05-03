@@ -2,65 +2,75 @@
     <h4>My Thobe</h4>
     <div class="item-row">
         <div class="item">
-            <img src="../../../../assets/images/milky_white1.svg" alt="milky white1">
+            <img [src]="customize.fabric.image" alt="fabric image">
             <div class="detail">
                 <h6>Fabric</h6>
-                <p>SAR 430</p>
+                <p>{{ customize.fabric.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/fabric" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
-            <img src="../../../../assets/images/doubleButton.svg" alt="cuff">
+            <img [src]="customize.cuff.image" alt="cuff image">
             <div class="detail">
                 <h6>Cuffs</h6>
-                <p>SAR 430</p>
+                <p>{{ customize.fabric.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/cuffs" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
-            <img src="../../../../assets/images/businesscollar.svg" alt="business collar">
+            <img [src]="customize.collar.image" alt="collar image">
             <div class="detail">
                 <h6>Collar</h6>
-                <p>SAR 430</p>
+                <p>{{ customize.collar.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/collar" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
-            <img src="../../../../assets/images/white.svg" alt="white button">
+            <img [src]="customize.button.image" alt="button image">
             <div class="detail">
                 <h6>Buttons</h6>
-                <p>SAR 430</p>
+                <p>{{ customize.button.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/button" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
-            <img src="../../../../assets/images/pointPocket.svg" alt="point Pocket">
+            <img [src]="customize.pocket.image" alt="pocket image">
             <div class="detail">
                 <h6>Pocket</h6>
-                <p>SAR 430</p>
+                <p>{{ customize.pocket.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/pocket" src="../../../../assets/images/edit.svg" alt="edit">
+    </div>
+    <div class="item-row">
+        <div class="item">
+            <img [src]="customize.placket.image" alt="placket image">
+            <div class="detail">
+                <h6>Placket</h6>
+                <p>{{ customize.placket.price | currency:'SAR ' }}</p>
+            </div>
+        </div>
+        <img class="edit" routerLink="/customize/placket" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
             <div class="detail">
-                <h6>Side Pocket+ coin pocket</h6>
-                <p>SAR 430</p>
+                <h6>Side Pocket + Coin pocket</h6>
+                <p>{{ customize.pocketSide.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/side-pocket" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="btn-wrap">
         <a href="#" routerLink="/customize/fabric" class="btn btn-default no-arrow">Add More Thobe</a>
-        <a href="#" routerLink="/my-cart" class="btn btn-default no-arrow">Add to cart</a>
+        <a (click)="onAddToCart()" class="btn btn-default no-arrow">Add to cart</a>
     </div>
 </div>

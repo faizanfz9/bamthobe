@@ -1,80 +1,26 @@
 <div class="item-block collar">
     <h4>Button</h4>
     <div class="inner-wrap">
+        <p *ngIf="!buttons">Fetching...</p>
         <div class="item-type-list">
-            <div class="item-type" for="white">
+            <div class="item-type" *ngFor="let button of buttons; let i = index">
                 <div class="box">
                     <div class="img">
-                        <img src="../../../../assets/images/white.svg" alt="white button">
+                        <img [src]="button.image" [alt]="button.buttons">
                     </div>
-                    <span class="item">White</span>
+                    <span class="item">{{ button.buttons }}</span>
                     <div class="price-row">
-                        <span class="price">SAR 05</span>
+                        <span class="price">{{ button.price | currency:'SAR ' }}</span>
                         <span class="show-item">Details</span>
                     </div>
-                    <input type="radio" id="white" name="button" value="white">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="black">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/black.svg" alt="black button">
-                    </div>
-                    <span class="item">Black</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="black" name="button" value="black">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="green">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/green.svg" alt="green button">
-                    </div>
-                    <span class="item">Green</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="green" name="button" value="green" checked>
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="red">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/red.svg" alt="red button">
-                    </div>
-                    <span class="item">Red</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="red" name="button" value="red">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="gray">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/gray.svg" alt="gray button">
-                    </div>
-                    <span class="item">Gray</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="gray" name="button" value="gray">
+                    <input type="radio" (change)="onSelectButton(button.id)" [id]="button.id" 
+                    name="collar" [checked]="this.selectedButtonId == button.id">
                     <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
                 </div>
             </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
-    </div>
+        <p *ngIf="selectedButton">{{ selectedButton.description }}</p>
+    </div> 
     <div class="btn-wrap">
         <a href="#" routerLink="/customize/placket" class="btn btn-default prev">Placket</a>
         <a href="#" routerLink="/customize/side-pocket" class="btn btn-default">Side Pocket</a>

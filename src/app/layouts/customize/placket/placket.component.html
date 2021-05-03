@@ -1,94 +1,25 @@
 <div class="item-block collar">
     <h4>Placket</h4>
     <div class="inner-wrap">
+        <p *ngIf="!plackets">Fetching...</p>
         <div class="item-type-list">
-            <div class="item-type" for="standard">
+            <div class="item-type" *ngFor="let placket of plackets; let i = index">
                 <div class="box">
                     <div class="img">
-                        <img src="../../../../assets/images/standardPlacket.svg" alt="standard Plackett">
+                        <img [src]="placket.image" [alt]="placket.style">
                     </div>
-                    <span class="item">Standard</span>
+                    <span class="item">{{ placket.pocket }}</span>
                     <div class="price-row">
-                        <span class="price">SAR 05</span>
+                        <span class="price">{{ placket.price | currency:'SAR ' }}</span>
                         <span class="show-item">Details</span>
                     </div>
-                    <input type="radio" id="standard" name="placket" value="standard">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="standardHidden">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/standardHiddenPlacket.svg" alt="standard Hidden Placket">
-                    </div>
-                    <span class="item">Standard Hidden</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="standardHidden" name="placket" value="standardHidden">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="narrow">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/narrowPlacket.svg" alt="narrow Placket">
-                    </div>
-                    <span class="item">Narrow</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="narrow" name="placket" value="narrow" checked>
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="narrowHidden">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/narrowHiddenPlacket.svg" alt="narrow Hidden Placket">
-                    </div>
-                    <span class="item">Narrow Hidden</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="narrowHidden" name="placket" value="narrowHidden">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="zipper">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/zipperPlacket.svg" alt="zipper Placket">
-                    </div>
-                    <span class="item">Zipper</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="zipper" name="placket" value="zipper">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="simple">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/simplePlacket.svg" alt="simple Placket">
-                    </div>
-                    <span class="item">Simple</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="simple" name="placket" value="simple">
+                    <input type="radio" (change)="onSelectPlacket(placket.id)" [id]="placket.id" 
+                    name="collar" [checked]="this.selectedPlacketId == placket.id">
                     <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
                 </div>
             </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
-    </div>
+        <p *ngIf="selectedPlacket">{{ selectedPlacket.description }}</p>
     <div class="btn-wrap">
         <a href="#" routerLink="/customize/pocket" class="btn btn-default prev">Pocket</a>
         <a href="#" routerLink="/customize/button" class="btn btn-default">Button</a>

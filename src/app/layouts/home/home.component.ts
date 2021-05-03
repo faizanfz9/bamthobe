@@ -65,6 +65,9 @@ export class HomeComponent implements OnInit {
   
   // checking if any product is already added
   isAddedToCart(productId: any) {
+    if(!this.addedProducts) {
+      return false;
+    }
     return this.addedProducts.some((item: any) => item.product_id == productId);
   }
 

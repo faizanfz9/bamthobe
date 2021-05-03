@@ -1,65 +1,25 @@
 <div class="item-block collar">
     <h4>Pocket</h4>
     <div class="inner-wrap">
+        <p *ngIf="!pockets">Fetching...</p>
         <div class="item-type-list">
-            <div class="item-type" for="point">
+            <div class="item-type" *ngFor="let pocket of pockets; let i = index">
                 <div class="box">
                     <div class="img">
-                        <img src="../../../../assets/images/pointPocket.svg" alt="point Pocket">
+                        <img [src]="pocket.image" [alt]="pocket.cuff">
                     </div>
-                    <span class="item">Point</span>
+                    <span class="item">{{ pocket.pocket }}</span>
                     <div class="price-row">
-                        <span class="price">SAR 05</span>
+                        <span class="price">{{ pocket.price | currency:'SAR ' }}</span>
                         <span class="show-item">Details</span>
                     </div>
-                    <input type="radio" id="point" name="pocket" value="point">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="inclined">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/inclinedPocket.svg" alt="inclined Pocket">
-                    </div>
-                    <span class="item">Inclined</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="inclined" name="pocket" value="inclined">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="round">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/roundPocket.svg" alt="round Pocket">
-                    </div>
-                    <span class="item">Round</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="round" name="pocket" value="round" checked>
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
-                </div>
-            </div>
-            <div class="item-type" for="longPoint">
-                <div class="box">
-                    <div class="img">
-                        <img src="../../../../assets/images/squarePocket.svg" alt="square Pocket">
-                    </div>
-                    <span class="item">Square</span>
-                    <div class="price-row">
-                        <span class="price">SAR 05</span>
-                        <span class="show-item">Details</span>
-                    </div>
-                    <input type="radio" id="square" name="pocket" value="square">
+                    <input type="radio" (change)="onSelectPocket(pocket.id)" [id]="pocket.id"
+                    name="collar" [checked]="this.selectedPocketId == pocket.id">
                     <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
                 </div>
             </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices a lectus nec pharetra.</p>
+        <p *ngIf="selectedPocket">{{ selectedPocket.description }}</p>
     </div>
     <div class="btn-wrap">
         <a href="#" routerLink="/customize/cuffs" class="btn btn-default prev">Cuffs</a>
