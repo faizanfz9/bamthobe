@@ -82,5 +82,30 @@ export class UserService {
   getOrderById(id: any) {
     return this.http.get(this.url + "/track_order/" + id);
   }
+
+  // Get Previous Orders
+  getPreviousOrders() {
+    return this.http.get(this.url + "/previous_order")
+  }
+
+  // Get on going appointment
+  getAppointment() {
+    return this.http.get(this.url + "/ongoing_appointment");
+  }
+
+  // Get on older appointment
+  getOlderAppointment() {
+    return this.http.get(this.url + "/older_appointment");
+  }
+
+  // Get Measurement
+  getMeasurement() {
+    return this.http.get(this.url + "/measurments");
+  }
+
+  // Get loyality points
+  getLoyalityPoints() {
+    return this.http.get(this.url + "/loyalitys");
+  }
 }
  
