@@ -60,6 +60,7 @@ import { GiftCardDetailComponent } from './layouts/user/gift-card-detail/gift-ca
 import { CreateGiftCardComponent } from './layouts/user/create-gift-card/create-gift-card.component';
 import { GiftCardAddedComponent } from './layouts/gift-card-added/gift-card-added.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CollapsibleDirective } from './shared/directive/collapsible.directive';
 
 @NgModule({
   declarations: [
@@ -111,7 +112,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     SearchProductsComponent,
     GiftCardDetailComponent,
     CreateGiftCardComponent,
-    GiftCardAddedComponent
+    GiftCardAddedComponent,
+    CollapsibleDirective
   ],
   imports: [
     BrowserModule,

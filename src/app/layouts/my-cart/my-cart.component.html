@@ -24,9 +24,9 @@
                             <p>{{ addedProduct.description }}</p>
                             <div class="qty-row">
                                 <div class="qty-wrap">
-                                    <button [disabled]="addedProduct.quantity == 1" (click)="manageQty(addedProduct.quantity, -1, addedProduct.product_id)" class="decrement"><span>-</span></button>
+                                    <button [disabled]="addedProduct.quantity == 1" (click)="manageQty(-1, addedProduct)" class="decrement"><span>-</span></button>
                                     <span class="qty">{{ addedProduct.quantity }}</span>
-                                    <button (click)="manageQty(addedProduct.quantity, 1, addedProduct.product_id)" class="increment"><span>+</span></button>
+                                    <button (click)="manageQty(1, addedProduct)" class="increment"><span>+</span></button>
                                 </div>
                                 <h4>{{ addedProduct.total_cost | currency:'SAR ' }}</h4>
                             </div>
@@ -58,6 +58,78 @@
                         </div>
                     </div> -->
                 </div>
+                <div class="card-wrap" *ngFor="let addedProduct of addedProducts.customize">
+                    <div class="inner-row">
+                        <div class="product-img">
+                            <img [src]="addedProduct.image" [alt]="addedProduct.title">
+                        </div>
+                        <div class="product-info">
+                            <h6>{{ addedProduct.title }}
+                                <button (click)="onRemoveFromCart(addedProduct.id, addedProduct.type)" type="button">
+                                    <img src="../../../assets/images/delete.svg" alt="delete">
+                                </button>
+                            </h6>
+                            <p>{{ addedProduct.description }}</p>
+                            <div class="qty-row">
+                                <div class="qty-wrap">
+                                    <button [disabled]="addedProduct.quantity == 1" (click)="manageQty(-1, addedProduct)" class="decrement"><span>-</span></button>
+                                    <span class="qty">{{ addedProduct.quantity }}</span>
+                                    <button (click)="manageQty(1, addedProduct)" class="increment"><span>+</span></button>
+                                </div>
+                                <h4>{{ addedProduct.view_more.Customization_charge | currency:'SAR ' }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-detail">
+                        <button appCollapsible>More Detail</button>
+                        <div class="detail-wrap" #collapsible>
+                            <div class="amount-row">
+                                <h6>Fabric</h6>
+                                <span class="amt">{{ addedProduct.view_more.fabric | currency: 'SAR ' }}</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Collar</h6>
+                                <span class="amt">{{ addedProduct.view_more.collar | currency: 'SAR ' }}</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Cuff</h6>
+                                <span class="amt">{{ addedProduct.view_more.cuffs | currency: 'SAR ' }}</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Pocket</h6>
+                                <span class="amt">{{ addedProduct.view_more.pocket | currency: 'SAR ' }}</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Placket</h6>
+                                <span class="amt">{{ addedProduct.view_more.placket | currency: 'SAR ' }}</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Button</h6>
+                                <span class="amt">{{ addedProduct.view_more.button | currency: 'SAR ' }}</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Customization Total Charges</h6>
+                                <span class="amt">{{ addedProduct.view_more.Customization_charge | currency: 'SAR ' }}</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Visiting Charges</h6>
+                                <span class="amt">{{ addedProduct.view_more.visiting_charge | currency: 'SAR ' }}</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>*Advance Payment</h6>
+                                <span class="amt">-{{ addedProduct.view_more.advanced_payment | currency: 'SAR ' }}</span>
+                            </div>
+                            <div class="amount-row">
+                                <h6>Remaining Amount</h6>
+                                <span class="amt">{{ addedProduct.view_more.remaining | currency: 'SAR ' }}</span>
+                            </div>
+                            <div class="amount-row total">
+                                <h4>Sub Total</h4>
+                                <span class="amt">{{ addedProduct.view_more.Customization_charge | currency: 'SAR ' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-wrap" *ngFor="let addedProduct of addedProducts.gift_cart">
                     <div class="inner-row">
                         <div class="product-img">
@@ -78,7 +150,7 @@
                 <div class="card-wrap single-row">
                     <div class="inner-row">
                         <h6><img src="../../../assets/images/loyality.svg" alt="loyality"> Use Loyalty Points (100= SAR 10)</h6>
-                        <div class="toggle-switch">
+                        <div class="toggle-switch" [ngClass]="{'toggled': toggled}" (click)="onApplyLoyalityPoints()">
                             <span></span>
                         </div>
                     </div>
@@ -114,6 +186,10 @@
                         <div class="amount-row">
                             <h6>Coupon Applied <span [hidden]="!promo_code">({{ promo_code }})</span></h6>
                             <span class="amt">- {{ +addedProducts.coupon_applied | currency:'SAR ' }}</span>
+                        </div>
+                        <div class="amount-row">
+                            <h6>Loyality Points <span [hidden]="!promo_code">({{ promo_code }})</span></h6>
+                            <span class="amt">- {{ +addedProducts.points_apply | currency:'SAR ' }}</span>
                         </div>
                         <div class="amount-row total">
                             <h4>Grand Total</h4>

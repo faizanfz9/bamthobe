@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="btn-wrap">
-                <a href="#" routerLink="/payment" [queryParams]="{ addressId : selectedAddId, total: grandTotal }" class="btn btn-default">Continue to Payment</a>
+                <button type="submit" [disabled]="!selectedAddId" routerLink="/payment" [queryParams]="{ addressId : selectedAddId, total: grandTotal }" class="btn btn-default">Continue to Payment</button>
             </div>
         </div>
     </div>

@@ -32,6 +32,7 @@ export class SidePocketComponent implements OnInit {
   selectedDirectionId: any;
   storedCustomize: any;
   customize: any;
+  selected: any = false;
 
   constructor() { }
 
@@ -42,6 +43,7 @@ export class SidePocketComponent implements OnInit {
     if(this.customize.pocketSide){
       this.selectedSideId = this.customize.pocketSide.id;
       this.selectedDirectionId = this.customize.pocketDirection.id; 
+      this.selected = true;
     }
   }
 
@@ -49,11 +51,13 @@ export class SidePocketComponent implements OnInit {
   onSelectCoinPocket(side: any) {
     this.customize.pocketSide = side;
     localStorage.setItem('customize', JSON.stringify(this.customize));
+    this.selected = true;
   }
 
   // Select side pocket
   onSelectSidePocket(direction: any) {
     this.customize.pocketDirection = direction;
     localStorage.setItem('customize', JSON.stringify(this.customize));
+    this.selected = true;
   }
 }

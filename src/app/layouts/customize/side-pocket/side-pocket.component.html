@@ -14,7 +14,7 @@
         <label for="{{ direction.value }}">{{ direction.value }}</label>
     </div>
     <div class="btn-wrap">
-        <a href="#" routerLink="/customize/button" class="btn btn-default prev">Button</a>
-        <a href="#" routerLink="/customize/measurement" class="btn btn-default">Measurement</a>
+        <button type="submit" routerLink="/customize/button" class="btn btn-default prev">Button</button>
+        <button type="submit" [disabled]="!selected" routerLink="/customize/measurement" class="btn btn-default">Measurement</button>
     </div>
 </div>

@@ -6,20 +6,21 @@
       <a ngbNavLink>Ongoing Appointment</a>
       <ng-template ngbNavContent>
         <div class="info-box">
+            <p *ngIf="!onGoings">Fetching...</p>
             <div class="product-detail" *ngFor="let onGoing of onGoings">
                 <div class="row-wrap">
                     <div class="col-wrap">
                         <div class="detail-wrap">
                             <div class="amount-row">
-                                <h6>Self Visit</h6>
+                                <h6>{{ onGoing.type == 'home' ? 'Home Visit' : 'Self Visit' }}</h6>
                             </div>
                             <div class="amount-row">
                                 <h6>Booking ID :</h6>
-                                <span class="amt">12345678</span>
+                                <span class="amt">{{ onGoing.booking_id }}</span>
                             </div>
-                            <div class="amount-row">
+                            <div class="amount-row" [hidden]="onGoing.type == 'home'">
                                 <h6>Store Name :</h6>
-                                <span class="amt">Alqout</span>
+                                <span class="amt">{{ onGoing.store_name }}</span>
                             </div>
                         </div>
                     </div>
@@ -27,13 +28,11 @@
                         <div class="detail-wrap">
                             <div class="amount-row">
                                 <h6>Date :</h6>
-                                <span class="amt">12- Jan 2021</span>
+                                <span class="amt">{{ onGoing.date }}</span>
                             </div>
                             <div class="amount-row">
-                                <h6>Store Address :</h6>
-                            </div>
-                            <div class="amount-row">
-                                <h6>GPO Cheese and Wine Room,  1 Martin Pl, Sydney 110056, AUS</h6>
+                                <h6>{{ onGoing.type == 'home' ? 'Home Address :' : 'Store Address :' }}</h6>
+                                <span class="amt">{{ onGoing.type == 'home' ? onGoing.home_address : onGoing.store_address }}</span>
                             </div>
                         </div>
                     </div>
@@ -46,7 +45,8 @@
       <a ngbNavLink>Older Appointment</a>
       <ng-template ngbNavContent>
         <div class="info-box">
-            <div class="product-detail">
+            <p>No Older Appointment</p>
+            <!-- <div class="product-detail">
                 <div class="row-wrap">
                     <div class="col-wrap">
                         <div class="detail-wrap">
@@ -78,40 +78,7 @@
                         </div>
                     </div>
                 </div>
-             </div> 
-             <div class="product-detail">
-                <div class="row-wrap">
-                    <div class="col-wrap">
-                        <div class="detail-wrap">
-                            <div class="amount-row">
-                                <h6>Self Visit</h6>
-                            </div>
-                            <div class="amount-row">
-                                <h6>Booking ID :</h6>
-                                <span class="amt">12345678</span>
-                            </div>
-                            <div class="amount-row">
-                                <h6>Store Name :</h6>
-                                <span class="amt">Alqout</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-wrap">
-                        <div class="detail-wrap">
-                            <div class="amount-row">
-                                <h6>Date :</h6>
-                                <span class="amt">12- Jan 2021</span>
-                            </div>
-                            <div class="amount-row">
-                                <h6>Store Address :</h6>
-                            </div>
-                            <div class="amount-row">
-                                <h6>GPO Cheese and Wine Room,  1 Martin Pl, Sydney 110056, AUS</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             </div> 
+             </div>  -->
         </div>
       </ng-template>
     </li>

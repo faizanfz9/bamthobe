@@ -12,6 +12,7 @@ export class AddressBookComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    // fetch addresses
     this.userService.getAddress().subscribe((res: any) => {
       this.addresses = res.data;
     });

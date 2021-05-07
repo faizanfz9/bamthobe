@@ -32,11 +32,14 @@ export class MyThobeComponent implements OnInit {
     thobe.append('side_pocket', this.customize.pocketSide.id);
     thobe.append('side_pocket_2', this.customize.pocketDirection.id);
     thobe.append('measurement_type', this.customize.measureType.id);
-    if(this.customize.measurement_type == 0) {
-      thobe.append('name', this.customize.appointment.name);
-      thobe.append('mobile', this.customize.appointment.phone);
-      thobe.append('date', this.customize.appointment.date);
+    thobe.append('name', this.customize.appointment.name);
+    thobe.append('mobile', this.customize.appointment.phone);
+    thobe.append('date', this.customize.appointment.date);
+    if(this.customize.measureType.id == 0) {
       thobe.append('branch', this.customize.appointment.branch);
+    }
+    if(this.customize.measureType.id == 1) {
+      thobe.append('address', this.customize.appointment.address);
     }
 
     this.spinner.show();

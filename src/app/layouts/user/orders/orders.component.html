@@ -31,24 +31,24 @@
       <a ngbNavLink>Previous Orders</a>
       <ng-template ngbNavContent>
         <div class="info-box">
-            <p>No Previous Orders!</p>
-            <!-- <div class="card-wrap">
+            <p *ngIf="previousOrders.length == 0">No Previous Orders!</p>
+            <div class="card-wrap" *ngFor="let order of previousOrders">
                 <div class="inner-row">
                     <div class="product-img">
-                        <img src="../../../assets/images/thobe.svg" alt="thobe">
+                        <img [src]="order.image" [alt]="order.title">
                     </div>
                     <div class="product-info">
-                        <h6>Customized Thobe 1
-                            <span>SAR 789</span>
+                        <h6>{{ order.title }}
+                            <span>{{ order.price | currency:'SAR ' }}</span>
                         </h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>{{ order.description }}</p>
                         <div class="qty-row">
-                            <p>Qty : 1</p>
-                            <a href="#">Write A Review</a>
+                            <p>Qty : {{ order.quantity }}</p>
+                            <a href="#" [routerLink]=" '/my-account/track/' + order.sub_order_id ">Track Order</a>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
       </ng-template>
     </li>

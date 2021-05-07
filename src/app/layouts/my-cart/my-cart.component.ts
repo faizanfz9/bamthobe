@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -14,6 +14,8 @@ export class MyCartComponent implements OnInit {
   addedProducts: any;
   itemsInCart: any;
   promo_code: any;
+  toggled = false;
+  totalPoints: any
 
   constructor(private productService: ProductService, 
     private userService: UserService,
@@ -32,6 +34,11 @@ export class MyCartComponent implements OnInit {
     })
     this.fetchCart();
     this.promo_code = localStorage.getItem('promo');
+
+    // fetch loyality points
+    this.userService.getLoyalityPoints().subscribe((res: any) => {
+      this.totalPoints = res.data.total_points;
+    })
   }
 
   fetchCart() {
@@ -42,14 +49,22 @@ export class MyCartComponent implements OnInit {
   }
 
   // increase or descrese product quantity
-  manageQty(initialQty: any, currentQty: any, productId: any) {
-    let totalQty = +initialQty + currentQty;
+  manageQty(currentQty: any, product: any) {
+    let totalQty = +product.quantity + currentQty;
     let productQty = new FormData();
-      productQty.append('product_id', productId);
-      productQty.append('quantity', totalQty);
+    productQty.append('quantity', totalQty);
+    productQty.append('type', product.type);
+      if(product.type == 'customize') {
+        productQty.append('cart_id', product.id);
+      }
+      if(product.type == 'normal') {
+        productQty.append('product_id', product.product_id);
+      }
+     
 
       this.spinner.show();
       this.productService.addToCart(productQty).subscribe(res => {
+        console.log(res);
         this.spinner.hide();
         this.fetchCart();
         this.userService.updateUser();
@@ -89,6 +104,20 @@ export class MyCartComponent implements OnInit {
       this.spinner.hide();
       this.fetchCart();
     })
+  }
+
+  // Apply Loyality Points
+  onApplyLoyalityPoints() {
+    if(this.totalPoints > 100) {
+      this.spinner.show();
+      this.productService.applyLoyalityPoints().subscribe(res => {
+        this.spinner.hide();
+        this.toggled = true;
+        this.fetchCart();
+      })
+    }else {
+      alert("You don't have enough loyality points!");
+    }
   }
 
   // Proceed to checkout

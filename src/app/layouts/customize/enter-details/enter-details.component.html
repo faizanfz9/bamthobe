@@ -9,14 +9,17 @@
         </div>
         <div class="field-wrap">
             <input type="date" name="date" [ngModel]="appointment.date" required>
-        </div>
-        <div class="field-wrap select-field">
-            <select name="branch" id="branch" [ngModel]="appointment.branch" required>
+        </div>  
+        <div class="field-wrap select-field" *ngIf="customize.measureType.id == 0">
+            <select name="branch" id="branch" [ngModel]="appointment.branch ? appointment.branch : 'select'" required>
                 <option value="select">Select Branch</option>
-                <option value="Branch 1">Branch 1</option>
-                <option value="Branch 2">Branch 2</option>
-                <option value="Branch 3">Branch 3</option>
-                <option value="Branch 4">Branch 4</option>
+                <option [value]="item.id" *ngFor="let item of branches">{{ item.branch }}</option>
+            </select>
+        </div>
+        <div class="field-wrap select-field" *ngIf="customize.measureType.id == 1">
+            <select name="address" id="address" [ngModel]="appointment.address ? appointment.address : 'select'" required>
+                <option value="select">Select Address</option>
+                <option [value]="item.id" *ngFor="let item of addresses">{{ item.home_type | titlecase }} | {{ item.address }}</option>
             </select>
         </div>
         <div class="btn-wrap single-btn">

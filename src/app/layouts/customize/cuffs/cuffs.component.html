@@ -22,7 +22,7 @@
         <p *ngIf="selectedCuff">{{ selectedCuff.description }}</p>
     </div>
     <div class="btn-wrap">
-        <a href="#" routerLink="/customize/collar" class="btn btn-default prev">Collar</a>
-        <a href="#" routerLink="/customize/pocket" class="btn btn-default">Pocket</a>
+        <button type="submit" routerLink="/customize/collar" class="btn btn-default prev">Collar</button>
+        <button type="submit" [disabled]="!selectedCuff" routerLink="/customize/pocket" class="btn btn-default">Pocket</button>
     </div>
 </div>

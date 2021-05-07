@@ -21,7 +21,7 @@
         </div>
         <p *ngIf="selectedPlacket">{{ selectedPlacket.description }}</p>
     <div class="btn-wrap">
-        <a href="#" routerLink="/customize/pocket" class="btn btn-default prev">Pocket</a>
-        <a href="#" routerLink="/customize/button" class="btn btn-default">Button</a>
+        <button type="submit" routerLink="/customize/pocket" class="btn btn-default prev">Pocket</button>
+        <button type="submit" [disabled]="!selectedPlacket" routerLink="/customize/button" class="btn btn-default">Button</button>
     </div>
 </div>

@@ -40,7 +40,13 @@ export class CustomizeService {
     return this.http.get(this.url + "/button");
   }
 
+  // Add thobe to cart
   addToCart(thobe: any) {
     return this.http.post(this.url + "/thobe_cart", thobe);
+  }
+
+  // fetch branches
+  getBranch() {
+    return this.http.get(this.url + "/branch");
   }
 }

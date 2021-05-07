@@ -22,7 +22,7 @@
         <p *ngIf="selectedButton">{{ selectedButton.description }}</p>
     </div> 
     <div class="btn-wrap">
-        <a href="#" routerLink="/customize/placket" class="btn btn-default prev">Placket</a>
-        <a href="#" routerLink="/customize/side-pocket" class="btn btn-default">Side Pocket</a>
+        <button type="submit" routerLink="/customize/placket" class="btn btn-default prev">Placket</button>
+        <button type="submit" [disabled]="!selectedButton" routerLink="/customize/side-pocket" class="btn btn-default">Side Pocket</button>
     </div>
 </div>

@@ -20,6 +20,7 @@ export class MeasurementComponent implements OnInit {
   measureTypeId: any;
   storedCustomize: any;
   customize: any;
+  selected: any = false;
 
   constructor(private router: Router) { }
 
@@ -28,12 +29,14 @@ export class MeasurementComponent implements OnInit {
     this.customize = JSON.parse(this.storedCustomize);
     if(this.customize.measureType) {
       this.measureTypeId = this.customize.measureType.id;
+      this.selected = true;
     }
   }
 
   // Select measure type
   onSelectMeasureType(measure_type: any) {
     this.measureTypeId = measure_type.id;
+    this.selected = true;
     this.customize.measureType = measure_type;
     localStorage.setItem('customize', JSON.stringify(this.customize));
   }

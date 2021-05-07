@@ -52,15 +52,17 @@ export class ProductDetailComponent implements OnInit {
   // Add to cart
   onAddToCart() {
     if(this.isLogin) {
-      let productQty = new FormData();
-      productQty.append('product_id', this.productId);
-      productQty.append('quantity', '1');
+      let product = new FormData();
+      product.append('product_id', this.productId);
+      product.append('quantity', '1');
+      product.append('type', 'normal');
 
       this.spinner.show();
-      this.productService.addToCart(productQty).subscribe(res => {
+      this.productService.addToCart(product).subscribe(res => {
         this.spinner.hide();
         this.isAddedToCart = true;
         this.userService.updateUser();
+        console.log(res);
       }, error => {
         this.spinner.hide();
       })

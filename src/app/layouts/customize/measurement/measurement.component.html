@@ -26,7 +26,7 @@
         </li>
     </ul>
     <div class="btn-wrap">
-        <a href="#" routerLink="/customize/fabric" class="btn btn-default prev">Side Pocket</a>
-        <a (click)="onConfirm()" class="btn btn-default">Confirm</a>
+        <button type="submit" routerLink="/customize/fabric" class="btn btn-default prev">Side Pocket</button>
+        <button type="submit" routerLink="/customize/enter-details" [disabled]="!selected" class="btn btn-default">Confirm</button>
     </div>
 </div>

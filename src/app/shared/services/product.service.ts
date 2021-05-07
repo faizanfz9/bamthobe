@@ -31,8 +31,8 @@ export class ProductService {
   }
 
   // Add to cart
-  addToCart(qty: any) {
-    return this.http.post(this.url + "/add_to_cart", qty);
+  addToCart(product: any) {
+    return this.http.post(this.url + "/add_to_cart", product);
   }
 
   // Remove from cart
@@ -53,6 +53,11 @@ export class ProductService {
   // Place order
   placeOrder(cart: any) {
     return this.http.post(this.url + "/order", cart);
+  }
+
+  // Apply Loyality Point
+  applyLoyalityPoints() {
+    return this.http.get(this.url + "/loyalitys_apply");
   }
 
 }
