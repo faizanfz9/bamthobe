@@ -6,7 +6,8 @@
       <a ngbNavLink>Ongoing Appointment</a>
       <ng-template ngbNavContent>
         <div class="info-box">
-            <p *ngIf="!onGoings">Fetching...</p>
+            <p *ngIf="!isFetched">Fetching...</p>
+            <p *ngIf="isFetched && onGoings.length == 0">No Recent Appointments</p>
             <div class="product-detail" *ngFor="let onGoing of onGoings">
                 <div class="row-wrap">
                     <div class="col-wrap">
@@ -45,7 +46,7 @@
       <a ngbNavLink>Older Appointment</a>
       <ng-template ngbNavContent>
         <div class="info-box">
-            <p>No Older Appointment</p>
+            <p>No Older Appointments</p>
             <!-- <div class="product-detail">
                 <div class="row-wrap">
                     <div class="col-wrap">

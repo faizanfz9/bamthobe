@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfigService } from 'src/app/shared/services/config.service';
 import { ProductService } from 'src/app/shared/services/product.service';
-import { map } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 
 @Component({
@@ -29,7 +29,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private configService: ConfigService, 
     private productService: ProductService,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService) { 
+      console.log(this.slides);
+    }
 
   ngOnInit(): void {
     // fetch banner slides
@@ -43,16 +45,19 @@ export class HomeComponent implements OnInit {
     });
 
     // fetch products as per category
-    this.spinner.show();
+    // this.spinner.show();
     this.productService.getProductsCat().subscribe((res: any) => {
       this.featuredCat = res.data.filter((item: any) => item.type == 'normal');
       let productUrlArr: any = [];
       this.featuredCat.forEach((item: any) => {
         productUrlArr.push(this.productService.getProducts(item.id).
-        pipe(map((res: any) => res.data.slice(0, 4))));
+        pipe(map(
+          (res: any) => res.data.slice(0, 4)),
+          shareReplay({ bufferSize: 1, refCount: true })
+          ));
       })
       forkJoin(productUrlArr).subscribe((res: any) => {
-        this.spinner.hide();
+        // this.spinner.hide();
         this.featuredProducts = res;
       })
     })

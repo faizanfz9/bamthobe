@@ -47,19 +47,13 @@
             <nav class="nav" [ngStyle]="{'display': showMenu ? 'block' : 'none' }">
                 <ul>
                     <li>
-                        <a href="#">Home</a>
+                        <a href="#" routerLink="/">Home</a>
                     </li>
                     <li>
-                        <a href="#">Design Your Thobe</a>
+                        <a href="#" routerLink="/customize/fabric">Design Your Thobe</a>
                     </li>
-                    <li>
-                        <a href="#">Gift Packages</a>
-                    </li>
-                    <li>
-                        <a href="#">Model Thobe</a>
-                    </li>
-                    <li>
-                        <a href="#">Accessories</a>
+                    <li *ngFor="let category of menuCategories">
+                        <a href="#" [routerLink]="'/products/' + category.id " [queryParams]="{ category: category.category_name }">{{ category.category_name }}</a>
                     </li>
                     <li>
                         <a (click)="showSearchBox = true" class="icon">
@@ -81,6 +75,7 @@
                     </li>
                     <li *ngIf="isLoggedIn">
                         <div ngbDropdown class="d-inline-block">
+                            <img class="user-image" [src]="user.image" [alt]="user.name">
                             <button class="btn btn-outline-primary user-menu" id="dropdownBasic1" ngbDropdownToggle>{{ user.name }}</button>
                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                               <a href="#" ngbDropdownItem routerLink="/my-account/profile">My Account</a>

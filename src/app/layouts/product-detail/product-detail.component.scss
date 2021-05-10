@@ -5,6 +5,7 @@
         @include row;
         .col-img {
             @include column(50%);
+            text-align: center;
         }
         .col-content {
             @include column(50%);

@@ -17,4 +17,8 @@ export class ConfigService {
   specialCat() {
     return this.http.get(this.url + '/get_banner');
   }
+
+  contactRequest(request: any) {
+    return this.http.post(this.url + "/contact_us", request);
+  }
 }

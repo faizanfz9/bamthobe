@@ -9,15 +9,16 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class AppointmentsComponent implements OnInit {
   active = 1;
-  onGoings: any;
-  olders: any;
+  onGoings: any = [];
+  olders: any = [];
+  isFetched = false;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getAppointment().subscribe((res: any) => {
+      this.isFetched = true;
       this.onGoings = res.data;
-      console.log(res.data);
     })
     // this.userService.getOlderAppointment().subscribe((res: any) => {
     //   this.olders = res.data;

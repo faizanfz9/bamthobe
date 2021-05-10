@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ProductService } from 'src/app/shared/services/product.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { LoginComponent } from '../../modals/login/login.component';
 
@@ -17,21 +18,28 @@ export class HeaderComponent implements OnInit {
   showSearchBox = false;
   isLoggedIn: any;
   user: any;
+  menuCategories: any;
 
   constructor(private modalService: NgbModal,
     private userService: UserService, 
+    private productService: ProductService,
     private authService: AuthService,
     private router: Router,
     private spinner: NgxSpinnerService) { }
 
-  // checking user authentication
   ngOnInit(): void {
+     // checking user authentication
     this.authService.user.subscribe(res => {
       this.isLoggedIn = res.isLogin;
       this.user = res.data;
     })
     this.isLoggedIn = this.authService.isAuthenticated();
     this.user = this.userService.getLoggedUser();
+
+    // fetching menu category
+    this.productService.getProductsCat().subscribe((res: any) => {
+      this.menuCategories = res.data.filter((item: any) => item.type == 'normal');
+    })
   }
 
   // Open login modal

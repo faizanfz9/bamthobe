@@ -16,11 +16,14 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     // fetch products according to their category
-    this.categoryId = this.route.snapshot.params.catId;
-    this.categoryName = this.route.snapshot.queryParams.category;
+    this.route.params.subscribe(res => {
+      this.categoryId = res.catId;
+      this.categoryName = this.route.snapshot.queryParams.category;
 
-    this.productService.getProducts(this.categoryId).
-    subscribe((res: any) => this.products = res.data);
+      this.products = null;
+      this.productService.getProducts(this.categoryId).
+      subscribe((res: any) => this.products = res.data);
+    })
   }
 
 }
