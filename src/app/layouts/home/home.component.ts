@@ -4,6 +4,7 @@ import { ConfigService } from 'src/app/shared/services/config.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { map, shareReplay } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private configService: ConfigService, 
     private productService: ProductService,
+    private authService: AuthService,
     private spinner: NgxSpinnerService) { 
       console.log(this.slides);
     }
@@ -45,7 +47,7 @@ export class HomeComponent implements OnInit {
     });
 
     // fetch products as per category
-    // this.spinner.show();
+    this.spinner.show();
     this.productService.getProductsCat().subscribe((res: any) => {
       this.featuredCat = res.data.filter((item: any) => item.type == 'normal');
       let productUrlArr: any = [];
@@ -57,15 +59,24 @@ export class HomeComponent implements OnInit {
           ));
       })
       forkJoin(productUrlArr).subscribe((res: any) => {
-        // this.spinner.hide();
+        this.spinner.hide();
         this.featuredProducts = res;
       })
     })
 
     // fetch added prouducts
-    this.productService.viewCart().subscribe((res: any) => {
-      this.addedProducts = res.data.normal;
+    this.authService.user.subscribe(res => {
+      if(res.isLogin) {
+        this.productService.viewCart().subscribe((res: any) => {
+          this.addedProducts = res.data.normal;
+        })
+      }
     })
+    if(this.authService.isAuthenticated()) {
+      this.productService.viewCart().subscribe((res: any) => {
+        this.addedProducts = res.data.normal;
+      })
+    }
   }
   
   // checking if any product is already added
