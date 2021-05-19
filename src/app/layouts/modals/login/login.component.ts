@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
       this.authService.user.next({isLogin: true, data: res.data});
     }, error => {
       this.spinner.hide();
+      alert("Wrong Credentials!");
     })
   }
 }

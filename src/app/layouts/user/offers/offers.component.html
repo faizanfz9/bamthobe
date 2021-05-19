@@ -2,6 +2,7 @@
 
 <div class="info-box">
     <p *ngIf="!offers">Loading...</p>
+    <p *ngIf="offers.length == 0">No Offers Available</p>
     <div class="card-wrap" *ngFor="let offer of offers">
         <div class="inner-row">
             <div class="product-img">
