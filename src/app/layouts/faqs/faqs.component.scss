@@ -3,6 +3,19 @@
 .faqs {
     margin-top: 20px;
     .card-header {
+        position: relative;
+        padding-left: 27px;
+        &::before {
+            content: '';
+            position: absolute;
+            content: "";
+            top: 21px;
+            left: 13px;
+            width: 16px;
+            height: 16px;
+            background: url('../../../assets/images/arrow-down-black.png') no-repeat;
+            background-size: contain;
+        }
         button {
             color: $mid-gray;
             font-family: $glober;
