@@ -6,15 +6,29 @@
         .col-img {
             @include column(50%);
             text-align: center;
+            padding-right: 30px;
+            @include tablet-down {
+                @include column(100%);
+            }
+            img {
+                max-width: 400px;
+                width: 100%;
+            }
         }
         .col-content {
             @include column(50%);
+            @include tablet-down {
+                @include column(100%);
+            }
             .price {
                 margin: 20px 0;
                 color: $brown;
             }
             .size {
                 margin: 30px 0 60px;
+                @include tablet-down {
+                    margin: 30px 0;
+                }
                 .size-selector {
                     display: inline-block;
                     padding: 12px 20px;
@@ -61,11 +75,17 @@
             @include nowrap;
             align-items: center;
             margin-bottom: 30px;
+            @include phablet-down {
+                display: block;
+            }
             h4 {
                 margin-bottom: 0;
             }
             .reviews {
                 margin-left: auto;
+                @include phablet-down {
+                    margin: 15px 0 0;
+                }
                 h4 {
                     display: inline-block;
                     margin-right: 10px;
@@ -173,13 +193,14 @@
                         opacity: .4;
                     }
                 }
-                h4 {
-                    margin: 15px 0 0;
-                }
                 .comment-with-time {
                     @include nowrap;
                     align-items: center;
                     justify-content: space-between;
+                    margin-top: 15px;
+                    @include phablet-down {
+                        margin-top: 10px;
+                    }
                 }
             }
         }
@@ -209,7 +230,7 @@
             @include tablet-down {
                 @include column(50%);
             }
-            @include phone-down {
+            @include phablet-down {
                 @include column(100%);
             }
             .card-wrap {
