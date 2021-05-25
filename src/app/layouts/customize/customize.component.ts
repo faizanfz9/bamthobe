@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { CustomizeService } from 'src/app/shared/services/customize.service';
+import { generateFilter } from "colorize-filter";
 
 @Component({
   selector: 'app-customize',
@@ -7,10 +9,35 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class CustomizeComponent implements OnInit {
-
-  constructor() { }
+  filter: any;
+  collar: any;
+  cuff: any;
+  pocket: any;
+  placket: any;
+  
+  constructor(private customizeService: CustomizeService) { }
 
   ngOnInit(): void {
+     // fetch selected fabric type
+     let customize: any = localStorage.getItem("customize");
+     let parsedData = customize ? JSON.parse(customize) : {};
+     if(parsedData) {
+       this.filter = parsedData.fabric.color_code ? generateFilter(parsedData.fabric.color_code.replace("#","")) : null;
+       this.collar = parsedData.collar ? parsedData.collar.visible_image : null;
+       this.cuff = parsedData.cuff ? parsedData.cuff.visible_image : null;
+       this.pocket = parsedData.pocket ? parsedData.pocket.visible_image : null;
+       this.placket = parsedData.placket ? parsedData.placket.visible_image : null;
+     }
+     
+    this.customizeService.thobe.subscribe((res: any) => {
+      if(res) {
+        this.filter = res.fabric.color_code ? generateFilter(res.fabric.color_code.replace("#","")) : null;
+        this.collar = res.collar ? res.collar.visible_image : null;
+        this.cuff = res.cuff ? res.cuff.visible_image : null;
+        this.pocket = res.pocket ? res.pocket.visible_image : null;
+        this.placket = res.placket ? res.placket.visible_image : null;
+      }
+    })
   }
 
 }

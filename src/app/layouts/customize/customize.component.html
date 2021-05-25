@@ -2,9 +2,31 @@
     <div class="container">
         <div class="row-wrap">
             <div class="col-wrap">
-                <div class="img-wrap">
+                <!-- <div class="img-wrap">
                     <img src="../../../assets/images/thobe.svg" alt="thobe">
-                </div>
+                </div> -->                
+                <div class="img-outer" [ngStyle]="{ 'filter': filter ? filter : 'unset' }">
+                    <div class="img-wrap" [ngStyle]="{ 'filter': filter ? 'brightness(0.3) contrast(1.5)' : 'unset' }">
+                        <img src="../../../assets/images/thobe-model/body_front.png" alt="body front">
+                        <img 
+                        [src]=" collar ? collar : '../../../assets/images/thobe-model/collar_front.png' " 
+                        alt="collar front"
+                        >
+                        <img 
+                        [src]=" cuff ? cuff : '../../../assets/images/thobe-model/cuff_front.png' " 
+                        alt="cuff front"
+                        >
+                        <img 
+                        [src]=" placket ? placket : '../../../assets/images/thobe-model/placket.png' " 
+                        alt="placket"
+                        >
+                        <img src="../../../assets/images/thobe-model/sleeve_front.png" alt="sleeve front">
+                        <img 
+                        [src]=" pocket ? pocket : '../../../assets/images/thobe-model/pocket_single.png' " 
+                        alt="pocket single"
+                        >
+                    </div>
+                </div>  
                 <h2>SAR 0.0</h2>
             </div>
             <div class="col-wrap">

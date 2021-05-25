@@ -1,6 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomizeService } from 'src/app/shared/services/customize.service';
 
+//     var img1=new Image();
+//     var img=new Image();
+//     img.onload=function(){
+
+//         img1.onload=function(){
+//             start();
+//         }
+//         img1.src="https://dl.dropboxusercontent.com/u/139992952/stackoverflow/4jiSz1.png";
+//     }
+//     img.src="https://dl.dropboxusercontent.com/u/139992952/stackoverflow/BooMu1.png";
+
+//     function start(){
+
+//         ctx.drawImage(img1,0,0);
+
+//         ctx.globalCompositeOperation="source-atop";
+
+//         ctx.globalAlpha=.85;
+
+//         var pattern = ctx.createPattern(img, 'repeat');
+//         ctx.rect(0, 0, canvas.width, canvas.height);
+//         ctx.fillStyle = pattern;
+//         ctx.fill();
+
+//         ctx.globalAlpha=.15;
+//         ctx.drawImage(img1,0,0);
+//         ctx.drawImage(img1,0,0);
+
+//     }
+
 @Component({
   selector: 'app-fabric',
   templateUrl: './fabric.component.html',
@@ -32,7 +62,8 @@ export class FabricComponent implements OnInit {
   // Select fabric
   onSelectFabric(id: any) {
     this.selectedFabric = this.fabrics.find((item: any) => item.id == id);
-    let customize = { fabric: this.selectedFabric }; 
+    let customize: any = { fabric: this.selectedFabric }; 
+    this.customizeService.thobe.next(customize);
     localStorage.setItem('customize', JSON.stringify(customize));
   }
 }
