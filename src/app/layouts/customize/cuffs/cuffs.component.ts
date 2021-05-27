@@ -35,6 +35,7 @@ export class CuffsComponent implements OnInit {
     let storedCustomize: any = localStorage.getItem("customize");
     let customize = JSON.parse(storedCustomize);
     customize.cuff = this.selectedCuff;
+    customize.totalPrice = customize.collar.price + customize.fabric.price + this.selectedCuff.price; 
     this.customizeService.thobe.next(customize);
     localStorage.setItem('customize', JSON.stringify(customize));
   }

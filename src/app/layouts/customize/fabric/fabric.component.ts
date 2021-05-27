@@ -62,7 +62,7 @@ export class FabricComponent implements OnInit {
   // Select fabric
   onSelectFabric(id: any) {
     this.selectedFabric = this.fabrics.find((item: any) => item.id == id);
-    let customize: any = { fabric: this.selectedFabric }; 
+    let customize: any = { fabric: this.selectedFabric, totalPrice: this.selectedFabric.price }; 
     this.customizeService.thobe.next(customize);
     localStorage.setItem('customize', JSON.stringify(customize));
   }

@@ -35,6 +35,8 @@ export class PlacketComponent implements OnInit {
     let storedCustomize: any = localStorage.getItem("customize");
     let customize = JSON.parse(storedCustomize);
     customize.placket = this.selectedPlacket;
+    customize.totalPrice = customize.fabric.price + customize.collar.price + 
+    customize.cuff.price + customize.pocket.price + this.selectedPlacket.price; 
     this.customizeService.thobe.next(customize);
     localStorage.setItem('customize', JSON.stringify(customize));
   }

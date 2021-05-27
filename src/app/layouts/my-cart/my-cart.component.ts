@@ -44,7 +44,6 @@ export class MyCartComponent implements OnInit {
   fetchCart() {
     this.productService.viewCart().subscribe((res: any) => {
       this.addedProducts = res.data;
-      console.log(this.addedProducts);
     })
   }
 

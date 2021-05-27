@@ -35,6 +35,9 @@ export class ButtonComponent implements OnInit {
     let storedCustomize: any = localStorage.getItem("customize");
     let customize = JSON.parse(storedCustomize);
     customize.button = this.selectedButton;
+    customize.totalPrice = customize.fabric.price + customize.collar.price + customize.cuff.price + 
+    customize.pocket.price + customize.placket.price + this.selectedButton.price; 
+    this.customizeService.thobe.next(customize);
     localStorage.setItem('customize', JSON.stringify(customize));
   }
 

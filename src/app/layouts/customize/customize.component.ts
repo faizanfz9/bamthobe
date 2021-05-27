@@ -14,6 +14,7 @@ export class CustomizeComponent implements OnInit {
   cuff: any;
   pocket: any;
   placket: any;
+  totalPrice = 0;
   
   constructor(private customizeService: CustomizeService) { }
 
@@ -22,11 +23,13 @@ export class CustomizeComponent implements OnInit {
      let customize: any = localStorage.getItem("customize");
      let parsedData = customize ? JSON.parse(customize) : {};
      if(parsedData) {
-       this.filter = parsedData.fabric.color_code ? generateFilter(parsedData.fabric.color_code.replace("#","")) : null;
+       this.filter = parsedData.fabric ? generateFilter(parsedData.fabric.color_code.replace("#","")) : null;
        this.collar = parsedData.collar ? parsedData.collar.visible_image : null;
        this.cuff = parsedData.cuff ? parsedData.cuff.visible_image : null;
        this.pocket = parsedData.pocket ? parsedData.pocket.visible_image : null;
        this.placket = parsedData.placket ? parsedData.placket.visible_image : null;
+
+       this.totalPrice = parsedData.totalPrice;
      }
      
     this.customizeService.thobe.subscribe((res: any) => {
@@ -36,6 +39,8 @@ export class CustomizeComponent implements OnInit {
         this.cuff = res.cuff ? res.cuff.visible_image : null;
         this.pocket = res.pocket ? res.pocket.visible_image : null;
         this.placket = res.placket ? res.placket.visible_image : null;
+
+        this.totalPrice = res.totalPrice;
       }
     })
   }

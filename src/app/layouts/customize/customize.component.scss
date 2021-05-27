@@ -11,6 +11,21 @@
             @include desktop-down {
                 @include column(100%);
             }
+            @include phone-down {
+                padding: 0;
+            }
+            .thobe-model {
+                position: relative;
+                .bg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: #f5f5f5;
+                    z-index: -1;
+                }
+            }
             .img-wrap {
                 // max-width: 450px;
                 text-align: center;
@@ -33,6 +48,9 @@
                     left: 50%;
                     transform: translateX(-50%);
                     height: 520px;
+                    @include phone-down {
+                        height: 350px;
+                    }
                     &:first-child {
                         position: relative;
                         left: auto;
@@ -41,17 +59,38 @@
                 }
             }
             h2 {
-                color: $brown;
                 margin-top: 20px;
+                span {
+                    color: $brown;
+                }
+                @include phone-down {
+                    margin-bottom: -40px;
+                    margin-left: -21px;
+                    font-size: 17px;
+                    span {
+                        background: #947A63;
+                        color: #fff;
+                        padding: 8px 10px 3px;
+                        border-radius: 0 6px 6px 0;
+                    }
+                }
             }
             .item-block {
                 h4 {
                     margin-bottom: 15px;
+                    @include phone-down {
+                        margin: 20px 0 0;
+                    }
                 }
                 .inner-wrap {
                     border: 1px solid $brown;
                     border-radius: 5px;
                     padding: 10px;
+                    @include phone-down {
+                        border: none;
+                        padding: 0;
+                        margin-top: 20px;
+                    }
                     .item-type-list {
                         @include row;
                         margin: 0 -10px;
@@ -125,6 +164,11 @@
                             }
                         }
                     }
+                    .selected {
+                        @include phone-down {
+                            display: none;
+                        }
+                    }
                     .img-preview {
                         margin-bottom: 10px;
                         img {
@@ -138,6 +182,9 @@
                     margin-top: 20px;
                     @include nowrap;
                     justify-content: space-between;
+                    @include phone-down {
+                        margin-top: 0px;
+                    }
                     &.single-btn {
                         justify-content: flex-end;
                     }
@@ -197,6 +244,11 @@
                         overflow: visible !important;
                     }
                 }
+            }
+            @include phone-down {
+                @include nowrap;
+                flex-direction: column;
+                flex-flow: column-reverse;
             }
         }
     }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CustomizeService } from 'src/app/shared/services/customize.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-my-thobe',
@@ -13,6 +14,7 @@ export class MyThobeComponent implements OnInit {
   customize: any;
 
   constructor(private customizeService: CustomizeService, 
+    private userService: UserService,
     private spinner: NgxSpinnerService,
     private router: Router) { }
 
@@ -47,6 +49,7 @@ export class MyThobeComponent implements OnInit {
       this.spinner.hide();
       this.customize = null;
       localStorage.removeItem("customize");
+      this.userService.updateUser();
       this.router.navigate(['/my-cart']);
     }, error => {
       this.spinner.hide();

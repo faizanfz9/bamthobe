@@ -35,6 +35,8 @@ export class PocketComponent implements OnInit {
     let storedCustomize: any = localStorage.getItem("customize");
     let customize = JSON.parse(storedCustomize);
     customize.pocket = this.selectedPocket;
+    customize.totalPrice = customize.fabric.price + customize.cuff.price + 
+    customize.collar.price + this.selectedPocket.price; 
     this.customizeService.thobe.next(customize);
     localStorage.setItem('customize', JSON.stringify(customize));
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomizeService } from 'src/app/shared/services/customize.service';
 
 @Component({
   selector: 'app-side-pocket',
@@ -34,13 +35,13 @@ export class SidePocketComponent implements OnInit {
   customize: any;
   selected: any = false;
 
-  constructor() { }
+  constructor(private customizeService: CustomizeService) { }
 
   ngOnInit(): void {
     // fetch selected side and direction
     this.storedCustomize = localStorage.getItem("customize");
     this.customize = JSON.parse(this.storedCustomize);
-    if(this.customize.pocketSide){
+    if(this.customize.pocketSide && this.customize.pocketDirection){
       this.selectedSideId = this.customize.pocketSide.id;
       this.selectedDirectionId = this.customize.pocketDirection.id; 
       this.selected = true;
@@ -50,14 +51,24 @@ export class SidePocketComponent implements OnInit {
   // Select coin pocket
   onSelectCoinPocket(side: any) {
     this.customize.pocketSide = side;
+    this.customize.totalPrice = this.customize.fabric.price + this.customize.collar.price
+    + this.customize.cuff.price + this.customize.pocket.price + 
+    this.customize.placket.price + this.customize.button.price + side.price; 
+    this.customizeService.thobe.next(this.customize);
     localStorage.setItem('customize', JSON.stringify(this.customize));
-    this.selected = true;
+    this.selectedSideId = side.id;
+    if(this.selectedSideId && this.selectedDirectionId) {
+      this.selected = true;
+    }
   }
 
   // Select side pocket
   onSelectSidePocket(direction: any) {
     this.customize.pocketDirection = direction;
     localStorage.setItem('customize', JSON.stringify(this.customize));
-    this.selected = true;
+    this.selectedDirectionId = direction.id;
+    if(this.selectedSideId && this.selectedDirectionId) {
+      this.selected = true;
+    }
   }
 }
