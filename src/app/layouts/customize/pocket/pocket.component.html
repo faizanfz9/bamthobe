@@ -11,7 +11,7 @@
                     <span class="item">{{ pocket.pocket }}</span>
                     <div class="price-row">
                         <span class="price">{{ pocket.price | currency:'SAR ' }}</span>
-                        <span class="show-item">Details</span>
+                        <!-- <span class="show-item">Details</span> -->
                     </div>
                     <input type="radio" (change)="onSelectPocket(pocket.id)" [id]="pocket.id"
                     name="collar" [checked]="this.selectedPocketId == pocket.id">

@@ -11,7 +11,7 @@
                     <span class="item">{{ cuff.cuff }}</span>
                     <div class="price-row">
                         <span class="price">{{ cuff.price | currency:'SAR ' }}</span>
-                        <span class="show-item">Details</span>
+                        <!-- <span class="show-item">Details</span> -->
                     </div>
                     <input type="radio" (change)="onSelectCuff(cuff.id)" [id]="cuff.id" 
                     name="collar" [checked]="this.selectedCuffId == cuff.id">

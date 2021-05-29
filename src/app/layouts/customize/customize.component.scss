@@ -16,6 +16,8 @@
             }
             .thobe-model {
                 position: relative;
+                text-align: center;
+                padding: 30px 0;
                 .bg {
                     position: absolute;
                     top: 0;
@@ -116,6 +118,10 @@
                                 }
                                 img {
                                     width: 100%;
+                                    &:first-child {
+                                        height: 80px;
+                                        object-fit: cover;
+                                    }
                                 }
                                 span {
                                     font-size: 9px; 
@@ -130,16 +136,16 @@
                                 .price-row {
                                     @include nowrap;
                                     .price {
-                                        width: 40%;
+                                        width: 100%;
                                         background: $gray;
                                     }
-                                    .show-item {
-                                        width: 60%;
-                                        background: $black;
-                                        cursor: pointer;
-                                        position: relative;
-                                        z-index: 1;
-                                    }
+                                    // .show-item {
+                                    //     width: 60%;
+                                    //     background: $black;
+                                    //     cursor: pointer;
+                                    //     position: relative;
+                                    //     z-index: 1;
+                                    // }
                                 }
                                 input {
                                     position: absolute;

@@ -9,7 +9,7 @@
                     <span class="item">{{ fabric.fabrics }}</span>
                     <div class="price-row">
                         <span class="price">{{ fabric.price | currency:'SAR ' }}</span>
-                        <span class="show-item">View item</span>
+                        <!-- <span class="show-item">View item</span> -->
                     </div>
                     <input type="radio" (change)="onSelectFabric(fabric.id)" [id]="fabric.id" 
                     name="fabric" [checked]="this.selectedFabricId == fabric.id">

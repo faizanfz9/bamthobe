@@ -11,7 +11,7 @@
                     <span class="item">{{ placket.style }}</span>
                     <div class="price-row">
                         <span class="price">{{ placket.price | currency:'SAR ' }}</span>
-                        <span class="show-item">Details</span>
+                        <!-- <span class="show-item">Details</span> -->
                     </div>
                     <input type="radio" (change)="onSelectPlacket(placket.id)" [id]="placket.id" 
                     name="collar" [checked]="this.selectedPlacketId == placket.id">
