@@ -61,7 +61,6 @@ import { CreateGiftCardComponent } from './layouts/user/create-gift-card/create-
 import { GiftCardAddedComponent } from './layouts/gift-card-added/gift-card-added.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CollapsibleDirective } from './shared/directive/collapsible.directive';
-import { MergeImgDirective } from './shared/directive/merge-img.directive';
 
 @NgModule({
   declarations: [
@@ -114,8 +113,7 @@ import { MergeImgDirective } from './shared/directive/merge-img.directive';
     GiftCardDetailComponent,
     CreateGiftCardComponent,
     GiftCardAddedComponent,
-    CollapsibleDirective,
-    MergeImgDirective
+    CollapsibleDirective
   ],
   imports: [
     BrowserModule,
