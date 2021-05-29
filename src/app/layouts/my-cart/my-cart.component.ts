@@ -60,7 +60,6 @@ export class MyCartComponent implements OnInit {
         productQty.append('product_id', product.product_id);
       }
      
-
       this.spinner.show();
       this.productService.addToCart(productQty).subscribe(res => {
         console.log(res);
