@@ -34,7 +34,6 @@ export class FabricComponent implements OnInit {
         this.selectedFabricId = parsedData.fabric.id;
         this.selectedFabric = this.fabrics.find((item: any) => 
         item.id == this.selectedFabricId);  
-        console.log(this.selectedFabricId);
       }
     });
   }

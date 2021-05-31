@@ -36,7 +36,11 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
        this.placket = parsedData.placket ? parsedData.placket.visible_image : null;
 
        this.totalPrice = parsedData.totalPrice;
-       this.isFiltered = true;
+       if(parsedData.fabric.price ==  0) {
+        this.isFiltered = false;
+       }else {
+        this.isFiltered = true;
+       }
      }
      
     this.customizeService.thobe.subscribe((res: any) => {
@@ -49,7 +53,11 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
         this.placket = res.placket ? res.placket.visible_image : null;
 
         this.totalPrice = res.totalPrice;
-        this.isFiltered = true;
+        if(res.fabric.price ==  0) {
+          this.isFiltered = false;
+        }else {
+          this.isFiltered = true;
+        }
         this.applyFilter();
       }
     })
