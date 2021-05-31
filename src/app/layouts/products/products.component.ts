@@ -26,4 +26,16 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  lowToHigh() {
+    this.products = this.products.sort(function(a: any, b: any){
+      return a.cost - b.cost;
+    })
+  }
+
+  highToLow() {
+    this.products = this.products.sort(function(a: any, b: any){
+      return  b.cost - a.cost;
+    })
+  }
+
 }

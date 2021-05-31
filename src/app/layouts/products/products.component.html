@@ -3,6 +3,16 @@
     <div class="container">
         <div class="intro-wrap">
             <h3>{{ categoryName }}</h3>
+
+            <div class="filter">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Sort By</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button (click)="lowToHigh()" ngbDropdownItem>Price Low to High</button>
+                      <button (click)="highToLow()" ngbDropdownItem>Price High to Low</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <p *ngIf="!products">Loading...</p>
         <div class="row-wrap">

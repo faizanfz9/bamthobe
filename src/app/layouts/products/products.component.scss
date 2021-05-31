@@ -6,6 +6,18 @@
         margin-bottom: 20px;
         text-align: left;
         max-width: 100%;
+        @include nowrap;
+        justify-content: space-between;
+        .filter {
+            button {
+                padding: 3px 7px 0;
+                font-size: 13px;
+                color: $mid-gray;
+                border-color: $mid-gray;
+                background: none;
+                box-shadow: none;
+            }
+        }
     }
     .row-wrap {
         @include row;
