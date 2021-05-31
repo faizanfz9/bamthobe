@@ -91,28 +91,27 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
       var placketImg = this.placket ? this.placket :  "/assets/images/thobe-model/placket.png";
       var pocketImg = this.pocket ? this.pocket :  "/assets/images/thobe-model/pocket_single.png";
 
-      // img.onload = function () {
-         
-      // }
-      bodyFront.src = "/assets/images/thobe-model/body_front.png";
-      sleeveFront.src = "/assets/images/thobe-model/sleeve_front.png";
-      collar.src = collarImg;
-      cuff.src = cuffImg;
-      placket.src = placketImg;
-      pocket.src = pocketImg;
-      var images = [bodyFront, collar, cuff, placket, pocket, sleeveFront];
-      var imageCount = images.length;
-      var imagesLoaded = 0;
-      
-      for(var i=0; i<imageCount; i++){
-        images[i].onload = function(){
-            imagesLoaded++;
-            if(imagesLoaded == imageCount){
-              start();
-            }
-        }
-    }
-      img.src = this.pattern;
+      img.onload = function () {
+        bodyFront.src = "/assets/images/thobe-model/body_front.png";
+        sleeveFront.src = "/assets/images/thobe-model/sleeve_front.png";
+        collar.src = collarImg;
+        cuff.src = cuffImg;
+        placket.src = placketImg;
+        pocket.src = pocketImg;
+        var images = [bodyFront, collar, cuff, placket, pocket, sleeveFront];
+        var imageCount = images.length;
+        var imagesLoaded = 0;
+        
+        for(var i=0; i<imageCount; i++){
+          images[i].onload = function(){
+              imagesLoaded++;
+              if(imagesLoaded == imageCount){
+                start();
+              }
+          }
+        }  
+      }
+      img.src = this.pattern ? this.pattern : collarImg;
 
       function start() {
           ctx.drawImage(bodyFront, 0, 0);
