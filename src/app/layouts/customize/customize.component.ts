@@ -17,6 +17,7 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
   pocket: any;
   placket: any;
   totalPrice = 0;
+  isFiltered = false;
   
   constructor(private customizeService: CustomizeService, @Inject(DOCUMENT) private document: Document) { 
   }
@@ -24,7 +25,7 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
      // fetch selected fabric type
      let customize: any = localStorage.getItem("customize");
-     let parsedData = customize ? JSON.parse(customize) : {};
+     let parsedData = customize ? JSON.parse(customize) : null;
      if(parsedData) {
        this.filter = parsedData.fabric ? generateFilter(parsedData.fabric.color_code.replace("#","")) : null;
        this.pattern = parsedData.fabric ? parsedData.fabric.image : null;
@@ -34,6 +35,7 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
        this.placket = parsedData.placket ? parsedData.placket.visible_image : null;
 
        this.totalPrice = parsedData.totalPrice;
+       this.isFiltered = true;
      }
      
     this.customizeService.thobe.subscribe((res: any) => {
@@ -46,7 +48,7 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
         this.placket = res.placket ? res.placket.visible_image : null;
 
         this.totalPrice = res.totalPrice;
-        
+        this.isFiltered = true;
         this.applyFilter();
       }
     })
@@ -57,6 +59,8 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
   }
 
   applyFilter() {
+    var filterd = this.isFiltered;
+
     var canvas: any = this.document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
 
@@ -66,64 +70,65 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
     ctx.globalAlpha = 1;
 
     var bodyFront = new Image();
-    var collar = new Image();
-    var cuff = new Image();
-    var placket = new Image();
-    var pocket = new Image();
-    var sleeveFront = new Image();
-    var img = new Image();
+      var collar = new Image();
+      var cuff = new Image();
+      var placket = new Image();
+      var pocket = new Image();
+      var sleeveFront = new Image();
+      var img = new Image();
 
-    var collarImg = this.collar ? this.collar :  "/assets/images/thobe-model/collar_front.png";
-    var cuffImg = this.cuff ? this.cuff :  "/assets/images/thobe-model/cuff_front.png";
-    var placketImg = this.placket ? this.placket :  "/assets/images/thobe-model/placket.png";
-    var pocketImg = this.pocket ? this.pocket :  "/assets/images/thobe-model/pocket_single.png";
+      var collarImg = this.collar ? this.collar :  "/assets/images/thobe-model/collar_front.png";
+      var cuffImg = this.cuff ? this.cuff :  "/assets/images/thobe-model/cuff_front.png";
+      var placketImg = this.placket ? this.placket :  "/assets/images/thobe-model/placket.png";
+      var pocketImg = this.pocket ? this.pocket :  "/assets/images/thobe-model/pocket_single.png";
 
-    img.onload = function () {
-        bodyFront.src = "/assets/images/thobe-model/body_front.png";
-        sleeveFront.src = "/assets/images/thobe-model/sleeve_front.png";
-        collar.src = collarImg;
-        cuff.src = cuffImg;
-        placket.src = placketImg;
-        pocket.src = pocketImg;
-        var images = [bodyFront, collar, cuff, placket, pocket, sleeveFront];
-        var imageCount = images.length;
-        var imagesLoaded = 0;
+      // img.onload = function () {
+         
+      // }
+      bodyFront.src = "/assets/images/thobe-model/body_front.png";
+      sleeveFront.src = "/assets/images/thobe-model/sleeve_front.png";
+      collar.src = collarImg;
+      cuff.src = cuffImg;
+      placket.src = placketImg;
+      pocket.src = pocketImg;
+      var images = [bodyFront, collar, cuff, placket, pocket, sleeveFront];
+      var imageCount = images.length;
+      var imagesLoaded = 0;
+      
+      for(var i=0; i<imageCount; i++){
+        images[i].onload = function(){
+            imagesLoaded++;
+            if(imagesLoaded == imageCount){
+              start();
+            }
+        }
+    }
+      img.src = this.pattern;
 
-        for(var i=0; i<imageCount; i++){
-          images[i].onload = function(){
-              imagesLoaded++;
-              if(imagesLoaded == imageCount){
-                start();
-              }
+      function start() {
+          ctx.drawImage(bodyFront, 0, 0);
+          ctx.drawImage(sleeveFront, 0, 0);
+          ctx.drawImage(collar, 0, 0);
+          ctx.drawImage(cuff, 0, 0);
+          ctx.drawImage(placket, 0, 0);
+          ctx.drawImage(pocket, 0, 0);
+
+          if(filterd) {
+            ctx.globalCompositeOperation = "source-atop";
+            var pattern = ctx.createPattern(img, 'repeat');
+            ctx.fillStyle = pattern;
+            
+            ctx.beginPath();
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fill();
+
+            ctx.globalAlpha = 0.50;
+            ctx.drawImage(collar, 0, 0);
+            ctx.drawImage(cuff, 0, 0);
+            ctx.drawImage(placket, 0, 0);
+            ctx.drawImage(pocket, 0, 0);
           }
       }
-    }
-    img.src = this.pattern;
-
-    function start() {
-        ctx.drawImage(bodyFront, 0, 0);
-        ctx.drawImage(collar, 0, 0);
-        ctx.drawImage(cuff, 0, 0);
-        ctx.drawImage(placket, 0, 0);
-        ctx.drawImage(pocket, 0, 0);
-        ctx.drawImage(sleeveFront, 0, 0);
-
-        ctx.globalCompositeOperation = "source-atop";
-        var pattern = ctx.createPattern(img, 'repeat');
-        ctx.fillStyle = pattern;
-        
-        ctx.beginPath();
-        ctx.rect(0, 0, canvas.width, canvas.height);
-        ctx.fill();
-
-        ctx.globalAlpha = 0.20;
-        ctx.drawImage(bodyFront, 0, 0);
-        ctx.drawImage(collar, 0, 0);
-        ctx.drawImage(cuff, 0, 0);
-        ctx.drawImage(placket, 0, 0);
-        ctx.drawImage(pocket, 0, 0);
-        ctx.drawImage(sleeveFront, 0, 0);
-    }
   }
 
 }
