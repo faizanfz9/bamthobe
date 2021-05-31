@@ -1,29 +1,68 @@
 <div class="item-block">
     <h4>Fabric</h4>
-    <div class="inner-wrap">
-        <p *ngIf="!fabrics">Fetching...</p>
-        <div class="item-type-list">
-            <div class="item-type" for="maroon" *ngFor="let fabric of fabrics">
-                <div class="box">
-                    <img [src]="fabric.image" [alt]="fabric.fabrics">
-                    <span class="item">{{ fabric.fabrics }}</span>
-                    <div class="price-row">
-                        <span class="price">{{ fabric.price | currency:'SAR ' }}</span>
-                        <!-- <span class="show-item">View item</span> -->
+
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Summer</a>
+          <ng-template ngbNavContent>
+            <div class="inner-wrap">
+                <p *ngIf="!fabrics">Fetching...</p>
+                <div class="item-type-list">
+                    <div class="item-type" for="summer" *ngFor="let fabric of summerFabrics">
+                        <div class="box">
+                            <img [src]="fabric.image" [alt]="fabric.fabrics">
+                            <span class="item">{{ fabric.fabrics }}</span>
+                            <div class="price-row">
+                                <span class="price">{{ fabric.price | currency:'SAR ' }}</span>
+                                <!-- <span class="show-item">View item</span> -->
+                            </div>
+                            <input type="radio" (change)="onSelectFabric(fabric.id)" [id]="fabric.id" 
+                            name="summer" [checked]="this.selectedFabricId == fabric.id">
+                            <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
+                        </div>
                     </div>
-                    <input type="radio" (change)="onSelectFabric(fabric.id)" [id]="fabric.id" 
-                    name="fabric" [checked]="this.selectedFabricId == fabric.id">
-                    <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
+                </div>
+                <div class="selected" *ngIf="choosedSummerFabric()">
+                    <div class="img-preview">
+                        <img [src]="selectedFabric.image" [alt]="selectedFabric.fabrics">
+                    </div>
+                    <p>{{ selectedFabric.description }}</p>
                 </div>
             </div>
-        </div>
-        <div class="selected" *ngIf="selectedFabric !== null">
-            <div class="img-preview">
-                <img [src]="selectedFabric.image" [alt]="selectedFabric.fabrics">
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Winter</a>
+          <ng-template ngbNavContent>
+            <div class="inner-wrap">
+                <p *ngIf="!fabrics">Fetching...</p>
+                <div class="item-type-list">
+                    <div class="item-type" for="winter" *ngFor="let fabric of winterFabrics">
+                        <div class="box">
+                            <img [src]="fabric.image" [alt]="fabric.fabrics">
+                            <span class="item">{{ fabric.fabrics }}</span>
+                            <div class="price-row">
+                                <span class="price">{{ fabric.price | currency:'SAR ' }}</span>
+                                <!-- <span class="show-item">View item</span> -->
+                            </div>
+                            <input type="radio" (change)="onSelectFabric(fabric.id)" [id]="fabric.id" 
+                            name="winter" [checked]="this.selectedFabricId == fabric.id">
+                            <img class="checked" src="../../../../assets/images/checked.svg" alt="checked">
+                        </div>
+                    </div>
+                </div>
+                <div class="selected" *ngIf="choosedWinterFabric()">
+                    <div class="img-preview">
+                        <img [src]="selectedFabric.image" [alt]="selectedFabric.fabrics">
+                    </div>
+                    <p>{{ selectedFabric.description }}</p>
+                </div>
             </div>
-            <p>{{ selectedFabric.description }}</p>
-        </div>
-    </div>
+          </ng-template>
+        </li>
+      </ul>
+      
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
     <div class="btn-wrap single-btn">
         <button type="submit" [disabled]="!selectedFabric" routerLink="/customize/collar" class="btn btn-default">Collar</button>
     </div>

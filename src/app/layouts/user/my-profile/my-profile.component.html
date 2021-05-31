@@ -3,7 +3,7 @@
 <div class="info-box">
     <div class="inner-row" *ngIf="user">
         <div class="left-col">
-            <img [src]="!user.image ? '../../../../assets/images/user_avatar.svg' : profileImgUrl" alt="user avatar">
+            <img class="user-image" [src]="user.image" alt="user img">
             <div class="update-dp">
                 <input type="file" (change)="onUpdateDp($event)">
                 <button class="btn btn-transparent">Update Photo</button>

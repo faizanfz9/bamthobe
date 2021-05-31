@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -25,10 +25,11 @@ export class HeaderComponent implements OnInit {
     private productService: ProductService,
     private authService: AuthService,
     private router: Router,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService
+    ) { }
 
   ngOnInit(): void {
-     // checking user authentication
+    // checking user authentication
     this.authService.user.subscribe(res => {
       this.isLoggedIn = res.isLogin;
       this.user = res.data;

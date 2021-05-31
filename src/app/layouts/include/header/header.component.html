@@ -26,10 +26,8 @@
                 <div ngbDropdown class="country-selector">
                     <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>En</button>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                      <button ngbDropdownItem>Fr</button>
-                      <button ngbDropdownItem>Gr</button>
-                      <button ngbDropdownItem>Jp</button>
-                      <button ngbDropdownItem>Ch</button>
+                      <button ngbDropdownItem>En</button>
+                      <button ngbDropdownItem>Ar</button>
                     </div>
                   </div>
             </div>
@@ -75,7 +73,7 @@
                     </li>
                     <li *ngIf="isLoggedIn">
                         <div ngbDropdown class="d-inline-block">
-                            <img class="user-image" [src]="user.image" [alt]="user.name">
+                            <img class="user-image" [src]="user.image" alt="user img">
                             <button class="btn btn-outline-primary user-menu" id="dropdownBasic1" ngbDropdownToggle>{{ user.name }}</button>
                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                               <a href="#" ngbDropdownItem routerLink="/my-account/profile">My Account</a>

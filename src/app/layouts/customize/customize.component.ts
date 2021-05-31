@@ -19,7 +19,8 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
   totalPrice = 0;
   isFiltered = false;
   
-  constructor(private customizeService: CustomizeService, @Inject(DOCUMENT) private document: Document) { 
+  constructor(private customizeService: CustomizeService, 
+    @Inject(DOCUMENT) private document: Document) { 
   }
 
   ngOnInit(): void {

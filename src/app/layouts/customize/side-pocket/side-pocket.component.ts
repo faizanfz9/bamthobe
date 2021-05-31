@@ -57,8 +57,11 @@ export class SidePocketComponent implements OnInit {
     this.customizeService.thobe.next(this.customize);
     localStorage.setItem('customize', JSON.stringify(this.customize));
     this.selectedSideId = side.id;
-    if(this.selectedSideId && this.selectedDirectionId) {
+    if(this.selectedSideId == 1) {
       this.selected = true;
+      this.selectedDirectionId = null;
+    }else {
+      this.selected = false;
     }
   }
 
@@ -67,8 +70,6 @@ export class SidePocketComponent implements OnInit {
     this.customize.pocketDirection = direction;
     localStorage.setItem('customize', JSON.stringify(this.customize));
     this.selectedDirectionId = direction.id;
-    if(this.selectedSideId && this.selectedDirectionId) {
-      this.selected = true;
-    }
+    this.selected = true;
   }
 }

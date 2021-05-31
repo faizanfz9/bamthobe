@@ -7,12 +7,15 @@
         <label for="{{ side.value }}">{{ side.value }}</label>
     </div>
 
-    <h5 class="mt-20">Which side you want?</h5>
-    <div class="radio-group" *ngFor="let direction of pocketDirection">
-        <input type="radio" (change)="onSelectSidePocket(direction)" [id]="direction.value" 
-        name="direction" [value]="direction.value" [checked]="selectedDirectionId == direction.id">
-        <label for="{{ direction.value }}">{{ direction.value }}</label>
+    <div *ngIf="selectedSideId == 0">
+        <h5 class="mt-20">Which side you want?</h5>
+        <div class="radio-group" *ngFor="let direction of pocketDirection">
+            <input type="radio" (change)="onSelectSidePocket(direction)" [id]="direction.value" 
+            name="direction" [value]="direction.value" [checked]="selectedDirectionId == direction.id">
+            <label for="{{ direction.value }}">{{ direction.value }}</label>
+        </div>
     </div>
+
     <div class="btn-wrap">
         <button type="submit" routerLink="/customize/button" class="btn btn-default prev">Button</button>
         <button type="submit" [disabled]="!selected" routerLink="/customize/measurement" class="btn btn-default">Measurement</button>
