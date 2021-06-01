@@ -11,11 +11,16 @@
         .filter {
             button {
                 padding: 3px 7px 0;
-                font-size: 13px;
                 color: $mid-gray;
+                font-size: 14px;
                 border-color: $mid-gray;
                 background: none;
                 box-shadow: none;
+            }
+            .dropdown-item {
+                i {
+                    margin-left: 10px;
+                }
             }
         }
     }

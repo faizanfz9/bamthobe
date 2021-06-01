@@ -11,6 +11,8 @@ export class ProductsComponent implements OnInit {
   categoryId: any;
   categoryName: any;
   products: any;
+  isLowToHigh = false;
+  isHighToLow = false;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
@@ -27,12 +29,16 @@ export class ProductsComponent implements OnInit {
   }
 
   lowToHigh() {
+    this.isHighToLow = false;
+    this.isLowToHigh = true;
     this.products = this.products.sort(function(a: any, b: any){
       return a.cost - b.cost;
     })
   }
 
   highToLow() {
+    this.isLowToHigh = false;
+    this.isHighToLow = true;
     this.products = this.products.sort(function(a: any, b: any){
       return  b.cost - a.cost;
     })

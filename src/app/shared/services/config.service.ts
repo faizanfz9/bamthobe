@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
+const headers = new HttpHeaders({
+  'Accept-Language': 'ko'
+})
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +16,7 @@ export class ConfigService {
   constructor(private http: HttpClient) { }
 
   bannerSlides() {
-    return this.http.get(this.url + '/get_sliders');
+    return this.http.get(this.url + '/get_sliders', { headers:  headers });
   }
 
   specialCat() {
