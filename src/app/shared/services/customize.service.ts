@@ -12,6 +12,10 @@ export class CustomizeService {
 
   constructor(private http: HttpClient) { }
 
+  getModel() {
+    return this.http.get(this.url + "/thobe-model");
+  }
+
   // Get Fabric Type
   getFabric() {
     return this.http.get(this.url + "/fabric");

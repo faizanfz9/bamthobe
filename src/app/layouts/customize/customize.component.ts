@@ -2,6 +2,7 @@ import { AfterViewInit, Component, Inject, OnInit, ViewChild, ViewEncapsulation 
 import { CustomizeService } from 'src/app/shared/services/customize.service';
 import { generateFilter } from "colorize-filter";
 import { DOCUMENT } from '@angular/common';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-customize',
@@ -16,10 +17,12 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
   cuff: any;
   pocket: any;
   placket: any;
+  model: any;
   totalPrice = 0;
   isFiltered = false;
   
   constructor(private customizeService: CustomizeService, 
+    private spinner: NgxSpinnerService,
     @Inject(DOCUMENT) private document: Document) { 
   }
 
@@ -61,10 +64,16 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
         this.applyFilter();
       }
     })
+
+    this.spinner.show();
+    this.customizeService.getModel().subscribe((res: any) => {
+      this.spinner.hide();
+      this.model = res.data[0].image;
+       this.applyFilter();
+    })
   }
 
   ngAfterViewInit() {
-    this.applyFilter();
   }
 
   applyFilter() {
@@ -78,32 +87,38 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
     ctx.globalCompositeOperation = "source-over";
     ctx.globalAlpha = 1;
 
-    var bodyFront = new Image();
+      var model = new Image();
       var collar = new Image();
       var cuff = new Image();
       var placket = new Image();
       var pocket = new Image();
-      var sleeveFront = new Image();
       var img = new Image();
+      // model.crossOrigin = "Anonymous";
+      // collar.crossOrigin = "Anonymous";
+      // cuff.crossOrigin = "Anonymous";
+      // placket.crossOrigin = "Anonymous";
+      // pocket.crossOrigin = "Anonymous";
+      // img.crossOrigin = "Anonymous";
 
-      var collarImg = this.collar ? this.collar :  "/assets/images/thobe-model/collar_front.png";
-      var cuffImg = this.cuff ? this.cuff :  "/assets/images/thobe-model/cuff_front.png";
-      var placketImg = this.placket ? this.placket :  "/assets/images/thobe-model/placket.png";
-      var pocketImg = this.pocket ? this.pocket :  "/assets/images/thobe-model/pocket_single.png";
+      var collarImg = this.collar ? this.collar.replace("https", "http") :  "/assets/images/thobe-model/collar_front.png";
+      var cuffImg = this.cuff ? this.cuff.replace("https", "http") :  "/assets/images/thobe-model/cuff_front.png";
+      var placketImg = this.placket ? this.placket.replace("https", "http") :  "/assets/images/thobe-model/placket.png";
+      var pocketImg = this.pocket ? this.pocket.replace("https", "http") :  "/assets/images/thobe-model/pocket_single.png";
+      var modelImg = this.model;
 
-      img.onload = function () {
-        bodyFront.src = "/assets/images/thobe-model/body_front.png";
-        sleeveFront.src = "/assets/images/thobe-model/sleeve_front.png";
+      img.onload = () => {
+        model.src = modelImg;
+
         collar.src = collarImg;
         cuff.src = cuffImg;
         placket.src = placketImg;
         pocket.src = pocketImg;
-        var images = [bodyFront, collar, cuff, placket, pocket, sleeveFront];
+        var images = [model, collar, cuff, placket, pocket];
         var imageCount = images.length;
         var imagesLoaded = 0;
         
         for(var i=0; i<imageCount; i++){
-          images[i].onload = function(){
+          images[i].onload = () => {
               imagesLoaded++;
               if(imagesLoaded == imageCount){
                 start();
@@ -111,15 +126,10 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
           }
         }  
       }
-      img.src = this.pattern ? this.pattern : collarImg;
+      img.src = this.pattern ? this.pattern.replace("https", "http") : collarImg;
 
       function start() {
-          ctx.drawImage(bodyFront, 0, 0);
-          ctx.drawImage(sleeveFront, 0, 0);
-          ctx.drawImage(collar, 0, 0);
-          ctx.drawImage(cuff, 0, 0);
-          ctx.drawImage(placket, 0, 0);
-          ctx.drawImage(pocket, 0, 0);
+          ctx.drawImage(model, 0, 0);
 
           if(filterd) {
             ctx.globalCompositeOperation = "source-atop";
@@ -136,6 +146,8 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
             ctx.drawImage(placket, 0, 0);
             ctx.drawImage(pocket, 0, 0);
           }
+          // var outputImg = canvas.toDataURL("image/png");
+          // document.write('<img src="'+outputImg+'" crossorigin/>');
       }
   }
 

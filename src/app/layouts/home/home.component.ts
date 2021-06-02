@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
     nav: false,
     items: 1,
     marginR: 0,
-    marginL: 0
+    marginL: 0,
+    autoplay:true
   }
   slides: any;
   specialCat: any;
