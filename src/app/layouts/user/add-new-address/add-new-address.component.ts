@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -10,12 +10,15 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./add-new-address.component.scss']
 })
 export class AddNewAddressComponent implements OnInit {
+  isForAppointment = false;
 
   constructor(private userService: UserService, 
     private spinner: NgxSpinnerService,
+    private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(res => this.isForAppointment = res.appointment);
   }
 
   onAddAddress(form: NgForm) {

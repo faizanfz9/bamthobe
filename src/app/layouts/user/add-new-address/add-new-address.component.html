@@ -46,6 +46,7 @@
             </div>
 
             <div class="btn-wrap">
+                <button type="submit" [hidden]="!isForAppointment" routerLink="/customize/enter-details" class="btn btn-default no-arrow">Back to Appointment</button>
                 <button type="submit" [disabled]="!addAddressForm.valid" class="btn btn-default no-arrow">Save this address</button>
             </div>
         </form>

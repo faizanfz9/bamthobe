@@ -1,16 +1,17 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { UserService } from 'src/app/shared/services/user.service';
+import { generateFilter } from "colorize-filter";
 
 @Component({
   selector: 'app-my-cart',
   templateUrl: './my-cart.component.html',
   styleUrls: ['./my-cart.component.scss']
 })
-export class MyCartComponent implements OnInit {
+export class MyCartComponent implements OnInit, AfterViewInit {
   addedProducts: any;
   itemsInCart: any;
   promo_code: any;
@@ -24,6 +25,10 @@ export class MyCartComponent implements OnInit {
     private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    
+  }
+
+  ngAfterViewInit() {
     // fetch user cart
     this.itemsInCart = this.authService.getLoggedUser() ? 
     this.authService.getLoggedUser().total_cart : 0;
@@ -44,7 +49,12 @@ export class MyCartComponent implements OnInit {
   fetchCart() {
     this.productService.viewCart().subscribe((res: any) => {
       this.addedProducts = res.data;
+      console.log(this.addedProducts);
     })
+  }
+  
+  applyFilter(color: any) {
+    return generateFilter(color);
   }
 
   // increase or descrese product quantity

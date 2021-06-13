@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, Inject, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { CustomizeService } from 'src/app/shared/services/customize.service';
-import { generateFilter } from "colorize-filter";
 import { DOCUMENT } from '@angular/common';
 import { NgxSpinnerService } from 'ngx-spinner';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-customize',
@@ -11,7 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   encapsulation: ViewEncapsulation.None
 })
 export class CustomizeComponent implements OnInit, AfterViewInit {
-  filter: any;
+  // filter: any;
   pattern: any;
   collar: any;
   cuff: any;
@@ -31,7 +31,7 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
      let customize: any = localStorage.getItem("customize");
      let parsedData = customize ? JSON.parse(customize) : null;
      if(parsedData) {
-       this.filter = parsedData.fabric ? generateFilter(parsedData.fabric.color_code.replace("#","")) : null;
+      //  this.filter = parsedData.fabric ? generateFilter(parsedData.fabric.color_code.replace("#","")) : null;
        this.pattern = parsedData.fabric ? parsedData.fabric.image : null;
        this.collar = parsedData.collar ? parsedData.collar.visible_image : null;
        this.cuff = parsedData.cuff ? parsedData.cuff.visible_image : null;
@@ -48,7 +48,7 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
      
     this.customizeService.thobe.subscribe((res: any) => {
       if(res) {
-        this.filter = res.fabric.color_code ? generateFilter(res.fabric.color_code.replace("#","")) : null;
+        // this.filter = res.fabric.color_code ? generateFilter(res.fabric.color_code.replace("#","")) : null;
         this.pattern = res.fabric ? res.fabric.image : null;
         this.collar = res.collar ? res.collar.visible_image : null;
         this.cuff = res.cuff ? res.cuff.visible_image : null;
@@ -93,17 +93,11 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
       var placket = new Image();
       var pocket = new Image();
       var img = new Image();
-      // model.crossOrigin = "Anonymous";
-      // collar.crossOrigin = "Anonymous";
-      // cuff.crossOrigin = "Anonymous";
-      // placket.crossOrigin = "Anonymous";
-      // pocket.crossOrigin = "Anonymous";
-      // img.crossOrigin = "Anonymous";
 
-      var collarImg = this.collar ? this.collar.replace("https", "http") :  "/assets/images/thobe-model/collar_front.png";
-      var cuffImg = this.cuff ? this.cuff.replace("https", "http") :  "/assets/images/thobe-model/cuff_front.png";
-      var placketImg = this.placket ? this.placket.replace("https", "http") :  "/assets/images/thobe-model/placket.png";
-      var pocketImg = this.pocket ? this.pocket.replace("https", "http") :  "/assets/images/thobe-model/pocket_single.png";
+      var collarImg = this.collar ? this.collar :  "/assets/images/thobe-model/collar_front.png";
+      var cuffImg = this.cuff ? this.cuff :  "/assets/images/thobe-model/cuff_front.png";
+      var placketImg = this.placket ? this.placket :  "/assets/images/thobe-model/placket.png";
+      var pocketImg = this.pocket ? this.pocket :  "/assets/images/thobe-model/pocket_single.png";
       var modelImg = this.model;
 
       img.onload = () => {
@@ -126,7 +120,7 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
           }
         }  
       }
-      img.src = this.pattern ? this.pattern.replace("https", "http") : collarImg;
+      img.src = this.pattern ? this.pattern : collarImg;
 
       function start() {
           ctx.drawImage(model, 0, 0);
@@ -146,8 +140,6 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
             ctx.drawImage(placket, 0, 0);
             ctx.drawImage(pocket, 0, 0);
           }
-          // var outputImg = canvas.toDataURL("image/png");
-          // document.write('<img src="'+outputImg+'" crossorigin/>');
       }
   }
 

@@ -17,6 +17,7 @@ export class OrdersComponent implements OnInit {
     // fetch orders
     this.userService.getOrders().subscribe((res: any) => {
       this.orders = res.data;
+      console.log(this.orders);
     })
 
     // fetch previous orders

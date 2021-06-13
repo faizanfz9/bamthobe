@@ -63,7 +63,10 @@
       </ul>
       
       <div [ngbNavOutlet]="nav" class="mt-2"></div>
-    <div class="btn-wrap single-btn">
-        <button type="submit" [disabled]="!selectedFabric" routerLink="/customize/collar" class="btn btn-default">Collar</button>
+    <div class="btn-wrap single-btn" *ngIf="!isThobeReady; else thobeReady">
+        <button type="button" [disabled]="!selectedFabric" routerLink="/customize/collar" class="btn btn-default">Collar</button>
     </div>
+    <ng-template #thobeReady>
+        <button type="button" routerLink="/customize/my-thobe" class="btn btn-default">My Thobe</button>
+    </ng-template>
 </div>

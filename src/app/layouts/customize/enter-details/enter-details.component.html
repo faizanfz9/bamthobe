@@ -22,7 +22,8 @@
                 <option [value]="item.id" *ngFor="let item of addresses">{{ item.home_type | titlecase }} | {{ item.address }}</option>
             </select>
         </div>
-        <div class="btn-wrap single-btn">
+        <div class="btn-wrap">
+            <a href="#" routerLink="/my-account/add-new-address" [queryParams]="{ appointment: true}" class="btn no-arrow btn-default">Add New Address</a>
             <button type="submit" [disabled]="!appointmentForm.valid" class="btn no-arrow btn-default">Confirm Appointment</button>
         </div>
     </form>

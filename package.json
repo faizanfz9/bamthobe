@@ -29,6 +29,7 @@
     "bootstrap": "^4.5.0",
     "colorize-filter": "^1.0.2",
     "hex-to-css-filter": "^4.0.0",
+    "html2canvas": "*",
     "merge-images": "^2.0.0",
     "ngx-owl-carousel-o": "^5.0.0",
     "ngx-spinner": "^11.0.1",

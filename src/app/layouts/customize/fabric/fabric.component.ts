@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { CustomizeService } from 'src/app/shared/services/customize.service';
@@ -16,8 +17,10 @@ export class FabricComponent implements OnInit {
   selectedFabricId: any;
   isLogin = false;
   active = 1;
+  isThobeReady = false;
 
-  constructor(private customizeService: CustomizeService) { 
+  constructor(private customizeService: CustomizeService, public route: ActivatedRoute) { 
+    this.isThobeReady = this.route.snapshot.queryParams.thobeReady;
   }
 
   ngOnInit(): void {

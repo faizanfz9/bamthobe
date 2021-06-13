@@ -8,7 +8,7 @@
                 <p>{{ customize.fabric.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" routerLink="/customize/fabric" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/fabric" [queryParams]="{thobeReady: true}" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
@@ -18,7 +18,7 @@
                 <p>{{ customize.fabric.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" routerLink="/customize/cuffs" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/cuffs" [queryParams]="{thobeReady: true}" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
@@ -28,7 +28,7 @@
                 <p>{{ customize.collar.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" routerLink="/customize/collar" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/collar" [queryParams]="{thobeReady: true}" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
@@ -38,7 +38,7 @@
                 <p>{{ customize.button.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" routerLink="/customize/button" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/button" [queryParams]="{thobeReady: true}" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
@@ -48,7 +48,7 @@
                 <p>{{ customize.pocket.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" routerLink="/customize/pocket" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/pocket" [queryParams]="{thobeReady: true}" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
@@ -58,16 +58,16 @@
                 <p>{{ customize.placket.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" routerLink="/customize/placket" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/placket" [queryParams]="{thobeReady: true}" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="item-row">
         <div class="item">
             <div class="detail">
-                <h6>Side Pocket + Coin pocket</h6>
+                <h6>{{ customize.pocketSide.id == 0 ? 'One Side Pocket' : 'Both Side Pocket' }}</h6>
                 <p>{{ customize.pocketSide.price | currency:'SAR ' }}</p>
             </div>
         </div>
-        <img class="edit" routerLink="/customize/side-pocket" src="../../../../assets/images/edit.svg" alt="edit">
+        <img class="edit" routerLink="/customize/side-pocket" [queryParams]="{thobeReady: true}" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
     <div class="btn-wrap">
         <a href="#" routerLink="/customize/fabric" class="btn btn-default no-arrow">Add More Thobe</a>

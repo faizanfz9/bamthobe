@@ -164,6 +164,8 @@
                     }
                     .btn-wrap {
                         text-align: right;
+                        display: flex;
+                        justify-content: space-between;
                     }
                 }
                 .inner-row {
@@ -315,7 +317,7 @@
                             img {
                                 width: 90px;
                                 height: 90px;
-                                object-fit: cover;
+                                object-fit: contain;
                             }
                         }
                         .product-info {

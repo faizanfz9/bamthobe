@@ -38,8 +38,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // fetch banner slides
+     this.spinner.show();
     this.configService.bannerSlides().subscribe((res: any) => {
       this.slides = res.data;
+      this.spinner.hide();
     });
 
     // fetch special categories
@@ -48,7 +50,6 @@ export class HomeComponent implements OnInit {
     });
 
     // fetch products as per category
-    this.spinner.show();
     this.productService.getProductsCat().subscribe((res: any) => {
       this.featuredCat = res.data.filter((item: any) => item.type == 'normal');
       let productUrlArr: any = [];
@@ -60,7 +61,6 @@ export class HomeComponent implements OnInit {
           ));
       })
       forkJoin(productUrlArr).subscribe((res: any) => {
-        this.spinner.hide();
         this.featuredProducts = res;
       })
     })
