@@ -43,8 +43,4 @@ export class EnterDetailsComponent implements OnInit {
     localStorage.setItem('customize', JSON.stringify(this.customize));
     this.router.navigate(['/customize/my-thobe']);
   }
-
-  addNewAddress() {
-    this.router.navigate(['/my-account/add-new-address'], {queryParams: {appointment: true}})
-  }
 }

@@ -23,7 +23,7 @@
             </select>
         </div>
         <div class="btn-wrap">
-            <a [hidden]="customize.measureType.id == 0" (click)="addNewAddress()" class="btn no-arrow btn-default">Add New Address</a>
+            <a href="#" [hidden]="customize.measureType.id == 0" routerLink="/customize/measurement" class="btn no-arrow btn-default">Add New Address</a>
             <button type="submit" [disabled]="!appointmentForm.valid" class="btn no-arrow btn-default">Confirm Appointment</button>
         </div>
     </form>
