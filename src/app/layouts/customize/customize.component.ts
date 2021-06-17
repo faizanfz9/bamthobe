@@ -135,11 +135,11 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
             ctx.fill();
 
             ctx.globalAlpha = 0.50;
-            ctx.drawImage(collar, 0, 0);
-            ctx.drawImage(cuff, 0, 0);
-            ctx.drawImage(placket, 0, 0);
-            ctx.drawImage(pocket, 0, 0);
           }
+          ctx.drawImage(collar, 0, 0);
+          ctx.drawImage(cuff, 0, 0);
+          ctx.drawImage(placket, 0, 0);
+          ctx.drawImage(pocket, 0, 0);
       }
   }
 

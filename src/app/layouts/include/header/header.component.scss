@@ -1,10 +1,12 @@
 @import "../../../../assets/styles/global/variables";
 
 .header {
-    margin-top: 47px;
     background: $concrete;
-    @include tablet-down {
-        margin-top: 86px;
+    &.with-topheader {
+        margin-top: 47px;
+        @include tablet-down {
+            margin-top: 86px;
+        }
     }
     .inner-wrap {
         @include nowrap;

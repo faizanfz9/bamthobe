@@ -101,6 +101,32 @@
     background: $brown;
     color: $white;
   }
+  &.prev {
+    &::after {
+      display: none;
+    }
+    &::before {
+      content: "";
+      width: 20px;
+      height: 14px;
+      display: inline-block;
+      margin-right: 6px;
+      background: url('../../images/btn_arrow.svg') no-repeat;
+      background-size: 100%;
+      transform: rotate(180deg);
+      vertical-align: top;
+      filter: invert(50%) sepia(31%) saturate(349%) hue-rotate(
+        347deg
+        ) brightness(93%) contrast(89%);
+      transition: all .3s ease-in-out;
+    }
+    &:hover {
+      &::before {
+        filter: unset;
+        transform: rotate(180deg) translateX(5px);
+      }
+    }
+  }
 }
 
 .link {

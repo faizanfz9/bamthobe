@@ -1,4 +1,4 @@
-<div class="header-top">
+<div class="header-top" *ngIf="isHomePage">
     <div class="container">
         <div class="inner-wrap">
             <ul class="info">
@@ -35,7 +35,7 @@
         </div>
     </div>
 </div>
-<header class="header">
+<header class="header" [ngClass]="{'with-topheader': isHomePage }">
     <div class="container">
         <div class="inner-wrap">
             <div class="logo-wrap">

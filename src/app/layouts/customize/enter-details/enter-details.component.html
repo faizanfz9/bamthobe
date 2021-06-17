@@ -5,7 +5,7 @@
             <input type="text" placeholder="Name" name="name" [ngModel]="appointment.name" required>
         </div>
         <div class="field-wrap">
-            <input type="tel" placeholder="Mobile Number" name="phone" [ngModel]="appointment.phone" required>
+            <input type="tel" placeholder="Mobile Number" name="phone" [ngModel]="appointment.phone" required pattern="[- +()0-9]+">
         </div>
         <div class="field-wrap">
             <input type="date" name="date" [ngModel]="appointment.date" required>
@@ -23,7 +23,7 @@
             </select>
         </div>
         <div class="btn-wrap">
-            <a href="#" routerLink="/my-account/add-new-address" [queryParams]="{ appointment: true}" class="btn no-arrow btn-default">Add New Address</a>
+            <a href="#" [hidden]="customize.measureType.id == 0" routerLink="/my-account/add-new-address" [queryParams]="{ appointment: true}" class="btn no-arrow btn-default">Add New Address</a>
             <button type="submit" [disabled]="!appointmentForm.valid" class="btn no-arrow btn-default">Confirm Appointment</button>
         </div>
     </form>

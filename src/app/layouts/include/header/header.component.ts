@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -20,12 +20,14 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: any;
   user: any;
   menuCategories: any;
+  isHomePage = false;
 
   constructor(private modalService: NgbModal,
     private userService: UserService, 
     private productService: ProductService,
     private authService: AuthService,
     private router: Router,
+    private route: ActivatedRoute,
     private spinner: NgxSpinnerService
     ) { }
 
@@ -42,6 +44,14 @@ export class HeaderComponent implements OnInit {
     this.productService.getProductsCat().subscribe((res: any) => {
       this.menuCategories = res.data.filter((item: any) => item.type == 'normal');
     })
+
+    this.router.events.subscribe((evt) => {
+      if(window.location.hash.length == 2) {
+        this.isHomePage = true;
+      }else {
+        this.isHomePage = false;
+      }
+    });
   }
 
   // Open login modal
