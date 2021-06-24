@@ -10,12 +10,12 @@
                 <h2 class="name">{{ product.title }}</h2>
                 <h2 class="price">{{ product.cost | currency:'SAR ' }}</h2>
                 <p class="description">{{ product.description }}</p>
-                <div class="size">
+                <!-- <div class="size">
                     <h4>Product Size</h4>
                     <div class="size-selector">
                         <span>Medium</span>
                     </div>
-                </div>
+                </div> -->
                 <button class="btn btn-default no-arrow" (click)="onAddToCart()" [disabled]="isAddedToCart">
                     <i class="fa fa-shopping-bag" [ngClass]="{ 'fa-shopping-bag': !isAddedToCart, 'fa-check': isAddedToCart }" aria-hidden="true"></i> 
                     {{ isAddedToCart ? 'Added to cart' : 'Add to cart' }}

@@ -36,10 +36,12 @@ export class ProductDetailComponent implements OnInit {
         this.spinner.hide();
       })
       // check if product is already added to cart
-      this.productService.viewCart().subscribe((res: any) => {
-        this.isAddedToCart = res.data.normal.
-        some((item: any) => this.productId == item.product_id);
-      })
+      if(this.isLogin) {
+        this.productService.viewCart().subscribe((res: any) => {
+          this.isAddedToCart = res.data.normal.
+          some((item: any) => this.productId == item.product_id);
+        })
+      }
     })
 
     // check if user is authenticated

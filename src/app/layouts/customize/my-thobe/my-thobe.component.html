@@ -69,8 +69,9 @@
         </div>
         <img class="edit" routerLink="/customize/side-pocket" [queryParams]="{thobeReady: true}" src="../../../../assets/images/edit.svg" alt="edit">
     </div>
-    <div class="btn-wrap">
-        <a href="#" routerLink="/customize/fabric" class="btn btn-default no-arrow">Add More Thobe</a>
-        <a (click)="onAddToCart()" class="btn btn-default no-arrow">Add to cart</a>
+    <div class="btn-wrap single-btn">
+        <!-- <a href="#" routerLink="/customize/fabric" class="btn btn-default no-arrow">Add More Thobe</a> -->
+        <!-- <a (click)="onAddToCart()" class="btn btn-default no-arrow">Add to cart</a> -->
+        <button type="submit" routerLink="/customize/measurement" class="btn btn-default next">Measurement</button>
     </div>
 </div>

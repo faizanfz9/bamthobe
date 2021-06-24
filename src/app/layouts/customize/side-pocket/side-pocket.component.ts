@@ -41,8 +41,11 @@ export class SidePocketComponent implements OnInit {
     // fetch selected side and direction
     this.storedCustomize = localStorage.getItem("customize");
     this.customize = JSON.parse(this.storedCustomize);
-    if(this.customize.pocketSide && this.customize.pocketDirection){
+    if(this.customize.pocketSide) {
       this.selectedSideId = this.customize.pocketSide.id;
+      this.selected = true;
+    }
+    if(this.customize.pocketDirection){
       this.selectedDirectionId = this.customize.pocketDirection.id; 
       this.selected = true;
     }

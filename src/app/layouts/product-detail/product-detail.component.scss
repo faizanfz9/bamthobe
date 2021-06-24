@@ -24,6 +24,9 @@
                 margin: 20px 0;
                 color: $brown;
             }
+            .description {
+                margin-bottom: 60px;
+            }
             .size {
                 margin: 30px 0 60px;
                 @include tablet-down {

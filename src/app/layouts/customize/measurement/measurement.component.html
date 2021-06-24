@@ -1,21 +1,10 @@
 <div class="item-block">
     <h4>Measurement</h4>
+    <p *ngIf="!measurements">Loading...</p>
     <ul class="measurement saved">
-        <li>
-            <input type="radio" name="measurement" id="aftaab">
-            <label for="aftaab">Aftaab</label>
-        </li>
-        <li>
-            <input type="radio" name="measurement" id="ajeej">
-            <label for="ajeej">Ajeej</label>
-        </li>
-        <li>
-            <input type="radio" name="measurement" id="abdilaah">
-            <label for="abdilaah">Abdilaah</label>
-        </li>
-        <li>
-            <input type="radio" name="measurement" id="abharaham">
-            <label for="abharaham">Abharaham</label>
+        <li *ngFor="let measurement of measurements">
+            <input type="radio" #measurement (change)="selectMeasurement(measurement)" name="measurement" [id]="measurement.id" [checked]="measurementId == measurement.id">
+            <label [for]="measurement.id">{{ measurement.name }}</label>
         </li>
     </ul>
     <h4 class="mt-30">New Measurement</h4>
@@ -26,7 +15,7 @@
         </li>
     </ul>
     <div class="btn-wrap">
-        <button type="submit" routerLink="/customize/fabric" class="btn btn-transparent-brown prev">Side Pocket</button>
-        <button type="submit" routerLink="/customize/enter-details" [disabled]="!selected" class="btn btn-default">Confirm</button>
+        <button type="submit" routerLink="/customize/side-pocket" class="btn btn-default prev">Side Pocket</button>
+        <button type="submit" (click)="onConfirm()" [disabled]="!selected" class="btn btn-default">{{ measurementId ? 'Add To Cart' : 'Confirm' }}</button>
     </div>
 </div>

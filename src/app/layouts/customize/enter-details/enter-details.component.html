@@ -1,11 +1,11 @@
 <div class="item-block">
-    <h4>Book Appointment</h4>
+    <h4>{{ customize.measureType.id == 1 ? 'Home Visit' : 'Book Appointment' }}</h4>
     <form class="form-wrap" (submit)="onBookAppointment(appointmentForm)" #appointmentForm="ngForm">
         <div class="field-wrap">
             <input type="text" placeholder="Name" name="name" [ngModel]="appointment.name" required>
         </div>
         <div class="field-wrap">
-            <input type="tel" placeholder="Mobile Number" name="phone" [ngModel]="appointment.phone" required pattern="[- +()0-9]+">
+            <input type="tel" placeholder="Mobile Number" name="phone" [ngModel]="appointment.phone" pattern="[- +()0-9]+" required>
         </div>
         <div class="field-wrap">
             <input type="date" name="date" [ngModel]="appointment.date" required>
@@ -23,8 +23,8 @@
             </select>
         </div>
         <div class="btn-wrap">
-            <a [hidden]="customize.measureType.id == 0" (click)="addNewAddress()" class="btn no-arrow btn-default">Add New Address</a>
-            <button type="submit" [disabled]="!appointmentForm.valid" class="btn no-arrow btn-default">Confirm Appointment</button>
+            <a href="#" routerLink="/my-account/add-new-address" [queryParams]="{ appointment: true}" class="btn no-arrow btn-default">Add New Address</a>
+            <button type="submit" [disabled]="!appointmentForm.valid" class="btn no-arrow btn-default">Confirm And Add To Cart</button>
         </div>
     </form>
 </div>
