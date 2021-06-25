@@ -43,8 +43,15 @@
                 placeholder="Address"
                 [ngModel]="address.address"
                 required>
+                <button type="button" (click)="getCurrentLocation()" class="location-picker">
+                    <img src="../../../../assets/images/gps.png" alt="gps">
+                </button>
             </div>
-
+            <div class="map">
+                <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChooseLocation($event)">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+            </div>
             <div class="btn-wrap">
                 <button type="submit" [disabled]="!editAddressForm.valid" class="btn btn-default no-arrow">Update Address</button>
             </div>

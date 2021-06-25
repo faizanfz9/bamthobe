@@ -22,4 +22,8 @@ export class ConfigService {
   contactRequest(request: any) {
     return this.http.post(this.url + "/contact_us", request);
   }
+
+  getGoogleMapKey() {
+    return this.http.get(this.url + "/apikey");
+  }
 }

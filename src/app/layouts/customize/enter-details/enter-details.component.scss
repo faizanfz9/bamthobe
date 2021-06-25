@@ -24,3 +24,10 @@
         margin-bottom: 10px;
     }
 }
+
+.map {
+    margin: 20px 0;
+    agm-map {
+        height: 200px;
+    }
+}

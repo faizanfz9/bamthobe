@@ -21,6 +21,9 @@ export class EnterDetailsComponent implements OnInit {
   addresses: any;
   isLogin = false;
 
+  lat: any;
+  lng: any;
+
   constructor(private router: Router, 
     private customizeService: CustomizeService,
     private spinner: NgxSpinnerService,
@@ -113,4 +116,12 @@ export class EnterDetailsComponent implements OnInit {
   open() {
     this.modalService.open(LoginComponent, { centered: true });
   }
+
+  showMap(id: any) {
+    if(id !== 'select') {
+      this.lat = +this.addresses.find((item: any) => item.id == id).lat;
+      this.lng = +this.addresses.find((item: any) => item.id == id).lng;
+    }
+  }
+
 }

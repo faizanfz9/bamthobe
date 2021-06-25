@@ -17,13 +17,18 @@
             </select>
         </div>
         <div class="field-wrap select-field" *ngIf="customize.measureType.id == 1">
-            <select name="address" id="address" [ngModel]="appointment.address ? appointment.address : 'select'" required>
+            <select name="address" id="address" #address (change)="showMap(address.value)" [ngModel]="appointment.address ? appointment.address : 'select'" required>
                 <option value="select">Select Address</option>
                 <option [value]="item.id" *ngFor="let item of addresses">{{ item.home_type | titlecase }} | {{ item.address }}</option>
             </select>
         </div>
+        <div class="map" *ngIf="lat && lng">
+            <agm-map [latitude]="lat" [longitude]="lng">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
+        </div>
         <div class="btn-wrap">
-            <a href="#" routerLink="/my-account/add-new-address" [queryParams]="{ appointment: true}" class="btn no-arrow btn-default">Add New Address</a>
+            <a href="#" routerLink="/my-account/add-new-address" *ngIf="customize.measureType.id == 1" [queryParams]="{ appointment: true}" class="btn no-arrow btn-default">Add New Address</a>
             <button type="submit" [disabled]="!appointmentForm.valid" class="btn no-arrow btn-default">Confirm And Add To Cart</button>
         </div>
     </form>
