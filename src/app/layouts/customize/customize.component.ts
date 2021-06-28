@@ -65,9 +65,9 @@ export class CustomizeComponent implements OnInit, AfterViewInit {
       }
     })
 
-    this.spinner.show();
+    // this.spinner.show();
     this.customizeService.getModel().subscribe((res: any) => {
-      this.spinner.hide();
+      // this.spinner.hide();
       this.model = res.data[0].image;
        this.applyFilter();
     })

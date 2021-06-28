@@ -32,16 +32,16 @@
 <!-- product detail -->
 
 <!-- customer reviews -->
-<section class="customer-reviews" *ngIf="product">
+<section class="customer-reviews" *ngIf="product && product.review.length > 0">
     <div class="container">
         <div class="inner-wrap">
             <div class="title-row">
                 <div class="title">
                     <h4>Customer Reviews</h4>
-                    <p>2,563 Reviews</p>
+                    <p>{{ product.review.length }}</p>
                 </div>
                 <div class="reviews">
-                    <h4>4.2</h4>
+                    <h4>{{ averageReview }}</h4>
                     <ul>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" width="26.615" height="29" viewBox="0 0 26.615 29">
@@ -94,7 +94,7 @@
 <!-- customer reviews -->
 
 <!-- col four grid -->
-<section class="col-four-grid no-padding-top" *ngIf="product">
+<section class="col-four-grid" [ngClass]="{ 'no-padding-top': product && product.review.length > 0 }" *ngIf="product">
     <div class="container">
         <div class="intro-wrap">
             <h2>You May Also Like</h2>

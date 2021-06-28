@@ -19,6 +19,8 @@ export class ProductDetailComponent implements OnInit {
   isLogin = false;
   imgRegex = new RegExp(/\.(gif|jpe?g|tiff?|png|webp|bmp)/g);
 
+  averageReview: any;
+
   constructor(private route: ActivatedRoute, 
     private authService: AuthService,
     private userService: UserService,
@@ -33,6 +35,18 @@ export class ProductDetailComponent implements OnInit {
       this.product = null;
       this.productService.getProductById(this.productId).subscribe((res: any) => {
         this.product = res.data;
+        let totalReview = res.data.review.length; 
+        if(totalReview > 0) {
+          var reviewSum = res.data.review.reduce((total: any, num: any) => {
+            return +total.star + +num.star;
+          }) 
+          if(totalReview == 1) {
+            reviewSum = +reviewSum.star;
+          }
+          this.averageReview = reviewSum / (totalReview * 5) * 5; 
+        }
+
+
         this.spinner.hide();
       })
       // check if product is already added to cart
