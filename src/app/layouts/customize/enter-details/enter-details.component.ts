@@ -117,10 +117,17 @@ export class EnterDetailsComponent implements OnInit {
     this.modalService.open(LoginComponent, { centered: true });
   }
 
-  showMap(id: any) {
+  showAddress(id: any) {
     if(id !== 'select') {
       this.lat = +this.addresses.find((item: any) => item.id == id).lat;
       this.lng = +this.addresses.find((item: any) => item.id == id).lng;
+    }
+  }
+
+  showBranch(id: any) {
+    if(id !== 'select') {
+      this.lat = +this.branches.find((item: any) => item.id == id).lat;
+      this.lng = +this.branches.find((item: any) => item.id == id).lng;
     }
   }
 
