@@ -17,7 +17,10 @@ export class TrackComponent implements OnInit {
     this.orderId = this.route.snapshot.params.id;
 
     this.userService.getOrderById(this.orderId).
-    subscribe((res: any) => this.order = res.data);
+    subscribe((res: any) => {
+      this.order = res.data;
+      console.log(this.order);
+    });
   }
 
 }

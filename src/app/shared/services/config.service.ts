@@ -26,4 +26,20 @@ export class ConfigService {
   getGoogleMapKey() {
     return this.http.get(this.url + "/apikey");
   }
+
+  privacyPolicy() {
+    return this.http.get(this.url + "/privacy");
+  } 
+
+  termsAndCondition() {
+    return this.http.get(this.url + "/terms");
+  } 
+
+  aboutUs() {
+    return this.http.get(this.url + "/about_us");
+  } 
+
+  faqs() {
+    return this.http.get(this.url + "/faq");
+  } 
 }

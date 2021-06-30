@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutUsComponent } from './layouts/about-us/about-us.component';
+import { AboutComponent } from './layouts/about/about.component';
 import { CheckoutComponent } from './layouts/checkout/checkout.component';
 import { ContactUsComponent } from './layouts/contact-us/contact-us.component';
 import { ButtonComponent } from './layouts/customize/button/button.component';
@@ -47,6 +48,7 @@ const routes: Routes = [
   {path: "about-us", component: AboutUsComponent},
   {path: "privacy-policy", component: PrivacyPolicyComponent},
   {path: "terms-and-condition", component: TermsAndConditionComponent},
+  {path: "about", component: AboutComponent},
   {path: "contact-us", component: ContactUsComponent},
   {path: "faqs", component: FaqsComponent},
   {path: "customize", component: CustomizeComponent, children : [

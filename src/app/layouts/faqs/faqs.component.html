@@ -2,27 +2,7 @@
 <section class="text-block">
     <div class="container">
         <h2>FAQs</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-        <div class="faqs">
-            <ngb-accordion [closeOthers]="true" activeIds="static-1">
-                <ngb-panel id="static-1" title="How can I use a new email address to log in to my BAMTHOBE account?">
-                  <ng-template ngbPanelContent>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                  </ng-template>
-                </ngb-panel>
-                <ngb-panel id="static-2" title="How do I track my order?">
-                    <ng-template ngbPanelContent>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                    </ng-template>
-                </ngb-panel>
-                <ngb-panel id="static-3" title="How do I get invoices for my previous orders?">
-                    <ng-template ngbPanelContent>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                    </ng-template>
-                </ngb-panel>
-              </ngb-accordion>
-        </div>
+        <div [innerHtml]="faqs"></div>
     </div>
 </section>
 <!-- text block -->

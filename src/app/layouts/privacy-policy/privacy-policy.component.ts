@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from 'src/app/shared/services/config.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./privacy-policy.component.scss']
 })
 export class PrivacyPolicyComponent implements OnInit {
+  privacyPolicy: any;
 
-  constructor() { }
+  constructor(private configService: ConfigService) { }
 
   ngOnInit(): void {
+    this.configService.privacyPolicy().subscribe((res: any) => {
+      this.privacyPolicy = res.data;
+    })
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ConfigService } from 'src/app/shared/services/config.service';
 
 @Component({
   selector: 'app-faqs',
@@ -7,10 +8,14 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class FaqsComponent implements OnInit {
+  faqs: any
 
-  constructor() { }
+  constructor(private configService: ConfigService) { }
 
   ngOnInit(): void {
+    this.configService.faqs().subscribe((res: any) => {
+      this.faqs = res.data;
+    })
   }
 
 }

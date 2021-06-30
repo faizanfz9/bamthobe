@@ -45,8 +45,7 @@ export class ProductDetailComponent implements OnInit {
           }
           this.averageReview = reviewSum / (totalReview * 5) * 5; 
         }
-
-
+        
         this.spinner.hide();
       })
       // check if product is already added to cart
